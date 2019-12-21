@@ -20,4 +20,13 @@
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="out\HelloWebApi.deps.json" />
+    <Content Remove="bld\appsettings.json" />
+    <Content Remove="bld\appsettings.Development.json" />
+    <Content Remove="bld\Properties\launchSettings.json" />
+    <Content Remove="bld\HelloWebApi.deps.json" />
+    <Content Remove="bld\HelloWebApi.runtimeconfig.json" />
+    <Content Remove="bld\HelloWebApi.runtimeconfig.dev.json" />
+  </ItemGroup>
 </Project>

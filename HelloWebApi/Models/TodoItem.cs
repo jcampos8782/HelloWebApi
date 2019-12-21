@@ -1,5 +1,4 @@
-﻿using System;
-namespace HelloWebApi.Models
+﻿namespace HelloWebApi.Models
 {
     public class TodoItem
     {
