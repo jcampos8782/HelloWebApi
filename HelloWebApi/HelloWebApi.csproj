@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="out\HelloWebApi.deps.json" />
@@ -28,5 +29,8 @@
     <Content Remove="bld\HelloWebApi.deps.json" />
     <Content Remove="bld\HelloWebApi.runtimeconfig.json" />
     <Content Remove="bld\HelloWebApi.runtimeconfig.dev.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\TodoItemDto.cs" />
   </ItemGroup>
 </Project>
