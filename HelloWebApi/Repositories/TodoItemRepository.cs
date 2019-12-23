@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using HelloWebApi.Models;
 using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 
 namespace HelloWebApi.Repositories
 {
@@ -34,8 +35,11 @@ namespace HelloWebApi.Repositories
 
         internal async Task<TodoItem> CreateAsync(TodoItem todoItem)
         {
-            // TODO: DB should assign ID
-            todoItem.Id = Guid.NewGuid();
+            // TODO: Make the database update the values
+            DateTime now = DateTime.UtcNow;
+            todoItem.CreatedAt = now;
+            todoItem.ModifiedAt = now;
+
             context.TodoItems.Add(todoItem);
             await context.SaveChangesAsync();
             return todoItem;
