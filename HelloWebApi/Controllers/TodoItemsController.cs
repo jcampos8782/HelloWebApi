@@ -11,14 +11,10 @@ namespace HelloWebApi.Controllers
     [ApiController]
     public class TodoItemsController : ControllerBase
     {
-        private readonly TodoItemRepository repository;
+        private readonly ITodoItemRepository repository;
 
         // TODO: Improve DI
-        public TodoItemsController(TodoContext context) :
-            this(new TodoItemRepository(context))
-        { }
-
-        private TodoItemsController(TodoItemRepository repository)
+        public TodoItemsController(ITodoItemRepository repository)
         {
             this.repository = repository;
         }

@@ -1,5 +1,6 @@
 using System;
 using HelloWebApi.Models;
+using HelloWebApi.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,12 +24,17 @@ namespace HelloWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Set up repositories for injection
+            services.AddTransient<ITodoItemRepository, TodoItemRepository>();
+
+            // Configure database connection
             services.AddDbContextPool<TodoContext>(o =>
                 {
                     o.UseMySql("Server=mysql;Database=todo_items;User=root;Password=password",mysqlOptions =>
                         mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
                     );
                 });
+
 
             services.AddControllers();
         }

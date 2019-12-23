@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HelloWebApi.Repositories
 {
-    public class TodoItemRepository
+    public class TodoItemRepository : ITodoItemRepository
     {
 
         private readonly TodoContext context;
@@ -16,26 +16,26 @@ namespace HelloWebApi.Repositories
             this.context = context;
         }
 
-        internal async Task<IEnumerable<TodoItem>> GetTodoItemsAsync()
+        public async Task<IEnumerable<TodoItem>> GetTodoItemsAsync()
         {
             return await context.TodoItems.ToListAsync();
         }
 
-        internal async Task<TodoItem> FindAsync(Guid id)
+        public async Task<TodoItem> FindAsync(Guid id)
         {
             return await context.TodoItems.FindAsync(id);
         }
 
-        internal async Task UpdateAsync(TodoItem todoItem)
+        public async Task UpdateAsync(TodoItem todoItem)
         {
             context.Entry(todoItem).State = EntityState.Modified;
             await context.SaveChangesAsync();
         }
 
-        internal async Task<TodoItem> CreateAsync(TodoItem todoItem)
+        public async Task<TodoItem> CreateAsync(TodoItem todoItem)
         {
             // TODO: Make the database update the values
-            DateTime now = DateTime.UtcNow;
+            DateTime now = DateTime.UtcNow();
             todoItem.CreatedAt = now;
             todoItem.ModifiedAt = now;
 
@@ -44,7 +44,7 @@ namespace HelloWebApi.Repositories
             return todoItem;
         }
 
-        internal async Task DeleteAsync(TodoItem todoItem)
+        public async Task DeleteAsync(TodoItem todoItem)
         {
             todoItem.DeletedAt = DateTime.UtcNow;
             context.Entry(todoItem).State = EntityState.Modified;
