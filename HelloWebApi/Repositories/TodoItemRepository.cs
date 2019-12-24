@@ -35,7 +35,7 @@ namespace HelloWebApi.Repositories
         public async Task<TodoItem> CreateAsync(TodoItem todoItem)
         {
             // TODO: Make the database update the values
-            DateTime now = DateTime.UtcNow();
+            DateTime now = DateTime.UtcNow;
             todoItem.CreatedAt = now;
             todoItem.ModifiedAt = now;
 
