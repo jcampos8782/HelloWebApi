@@ -34,4 +34,8 @@
     <Compile Remove="Models\TodoItemDto.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="docker-run.sh" />
+    <None Remove="docker-redeploy.sh" />
+  </ItemGroup>
 </Project>
