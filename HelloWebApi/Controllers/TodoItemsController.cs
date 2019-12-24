@@ -13,7 +13,6 @@ namespace HelloWebApi.Controllers
     {
         private readonly ITodoItemRepository repository;
 
-        // TODO: Improve DI
         public TodoItemsController(ITodoItemRepository repository)
         {
             this.repository = repository;
