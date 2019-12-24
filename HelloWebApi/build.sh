@@ -2,4 +2,4 @@ rm -rf bld
 dotnet clean 
 dotnet build -o bld
 
-docker-compose up
+docker build . -t jcampos/hello-webapi
