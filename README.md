@@ -1,4 +1,4 @@
-﻿#HelloWebApi
+# HelloWebApi
 
 This is a sample .NET Core web API application for experimenting with .NET microservices
 running via docker/kubernetes on AWS. 
