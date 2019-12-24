@@ -6,6 +6,7 @@ running via docker/kubernetes on AWS.
 
 #### Future Enhancements
 
+* Tests! - Unit testing is important!
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
 * Stats - Statsd support w/ Graphite
@@ -36,7 +37,7 @@ docker in just a couple steps:
 #### Docker
 ```
 # Clone this repository
-git clone git@github.com:jcampos8782/hello_dotnet_core.git
+git clone git@github.com:jcampos8782/HelloWebApi.git
 
 # Navigate to the web application folder
 cd HelloWebApi/HelloWebApi
