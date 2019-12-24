@@ -30,12 +30,4 @@
     <Content Remove="bld\HelloWebApi.runtimeconfig.json" />
     <Content Remove="bld\HelloWebApi.runtimeconfig.dev.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Models\TodoItemDto.cs" />
-    <Compile Remove="Startup.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="docker-run.sh" />
-    <None Remove="docker-redeploy.sh" />
-  </ItemGroup>
 </Project>

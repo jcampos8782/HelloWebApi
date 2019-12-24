@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HelloWebApi.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace HelloWebApi.Models
+namespace HelloWebApi
 {
-    public class TodoContext : DbContext 
+    public class MySqlContext : DbContext 
     {
-        public TodoContext(DbContextOptions<TodoContext> options) : base(options)
+        public MySqlContext(DbContextOptions<MySqlContext> options) : base(options)
         {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

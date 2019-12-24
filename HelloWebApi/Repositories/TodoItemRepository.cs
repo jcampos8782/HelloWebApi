@@ -9,9 +9,9 @@ namespace HelloWebApi.Repositories
     public class TodoItemRepository : ITodoItemRepository
     {
 
-        private readonly TodoContext context;
+        private readonly MySqlContext context;
 
-        public TodoItemRepository(TodoContext context)
+        public TodoItemRepository(MySqlContext context)
         {
             this.context = context;
         }
