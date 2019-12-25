@@ -54,7 +54,11 @@ namespace HelloWebApi.Controllers
                 return NotFound();
             }
 
-            await repository.UpdateAsync(todoItem);
+            item.ModifiedAt = DateTime.UtcNow;
+            item.IsComplete = todoItem.IsComplete;
+            item.Name = todoItem.Name;
+
+            await repository.UpdateAsync(item);
             return NoContent();
         }
 
