@@ -36,7 +36,7 @@ namespace HelloWebApi
             // Configure database connection
             services.AddDbContextPool<MySqlContext>(db =>
             {
-                db.UseMySql("Server=mysql;Database=todo_items;User=root;Password=password", mysqlOptions =>
+                db.UseMySql("Server=mysql;Database=hello_web_api;User=root;Password=password", mysqlOptions =>
                      mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
                 );
             });

@@ -1,11 +1,12 @@
 # HelloWebApi
 
 This is a sample .NET Core web API application for experimenting with .NET microservices
-running via docker/kubernetes on AWS. 
+running via docker/kubernetes on AWS.
 
 
 #### Future Enhancements
 
+* Configuration - Using Consul & Vault for configuration and secrets.
 * Tests! - Unit testing is important!
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
@@ -39,25 +40,23 @@ docker in just a couple steps:
 # Clone this repository
 git clone git@github.com:jcampos8782/HelloWebApi.git
 
-# Navigate to the web application folder
-cd HelloWebApi/HelloWebApi
-
-# Build the project
-./build.sh
+# Use docker-compose to build
+docker-compose build
 
 # Spin up the docker containers
 docker-compose up -d
-
-# Prepare the database
-cd db
-./create_db.sh
-
-cd ..
 ```
 
-To verify, run `docker ps` and verify the `hellowebapi_app` and `mysql` containers are up and running.
+To verify, run `docker ps` and verify the `hellowebapi` and `hellowebapi_mysql_1` containers are up and running.
 
 #### Kubernetes
 
 If you want to run this application via a local kubernetes cluster (the one provided with your Docker installation),
-replace `docker-compose up -d` with `docker stack deploy --compose-file kube-compose.yml hello-web-api` in the previous steps.
+you will need to build and tag the images for the application and database.
+
+```
+docker build . -t jcampos/hello-webapi-app
+docker build ./db -t jcampos/hello-webapi-db
+
+# Run in Kubernetes
+docker stack deploy --compose-file kube-compose.yml hello-webapi
