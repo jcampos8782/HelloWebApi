@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using Consul;
 using HelloWebApi.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Linq;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Pomelo.EntityFrameworkCore.MySql.Storage;
 
@@ -23,23 +26,31 @@ namespace HelloWebApi
 
         public App(IConfiguration configuration)
         {
-            Configuration = configuration;
+            cfg = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration cfg { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
             // Set up repositories for injection
             services.AddTransient<ITodoItemRepository, TodoItemRepository>();
 
+            // Bind consul client for configuration
+            ConsulClient consul = new ConsulClient(c => c.Address = new Uri(cfg["Consul:Host"]));
+            services.AddSingleton<IConsulClient, ConsulClient>(p => consul);
+
+            KVPair response = consul.KV.Get("databases/mysql").Result.Response;
+            JObject mysqlCfg = JObject.Parse(System.Text.Encoding.UTF8.GetString(response.Value));
+
+            // Retrieve configuration from Consul
             // Configure database connection
             string connectionString = String.Format(
                 "Server={0};Database={1};User={2};Password={3}",
-                Configuration["mysql:host"],
-                Configuration["mysql:database"],
-                Configuration["mysql:user"],
-                Configuration["mysql:password"]
+                mysqlCfg["host"],
+                mysqlCfg["database"],
+                mysqlCfg["user"],
+                mysqlCfg["password"]
                 );
             
             services.AddDbContextPool<MySqlContext>(db =>
