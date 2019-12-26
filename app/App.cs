@@ -34,9 +34,17 @@ namespace HelloWebApi
             services.AddTransient<ITodoItemRepository, TodoItemRepository>();
 
             // Configure database connection
+            string connectionString = String.Format(
+                "Server={0};Database={1};User={2};Password={3}",
+                Configuration["mysql:host"],
+                Configuration["mysql:database"],
+                Configuration["mysql:user"],
+                Configuration["mysql:password"]
+                );
+            
             services.AddDbContextPool<MySqlContext>(db =>
             {
-                db.UseMySql("Server=mysql;Database=hello_web_api;User=root;Password=password", mysqlOptions =>
+                db.UseMySql(connectionString, mysqlOptions =>
                      mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
                 );
             });
