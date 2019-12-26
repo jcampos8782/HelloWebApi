@@ -51,12 +51,11 @@ To verify, run `docker ps` and verify the `hellowebapi` and `hellowebapi_mysql_1
 
 #### Kubernetes
 
-If you want to run this application via a local kubernetes cluster (the one provided with your Docker installation),
-you will need to build and tag the images for the application and database.
+To run this application on docker's built in kubernetes cluster:
 
 ```
-docker build . -t jcampos/hello-webapi-app
-docker build ./db -t jcampos/hello-webapi-db
+# Build 
+docker-compose build
 
 # Run in Kubernetes
 docker stack deploy --compose-file kube-compose.yml hello-webapi
