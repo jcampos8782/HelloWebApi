@@ -1,0 +1,12 @@
+[
+	{
+		"key": "databases/",
+		"flags": 0,
+		"value": ""
+	},
+	{
+		"key": "databases/mysql",
+		"flags": 0,
+		"value": "ewogICAiaG9zdCI6ICJteXNxbCIsCiAgICJwb3J0IjogMzMwNiwKICAgImRhdGFiYXNlIjogImhlbGxvX3dlYl9hcGkiLAogICAidXNlciI6ICJyb290IiwKICAgInBhc3N3b3JkIjogInBhc3N3b3JkIgp9"
+	}
+]

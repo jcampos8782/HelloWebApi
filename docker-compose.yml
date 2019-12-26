@@ -6,8 +6,18 @@ services:
       ports:
          - "5000:80"
    mysql:
-      build: ./db
+      build: ./dev/db
       ports:
          - "3306:3306"
       environment:
          - MYSQL_ROOT_PASSWORD=password
+   consul:
+      image: consul:1.6.2
+      ports:
+         - "8500:8500" # UI
+      environment:
+         - CONSUL_BIND_INTERFACE=eth0
+   consul-importer:
+      build: ./dev/consul
+      depends_on:
+         - consul
