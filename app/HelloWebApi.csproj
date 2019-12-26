@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,113 +16,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.0" />
+    <PackageReference Include="Consul" Version="0.7.2.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="out\HelloWebApi.deps.json" />
-    <Content Remove="bld\appsettings.json" />
-    <Content Remove="bld\appsettings.Development.json" />
-    <Content Remove="bld\Properties\launchSettings.json" />
-    <Content Remove="bld\HelloWebApi.deps.json" />
-    <Content Remove="bld\HelloWebApi.runtimeconfig.json" />
-    <Content Remove="bld\HelloWebApi.runtimeconfig.dev.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Models\TodoItemDto.cs" />
-    <Compile Remove="Startup.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="docker-run.sh" />
-    <None Remove="docker-redeploy.sh" />
-    <None Remove="docker\docker-redeploy.sh" />
-    <None Remove="docker\docker-run.sh" />
-    <None Remove="build.sh" />
-    <None Remove="bld\cs\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll" />
-    <None Remove="bld\Microsoft.EntityFrameworkCore.dll" />
-    <None Remove="bld\Microsoft.CodeAnalysis.CSharp.Workspaces.dll" />
-    <None Remove="bld\System.Composition.Runtime.dll" />
-    <None Remove="bld\Microsoft.EntityFrameworkCore.Abstractions.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll" />
-    <None Remove="bld\Microsoft.CodeAnalysis.CSharp.dll" />
-    <None Remove="bld\Microsoft.Bcl.HashCode.dll" />
-    <None Remove="bld\Microsoft.EntityFrameworkCore.InMemory.dll" />
-    <None Remove="bld\Microsoft.CodeAnalysis.Razor.dll" />
-    <None Remove="bld\Microsoft.EntityFrameworkCore.Relational.dll" />
-    <None Remove="bld\Pomelo.EntityFrameworkCore.MySql.dll" />
-    <None Remove="bld\Microsoft.AspNetCore.Razor.Language.dll" />
-    <None Remove="bld\Microsoft.CodeAnalysis.dll" />
-    <None Remove="bld\System.Composition.Convention.dll" />
-    <None Remove="bld\System.Composition.Hosting.dll" />
-    <None Remove="bld\MySqlConnector.dll" />
-    <None Remove="bld\HelloWebApi.pdb" />
-    <None Remove="bld\Newtonsoft.Json.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGeneration.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll" />
-    <None Remove="bld\HelloWebApi.dll" />
-    <None Remove="bld\System.Composition.TypedParts.dll" />
-    <None Remove="bld\System.Composition.AttributedModel.dll" />
-    <None Remove="bld\Pomelo.JsonObject.dll" />
-    <None Remove="bld\Microsoft.CodeAnalysis.Workspaces.dll" />
-    <None Remove="bld\dotnet-aspnet-codegenerator-design.dll" />
-    <None Remove="bld\HelloWebApi" />
-    <None Remove="bld\NuGet.Frameworks.dll" />
-    <None Remove="bld\Microsoft.EntityFrameworkCore.Design.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll" />
-    <None Remove="bld\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll" />
-    <None Remove="bld\Microsoft.Bcl.AsyncInterfaces.dll" />
-    <None Remove="bld\zh-Hans\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\zh-Hant\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\pl\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\pl\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\ja\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\ja\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\it\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\it\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\it\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\ru\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\ru\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\pt-BR\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\de\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\de\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\de\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\ko\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\ko\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\fr\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\fr\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\es\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\es\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\es\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
-    <None Remove="bld\tr\Microsoft.CodeAnalysis.resources.dll" />
-    <None Remove="bld\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
-    <None Remove="bld\tr\Microsoft.CodeAnalysis.CSharp.resources.dll" />
-    <None Remove="bld\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
   </ItemGroup>
 </Project>
