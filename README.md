@@ -6,7 +6,7 @@ running via docker/kubernetes on AWS.
 
 #### Future Enhancements
 
-* Configuration - Using Consul & Vault for configuration and secrets.
+* Configuration - ~Using Consul~ & Vault for configuration and secrets.
 * Tests! - Unit testing is important!
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
