@@ -25,21 +25,25 @@ namespace HelloWebApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(cfg =>
                 {
-                    // TODO: Set consul URL in ENV
-                    ConsulClient consul = new ConsulClient(c => c.Address = new Uri("http://consul:8500"));
-                    KVPair response = consul.KV.Get("databases/mysql").Result.Response;
-                    JObject mysqlCfg = JObject.Parse(Encoding.UTF8.GetString(response.Value));
-                    Collection<KeyValuePair<string,string>> c = new Collection<KeyValuePair<string, string>>();
+                    string consulHost = Environment.GetEnvironmentVariable("CONSUL_HOST");
+                    string consulKey = Environment.GetEnvironmentVariable("CONSUL_KEY");
 
-                    foreach(var val in mysqlCfg)
-                    {
-                        c.Add(new KeyValuePair<string,string>(val.Key, val.Value.ToString()));
-                    }
+                    KVPair response = new ConsulClient(c => c.Address = new Uri(consulHost))
+                        .KV
+                        .Get(consulKey)
+                        .Result
+                        .Response;
+
+                    // Flatten the configuration object to form standard .NET colon separated keys
+                    // This example assumes configuration is stored as JSON data
+                    JObject consulCfgJson = JObject.Parse(Encoding.UTF8.GetString(response.Value));
+                    Collection<KeyValuePair<string,string>> consulCfg = new Collection<KeyValuePair<string, string>>();
+                    FlattenAndAddJsonCfg(consulCfgJson, consulCfg);
 
                     cfg.SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                         .AddEnvironmentVariables()
-                        .AddInMemoryCollection(c)
+                        .AddInMemoryCollection(consulCfg)
                         .Build();
                 })
                 .ConfigureLogging(logging =>
@@ -61,7 +65,30 @@ namespace HelloWebApi
                 .Run();
         }
 
-        private IConfiguration config;
+        static void FlattenAndAddJsonCfg(JObject json, Collection<KeyValuePair<string, string>> flattened, string prefix = "")
+        {
+            foreach (var kv in json)
+            {
+                string key = $"{prefix}{kv.Key}";
+                JToken value = kv.Value;
+                
+                switch (value)
+                {
+                    case JArray a:
+                        throw new Exception("Config arrays not supported yet...");
+                    case JObject o:
+                        // Recursively break down
+                        FlattenAndAddJsonCfg(o, flattened, prefix: $"{key}:");
+                        break;
+                    default:
+                        Console.WriteLine($"Added configuration value {key}={value}");
+                        flattened.Add(new KeyValuePair<string, string>(key, value.ToString()));
+                        break;
+                }
+            }
+        }
+
+        private readonly IConfiguration config;
 
         public Program(IConfiguration config)
         {
@@ -78,10 +105,10 @@ namespace HelloWebApi
             // Configure database connection
             string connectionString = String.Format(
                 "Server={0};Database={1};User={2};Password={3}",
-                config["host"],
-                config["database"],
-                config["user"],
-                config["password"]
+                config["MySql:Host"],
+                config["MySql:Database"],
+                config["MySql:User"],
+                config["MySql:Password"]
                 );
             
             services.AddDbContextPool<MySqlContext>(db =>

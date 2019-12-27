@@ -1,12 +1,7 @@
 [
 	{
-		"key": "databases/",
+		"key": "hello-web-api/master",
 		"flags": 0,
-		"value": ""
-	},
-	{
-		"key": "databases/mysql",
-		"flags": 0,
-		"value": "ewogICAiaG9zdCI6ICJteXNxbCIsCiAgICJwb3J0IjogMzMwNiwKICAgImRhdGFiYXNlIjogImhlbGxvX3dlYl9hcGkiLAogICAidXNlciI6ICJyb290IiwKICAgInBhc3N3b3JkIjogInBhc3N3b3JkIgp9"
+		"value": "ewogICJNeVNxbCI6IHsKICAgICAiSG9zdCI6ICJteXNxbCIsCiAgICAgIkRhdGFiYXNlIjogImhlbGxvX3dlYl9hcGkiLAogICAgICJVc2VyIjogInJvb3QiLAogICAgICJQYXNzd29yZCI6ICJwYXNzd29yZCIKICB9LAogICJUZXN0IjogIlRlc3QiCn0="
 	}
 ]
