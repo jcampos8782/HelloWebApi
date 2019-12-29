@@ -57,9 +57,6 @@ namespace HelloWebApi
 
                     logging.AddSerilog();
                 })
-                .ConfigureServices(services =>
-                {
-                })
                 .ConfigureWebHostDefaults(builder => builder.UseStartup<Program>())
                 .Build()
                 .Run();
@@ -75,6 +72,8 @@ namespace HelloWebApi
                 switch (value)
                 {
                     case JArray a:
+                        // Don't have any array objects so far so just ignore this
+                        // for now. 
                         throw new Exception("Config arrays not supported yet...");
                     case JObject o:
                         // Recursively break down
@@ -88,37 +87,11 @@ namespace HelloWebApi
             }
         }
 
-        private readonly IConfiguration config;
+        private IConfiguration config;
 
         public Program(IConfiguration config)
         {
             this.config = config;
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-
-            // Set up repositories for injection
-            services.AddTransient<ITodoItemRepository, TodoItemRepository>();
-
-            // Retrieve configuration from Consul
-            // Configure database connection
-            string connectionString = String.Format(
-                "Server={0};Database={1};User={2};Password={3}",
-                config["MySql:Host"],
-                config["MySql:Database"],
-                config["MySql:User"],
-                config["MySql:Password"]
-                );
-            
-            services.AddDbContextPool<MySqlContext>(db =>
-            {
-                db.UseMySql(connectionString, mysqlOptions =>
-                     mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
-                );
-            });
-
-            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -130,6 +103,26 @@ namespace HelloWebApi
 
             app.UseRouting();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddTransient<ITodoItemRepository, TodoItemRepository>();
+            services.AddControllers();
+
+            string host = config["MySql:Host"];
+            string database = config["MySql:Database"];
+            string user = config["MySql:User"];
+            string password = config["MySql:Password"];
+
+            services.AddDbContextPool<MySqlContext>(db =>
+            {
+                db.UseMySql(
+                    $"Server={host};Database={database};User={user};Password={password}",
+                    mysqlOptions => mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
+                );
+            });
+
         }
     }
 }
