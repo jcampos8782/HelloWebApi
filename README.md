@@ -3,6 +3,16 @@
 This is a sample .NET Core web API application for experimenting with .NET microservices
 running via docker/kubernetes on AWS.
 
+## Components
+* To-Do List
+** http://localhost:3000
+** Postman collection available in the `postman` directory.
+* Elasticsearch and Kibana
+** http://localhost:9200
+* Kibana
+** http://localhost:5601
+* Consul
+** http://localhost:8500
 
 #### Future Enhancements
 
