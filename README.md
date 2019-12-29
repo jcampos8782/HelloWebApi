@@ -10,6 +10,8 @@ running via docker/kubernetes on AWS.
 * Tests! - Unit testing is important!
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
+** ~Logging~ (Log4Net?/Serilog?)
+** ELK
 * Stats - Statsd support w/ Graphite
 * Health Checks - Health checks and monitoring
 * Caching - Some simple caching layers
@@ -54,7 +56,7 @@ To verify, run `docker ps` and verify the `hellowebapi` and `hellowebapi_mysql_1
 To run this application on docker's built in kubernetes cluster:
 
 ```
-# Build 
+# Build
 docker-compose build
 
 # Run in Kubernetes
