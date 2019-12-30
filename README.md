@@ -23,8 +23,9 @@ running via docker/kubernetes on AWS.
 * Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
   * ~Serilog~
   * ~ELK~
-  * Serilog HTTP sink
-  * Logstash HTTP input
+  * RabbitMQ
+  * Serilog RabbitMQ Sink
+  * Logstash RabbitMQ input
 * Stats - Statsd support w/ Graphite
 * Health Checks - Health checks and monitoring
 * Caching - Some simple caching layers
