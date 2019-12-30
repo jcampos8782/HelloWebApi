@@ -67,13 +67,13 @@ docker-compose up -d
 
 To verify, run `docker ps` and verify the `hellowebapi` and `hellowebapi_mysql_1` containers are up and running.
 
+#### Configuring Logs
+The exchange for logs can only be set up once RMQ is up and running. To do so, run
+```
+docker ps | grep rabbitmq | awk {'print $1'} | xargs -I '{}' docker exec '{}' init-exchange.sh
+```
+OR create it from the RabbitMQ admin UI http://localhost:15672
+
 #### Kubernetes
 
-To run this application on docker's built in kubernetes cluster:
-
-```
-# Build
-docker-compose build
-
-# Run in Kubernetes
-docker stack deploy --compose-file kube-compose.yml hello-webapi
+Kubernetes for docker will be coming soon!
