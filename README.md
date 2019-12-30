@@ -13,6 +13,8 @@ running via docker/kubernetes on AWS.
   * http://localhost:5601
 * Consul
   * http://localhost:8500
+* RabbitMQ
+  * http://localhost:15672
 
 
 #### Future Enhancements
@@ -23,7 +25,7 @@ running via docker/kubernetes on AWS.
 * Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
   * ~Serilog~
   * ~ELK~
-  * RabbitMQ
+  * ~RabbitMQ~
   * Serilog RabbitMQ Sink
   * Logstash RabbitMQ input
 * Stats - Statsd support w/ Graphite

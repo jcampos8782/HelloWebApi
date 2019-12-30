@@ -1,5 +1,5 @@
 # For quick iteration/development using docker-compose
-version: "3"
+version: "3.7"
 services:
 
    app:
@@ -12,6 +12,7 @@ services:
       depends_on:
          - mysql
          - consul
+
    mysql:
       build: ./dev/db
       ports:
@@ -19,12 +20,19 @@ services:
       environment:
          - MYSQL_ROOT_PASSWORD=password
 
+   rabbitmq:
+      build: ./dev/rmq
+      hostname: rmq01
+      ports:
+         - "15672:15672" # Admin UI
+
    consul:
       image: consul:1.6.2
       ports:
          - "8500:8500" # UI
       environment:
          - CONSUL_BIND_INTERFACE=eth0
+
    consul-importer:
       build: ./dev/consul
       depends_on:
@@ -102,3 +110,7 @@ services:
 networks:
    elastic:
     driver: bridge
+
+configs:
+   rmq_plugins:
+      file: ./dev/rmq/enabled_plugins
