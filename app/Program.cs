@@ -63,7 +63,6 @@ namespace HelloWebApi
                                     clientConfiguration.Password = Configuration["RabbitMq:Password"];
                                     clientConfiguration.Exchange = Configuration["RabbitMq:Exchange"];
                                     clientConfiguration.ExchangeType = Configuration["RabbitMq:ExchangeType"];
-                                    clientConfiguration.RouteKey = Configuration["RabbitMq:RouteKey"];
                                     clientConfiguration.Port = Int32.Parse(Configuration["RabbitMq:Port"]);
                                     clientConfiguration.DeliveryMode = RabbitMQDeliveryMode.Durable;
 
