@@ -15,13 +15,19 @@ using Pomelo.EntityFrameworkCore.MySql.Storage;
 using System.Text;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Microsoft.Extensions.Logging;
+using Serilog.Formatting.Json;
+using Serilog.Sinks.RabbitMQ;
 
 namespace HelloWebApi
 {
     public class Program
     {
+        private static IConfiguration Configuration;
+
         public static void Main(string[] args)
         {
+
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(cfg =>
                 {
@@ -40,7 +46,7 @@ namespace HelloWebApi
                     Collection<KeyValuePair<string,string>> consulCfg = new Collection<KeyValuePair<string, string>>();
                     FlattenAndAddJsonCfg(consulCfgJson, consulCfg);
 
-                    cfg.SetBasePath(Directory.GetCurrentDirectory())
+                    Configuration = cfg.SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                         .AddEnvironmentVariables()
                         .AddInMemoryCollection(consulCfg)
@@ -49,13 +55,43 @@ namespace HelloWebApi
                 .ConfigureLogging(logging =>
                 {
                     Log.Logger = new LoggerConfiguration()
-                        .Enrich.FromLogContext()
-                        .WriteTo.Debug()
-                        .WriteTo.Console(
-                            outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
-                        .CreateLogger();
+                                .Enrich.FromLogContext()
+                                .WriteTo.Debug()
+                                .WriteTo.Console()
+                                .WriteTo.RabbitMQ((clientConfiguration, sinkConfiguration) => {
+                                    clientConfiguration.Username = Configuration["RabbitMq:User"];
+                                    clientConfiguration.Password = Configuration["RabbitMq:Password"];
+                                    clientConfiguration.Exchange = Configuration["RabbitMq:Exchange"];
+                                    clientConfiguration.ExchangeType = Configuration["RabbitMq:ExchangeType"];
+                                    clientConfiguration.RouteKey = Configuration["RabbitMq:RouteKey"];
+                                    clientConfiguration.Port = Int32.Parse(Configuration["RabbitMq:Port"]);
+                                    clientConfiguration.DeliveryMode = RabbitMQDeliveryMode.Durable;
+
+                                    foreach (string hostname in Configuration["RabbitMq:Hostnames"].Split(","))
+                                    {
+                                        clientConfiguration.Hostnames.Add(hostname);
+                                    }
+
+                                    sinkConfiguration.TextFormatter = new JsonFormatter();
+                                })
+                                .CreateLogger();
 
                     logging.AddSerilog();
+                })
+                .ConfigureServices(services =>
+                {
+                    string host = Configuration["MySql:Host"];
+                    string database = Configuration["MySql:Database"];
+                    string user = Configuration["MySql:User"];
+                    string password = Configuration["MySql:Password"];
+
+                    services.AddDbContextPool<MySqlContext>(db =>
+                    {
+                        db.UseMySql(
+                            $"Server={host};Database={database};User={user};Password={password}",
+                            mysqlOptions => mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
+                        );
+                    });
                 })
                 .ConfigureWebHostDefaults(builder => builder.UseStartup<Program>())
                 .Build()
@@ -87,13 +123,6 @@ namespace HelloWebApi
             }
         }
 
-        private IConfiguration config;
-
-        public Program(IConfiguration config)
-        {
-            this.config = config;
-        }
-
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -109,20 +138,6 @@ namespace HelloWebApi
         {
             services.AddTransient<ITodoItemRepository, TodoItemRepository>();
             services.AddControllers();
-
-            string host = config["MySql:Host"];
-            string database = config["MySql:Database"];
-            string user = config["MySql:User"];
-            string password = config["MySql:Password"];
-
-            services.AddDbContextPool<MySqlContext>(db =>
-            {
-                db.UseMySql(
-                    $"Server={host};Database={database};User={user};Password={password}",
-                    mysqlOptions => mysqlOptions.ServerVersion(new ServerVersion(new Version(8, 0, 18), ServerType.MySql))
-                );
-            });
-
         }
     }
 }

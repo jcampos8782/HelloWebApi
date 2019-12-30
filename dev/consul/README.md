@@ -4,3 +4,7 @@ the consul agent
 
 To add or change secrets, you may either export the kv store from your consul
 host and replace the `values.json` file here or update the file directly.
+
+```
+docker exec <container> consul kv export > dev/consul/values.json
+```

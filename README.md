@@ -26,7 +26,7 @@ running via docker/kubernetes on AWS.
   * ~Serilog~
   * ~ELK~
   * ~RabbitMQ~
-  * Serilog RabbitMQ Sink
+  * ~Serilog RabbitMQ Sink~
   * Logstash RabbitMQ input
 * Stats - Statsd support w/ Graphite
 * Health Checks - Health checks and monitoring
