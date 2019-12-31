@@ -15,7 +15,6 @@ using Pomelo.EntityFrameworkCore.MySql.Storage;
 using System.Text;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Microsoft.Extensions.Logging;
 using Serilog.Formatting.Json;
 using Serilog.Sinks.RabbitMQ;
 
@@ -56,8 +55,8 @@ namespace HelloWebApi
                 {
                     Log.Logger = new LoggerConfiguration()
                                 .Enrich.FromLogContext()
-                                .WriteTo.Debug()
-                                .WriteTo.Console()
+                                .WriteTo.Debug(outputTemplate: "[{Timestamp:HH:mm:ss:} {Level:u3}] {Message:lj}{NewLine}{Exception}")
+                                .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
                                 .WriteTo.RabbitMQ((clientConfiguration, sinkConfiguration) => {
                                     clientConfiguration.Username = Configuration["RabbitMq:User"];
                                     clientConfiguration.Password = Configuration["RabbitMq:Password"];
