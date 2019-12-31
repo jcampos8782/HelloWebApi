@@ -19,22 +19,18 @@ running via docker/kubernetes on AWS.
 
 #### Future Enhancements
 
-* Configuration - ~Using Consul~ & Vault for configuration and secrets.
-* Tests! - Unit testing is important!
+* UI - Simple React UI
 * Terraform - Deploy to AWS EKS and RDS with Terraform
-* Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
-  * ~Serilog~
-  * ~ELK~
-  * ~RabbitMQ~
-  * ~Serilog RabbitMQ Sink~
-  * ~Logstash RabbitMQ-to-Elasticsearch pipeline~
-  * Configure Kibana dashboards
-* Stats - Statsd support w/ Graphite
-* Health Checks - Health checks and monitoring
+* Data streams - Push changes to Kafka or RabbitMQ to feed into cache and search stacks
 * Caching - Some simple caching layers
 * Search - Elasticsearch support
-* Data streams - Push changes to Kafka or RabbitMQ to feed into cache and search stacks
-* UI - Simple React UI
+* Health Checks - Health checks and monitoring
+* Configuration
+  * Store secrets in Vault or Docker/Kubernetes secrets API
+* Tests! - Unit testing is important!
+* Logging/Monitoring - Add logging and monitoring to an ELK (Elasticsearch, Logstash, Kibana) stack
+  * Configure Kibana dashboards
+* Stats - Statsd support w/ Graphite
 
 ## Getting Started
 
