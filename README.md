@@ -19,7 +19,6 @@ running via docker/kubernetes on AWS.
 
 #### Future Enhancements
 
-* Reverse Proxy - Configure nginx to proxy services
 * Configuration - ~Using Consul~ & Vault for configuration and secrets.
 * Tests! - Unit testing is important!
 * Terraform - Deploy to AWS EKS and RDS with Terraform
