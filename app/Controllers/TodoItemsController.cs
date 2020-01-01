@@ -22,6 +22,8 @@ namespace HelloWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return new OkObjectResult(await repository.GetTodoItemsAsync());
         }
 
@@ -29,6 +31,9 @@ namespace HelloWebApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodoItem(Guid id)
         {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
             var todoItem = await repository.FindAsync(id);
 
             if (todoItem == null)
@@ -43,6 +48,9 @@ namespace HelloWebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTodoItem(Guid id, TodoItem todoItem)
         {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
             if (id != todoItem.Id)
             {
                 return BadRequest();
@@ -66,6 +74,9 @@ namespace HelloWebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
         {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
             await repository.CreateAsync(todoItem);
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         }
@@ -74,6 +85,9 @@ namespace HelloWebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<TodoItem>> DeleteTodoItem(Guid id)
         {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
             var todoItem = await repository.FindAsync(id);
             if (todoItem == null)
             {
@@ -82,6 +96,16 @@ namespace HelloWebApi.Controllers
 
             await repository.DeleteAsync(todoItem);
             return new OkObjectResult(todoItem);
+        }
+
+        [HttpOptions]
+        public IActionResult AllowOptions()
+        {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            return Ok();
         }
     }
 }

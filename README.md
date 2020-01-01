@@ -39,6 +39,8 @@ for testing purposes. Note that this is *NOT* production ready code or infrastru
 
 ### Prerequisites
 
+* ReactJS
+* `npm`
 * `docker`
 * `docker-compose`
 
