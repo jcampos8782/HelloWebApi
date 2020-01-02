@@ -20,6 +20,11 @@ running via docker/kubernetes on AWS.
 #### Future Enhancements
 
 * UI - Simple React UI
+  * ReactJS
+  * MaterialUI [https://v0.material-ui.com]
+  * Gulp
+  * Webpack
+
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Data streams - Push changes to Kafka or RabbitMQ to feed into cache and search stacks
 * Caching - Some simple caching layers
