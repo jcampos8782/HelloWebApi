@@ -21,7 +21,7 @@ running via docker/kubernetes on AWS.
 
 * UI - Simple React UI
   * ReactJS
-  * MaterialUI [https://v0.material-ui.com]
+  * MaterialUI [https://material.io/develop/web/]
   * Gulp
   * Webpack
 
