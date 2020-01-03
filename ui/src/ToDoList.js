@@ -1,6 +1,20 @@
 import React from 'react';
+import {List, ListItem} from 'material-ui/List';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import AddCircle from 'material-ui/svg-icons/content/add-circle';
+import CheckBoxComplete from 'material-ui/svg-icons/toggle/check-box';
+import CheckBoxIncomplete from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 
-class App extends React.Component {
+const style = {
+  button: {
+    margin: 12,
+  },
+  textField: {
+    margin: 12,
+  }
+}
+class ToDoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,15 +80,17 @@ class Items extends React.Component {
 
     return(
       <div>
-        <ul>
-          {
-            items.map(item => (
-              <li key={item.id}>
-                {item.name}{item.isComplete ? ' - X' : ''}
-              </li>
-            ))
-          }
-        </ul>
+        <List>
+        {
+          items.map(i => (
+            <ListItem
+              key={i.id}
+              primaryText={i.name}
+              leftIcon={ i.isComplete ? <CheckBoxComplete /> : <CheckBoxIncomplete /> }
+              />
+          ))
+        }
+        </List>
       </div>
     );
   }
@@ -82,13 +98,24 @@ class Items extends React.Component {
 
 class AddItemForm extends React.Component {
   render() {
+    const buttonEnabled = (this.props.value.length > 0);
     return (
-      <form onSubmit={this.props.onSubmit}>
-        <input type="text" value={this.props.value} onChange={this.props.onChange} />
-        <input type="submit" value="Add" />
+      <form>
+        <TextField
+          hintText="Don't Forget To..."
+          style={style.textField}
+          onChange={this.props.onChange}
+          value={this.props.value} />
+        <RaisedButton
+          label="Add Item"
+          primary={buttonEnabled}
+          disabled={!buttonEnabled}
+          icon={<AddCircle />}
+          style={style.button}
+          onClick={this.props.onSubmit} />
       </form>
     );
   }
 }
 
-export default App;
+export default ToDoList;
