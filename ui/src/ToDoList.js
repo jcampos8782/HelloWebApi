@@ -3,6 +3,7 @@ import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import AddCircle from 'material-ui/svg-icons/content/add-circle';
+
 import CheckBoxComplete from 'material-ui/svg-icons/toggle/check-box';
 import CheckBoxIncomplete from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 
@@ -12,7 +13,7 @@ const style = {
   },
   textField: {
     margin: 12,
-  }
+  },
 }
 class ToDoList extends React.Component {
   constructor(props) {
