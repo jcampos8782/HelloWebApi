@@ -1,12 +1,14 @@
 import React from 'react';
 
+import './font-awesome/5.12.0/css/all.css';
 import { MuiThemeProvider, withStyles, createMuiTheme } from '@material-ui/core/styles';
 
 import Fab from '@material-ui/core/Fab';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 import Container from '@material-ui/core/container'
 import Paper from '@material-ui/core/paper'
@@ -73,39 +75,44 @@ class ToDoList extends React.Component {
   }
 
   renderItem(item, classes) {
-    console.log(item);
     return (
       <ListItem key={item.id} divider={true}>
-        <FormControl className={classes.formControl}>
-          <FormControlLabel
-            label={item.name}
-            className={classes.formControlLabel}
-            control= {
-              <Checkbox
-                edge="end"
-                checked={item.isComplete}
-                className={classes.checkbox}
-                onChange={() => {
-                  fetch(this.props.apiEndpoint + '/' + item.id , {
-                    method: 'PUT',
-                    body: JSON.stringify({
-                      id: item.id,
-                      name: item.name,
-                      isComplete: !item.isComplete
-                    }),
-                    headers: {
-                      'Content-Type': 'application/json'
-                    }
-                  })
-                  .then(() => this.loadItems())
-              }}
-              />
-            }
-          />
-          <ListItemSecondaryAction>
-
-          </ListItemSecondaryAction>
-        </FormControl>
+        <Checkbox
+          edge="end"
+          checked={item.isComplete}
+          className={classes.checkbox}
+          onChange={() => {
+            fetch(this.props.apiEndpoint + '/' + item.id , {
+              method: 'PUT',
+              body: JSON.stringify({
+                id: item.id,
+                name: item.name,
+                isComplete: !item.isComplete
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+            .then(() => this.loadItems())
+        }}
+        />
+        <ListItemText>
+          <Typography>{item.name}</Typography>
+        </ListItemText>
+        <ListItemSecondaryAction>
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            onClick={ () => {
+              fetch(this.props.apiEndpoint + '/' + item.id , {
+                method: 'DELETE'
+              })
+              .then(() => this.loadItems())
+            }}
+          >
+            <Icon className="fas fa-trash" />
+          </IconButton>
+        </ListItemSecondaryAction>
       </ListItem>
     );
   }
@@ -119,6 +126,7 @@ class ToDoList extends React.Component {
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
           <Paper elevation={5}>
+            <Typography variant="h4">{this.props.title}</Typography>
             <Container>
               <TextField
                 id="time"

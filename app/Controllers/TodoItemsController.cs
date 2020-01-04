@@ -114,7 +114,7 @@ namespace HelloWebApi.Controllers
             // TODO: Move these to some middleware 
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
             Response.Headers.Add("Access-Control-Allow-Headers", "*");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET, PUT, OPTIONS");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, PUT, DELETE, OPTIONS");
             return Ok();
         }
     }
