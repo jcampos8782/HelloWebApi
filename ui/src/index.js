@@ -2,29 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ToDoList from './ToDoList';
 
-import Container from '@material-ui/core/Container';
-import AppBar from 'material-ui/AppBar';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-
 const App = () => (
   <div>
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-      <AppBar title=".Net Core + ReactJS w/ Material UI Demo">
-
-      </AppBar>
-    </MuiThemeProvider>
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-      <Container maxWidth="sm">
-          <ToDoList />
-      </Container>
-    </MuiThemeProvider>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6">
+          .NET Core + ReactJS & Material-Ui
+        </Typography>
+      </Toolbar>
+    </AppBar>
+    <ToDoList />
   </div>
 );
 

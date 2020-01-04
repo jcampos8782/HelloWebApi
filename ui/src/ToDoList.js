@@ -1,120 +1,135 @@
 import React from 'react';
-import {List, ListItem} from 'material-ui/List';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import AddCircle from 'material-ui/svg-icons/content/add-circle';
 
-import CheckBoxComplete from 'material-ui/svg-icons/toggle/check-box';
-import CheckBoxIncomplete from 'material-ui/svg-icons/toggle/check-box-outline-blank';
+import Fab from '@material-ui/core/Fab';
+import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
+
+import Container from '@material-ui/core/container'
+import Paper from '@material-ui/core/paper'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+
+import AddIcon from '@material-ui/icons/Add';
 
 const style = {
   button: {
     margin: 12,
   },
   textField: {
-    margin: 12,
+    marginTop: 20,
+    width: 300
   },
 }
+
 class ToDoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
-      itemFormText: '',
-      error: null
+      itemFormText: ''
     };
   }
 
   componentDidMount() {
-      fetch('http://192.168.86.31:5000/api/todoitems')
-        .then(res => res.json())
-        .then((result) => {
-          this.setState({
-            items: result
-          });
+    fetch('http://192.168.86.31:5000/api/todoitems')
+      .then(res => res.json())
+      .then((result) => {
+        this.setState({
+          items: result,
+          itemFormText: ''
         });
+    });
   }
 
   render() {
+    const complete = this.state.items.filter(i => i.isComplete);
+    const incomplete = this.state.items.filter(i => !i.isComplete);
+
     return (
       <div>
-        <AddItemForm
-          value={this.state.itemFormText}
-          onChange={(e) => {
-            this.setState({
-              items: this.state.items.slice(),
-              itemFormText: e.target.value
-            });
-          }}
-          onSubmit={(e) => {
-            e.preventDefault();
-            fetch('http://192.168.86.31:5000/api/todoitems', {
-                method: 'POST',
-                body: JSON.stringify({ name: this.state.itemFormText }),
-                headers: {
-                  'Content-Type': 'application/json'
-                }
-              })
-              .then(res => res.json())
-              .then((result) => {
-                const items = this.state.items.concat(result);
+        <Paper elevation={5}>
+          <Container>
+            <TextField
+              id="time"
+              type="text"
+              placeholder="Don't forget to..."
+              style={style.textField}
+              value={this.state.itemFormText}
+              onChange={ (e) => {
+                const items = this.state.items.slice();
                 this.setState({
                   items: items,
-                  itemFormText: ''
+                  itemFormText: e.target.value
                 });
-              });
-          }}
-        />
-        <Items items={this.state.items} />
-      </div>
-    );
-  }
-}
-
-class Items extends React.Component {
-  render() {
-    const items = this.props.items;
-
-    if (items.length === 0) {
-      return <div>Nothing to do!</div>;
-    }
-
-    return(
-      <div>
-        <List>
-        {
-          items.map(i => (
-            <ListItem
-              key={i.id}
-              primaryText={i.name}
-              leftIcon={ i.isComplete ? <CheckBoxComplete /> : <CheckBoxIncomplete /> }
+              }}
               />
-          ))
-        }
-        </List>
-      </div>
-    );
-  }
-}
+            <Fab color="primary"
+              aria-label="add"
+              disabled={this.state.itemFormText.length === 0}
+              style={style.button}
+              onClick={ () => {
+                if(this.state.itemFormText.length === 0) {
+                  return;
+                }
 
-class AddItemForm extends React.Component {
-  render() {
-    const buttonEnabled = (this.props.value.length > 0);
-    return (
-      <form>
-        <TextField
-          hintText="Don't Forget To..."
-          style={style.textField}
-          onChange={this.props.onChange}
-          value={this.props.value} />
-        <RaisedButton
-          label="Add Item"
-          primary={buttonEnabled}
-          disabled={!buttonEnabled}
-          icon={<AddCircle />}
-          style={style.button}
-          onClick={this.props.onSubmit} />
-      </form>
+                fetch('http://192.168.86.31:5000/api/todoitems', {
+                  method: 'POST',
+                  body: JSON.stringify({ name: this.state.itemFormText }),
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                })
+                .then(res => res.json())
+                .then((result) => {
+                  const items = this.state.items.concat(result);
+                  this.setState({
+                    items: items,
+                    itemFormText: ''
+                  });
+                });
+              }}>
+              <AddIcon />
+            </Fab>
+          </Container>
+          <Container>
+            <List style={{width: 512}}>
+              <ListSubheader>Incomplete</ListSubheader>
+              {
+                incomplete.map(item => (
+                  <ListItem key={item.id} divider={true}>
+                    <ListItemText>{item.name}</ListItemText>
+                    <ListItemSecondaryAction>
+                      <Checkbox
+                        edge="end"
+                        onChange={() => console.log("Check!")}
+                        checked={false}
+                      />
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                ))
+              }
+              <ListSubheader>Complete</ListSubheader>
+              {
+                complete.map(item => (
+                  <ListItem key={item.id} divider={true}>
+                    <ListItemText>{item.name}</ListItemText>
+                    <ListItemSecondaryAction>
+                      <Checkbox
+                        edge="end"
+                        onChange={() => console.log("Check!")}
+                        checked={true}
+                      />
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                ))
+              }
+            </List>
+          </Container>
+        </Paper>
+      </div>
     );
   }
 }
