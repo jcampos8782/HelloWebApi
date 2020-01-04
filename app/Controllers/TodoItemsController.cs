@@ -107,5 +107,15 @@ namespace HelloWebApi.Controllers
             Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
             return Ok();
         }
+
+        [HttpOptions("{id}")]
+        public IActionResult AllowIdOptions()
+        {
+            // TODO: Move these to some middleware 
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, PUT, OPTIONS");
+            return Ok();
+        }
     }
 }

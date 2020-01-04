@@ -38,6 +38,10 @@ class ToDoList extends React.Component {
   }
 
   componentDidMount() {
+    this.loadItems();
+  }
+
+  loadItems() {
     fetch('http://192.168.86.31:5000/api/todoitems')
       .then(res => res.json())
       .then((result) => {
@@ -108,7 +112,20 @@ class ToDoList extends React.Component {
                     <ListItemSecondaryAction>
                       <Checkbox
                         edge="end"
-                        onChange={() => console.log("Check!")}
+                        onChange={() => {
+                          fetch('http://192.168.86.31:5000/api/todoitems/' + item.id , {
+                            method: 'PUT',
+                            body: JSON.stringify({
+                              id: item.id,
+                              name: item.name,
+                              isComplete: true
+                            }),
+                            headers: {
+                              'Content-Type': 'application/json'
+                            }
+                          })
+                          .then(() => this.loadItems())
+                        }}
                         checked={false}
                       />
                     </ListItemSecondaryAction>
@@ -123,7 +140,20 @@ class ToDoList extends React.Component {
                     <ListItemSecondaryAction>
                       <Checkbox
                         edge="end"
-                        onChange={() => console.log("Check!")}
+                        onChange={() => {
+                          fetch('http://192.168.86.31:5000/api/todoitems/' + item.id , {
+                            method: 'PUT',
+                            body: JSON.stringify({
+                              id: item.id,
+                              name: item.name,
+                              isComplete: false
+                            }),
+                            headers: {
+                              'Content-Type': 'application/json'
+                            }
+                          })
+                          .then(() => this.loadItems())
+                        }}
                         checked={true}
                       />
                     </ListItemSecondaryAction>
