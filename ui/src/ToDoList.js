@@ -15,6 +15,10 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import AddIcon from '@material-ui/icons/Add';
 
 const style = {
+  root: {
+    display: "inline-block",
+    padding: 5
+  },
   button: {
     margin: 12,
   },
@@ -49,7 +53,7 @@ class ToDoList extends React.Component {
     const incomplete = this.state.items.filter(i => !i.isComplete);
 
     return (
-      <div>
+      <div style={style.root}>
         <Paper elevation={5}>
           <Container>
             <TextField
