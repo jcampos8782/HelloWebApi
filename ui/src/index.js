@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import TopNav from './TopNav';
 import ToDoList from './ToDoList';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -11,14 +13,12 @@ import * as serviceWorker from './serviceWorker';
 
 const App = () => (
   <div>
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6">
-          .NET Core + ReactJS & Material-Ui
-        </Typography>
-      </Toolbar>
-    </AppBar>
-    <ToDoList />
+    <TopNav
+      title=".NET Core + ReactJS & Material-Ui"
+      />
+    <ToDoList
+      defaultText="Don't forget to..."
+      apiEndpoint="http://192.168.86.31:5000/api/todoitems"/>
   </div>
 );
 
