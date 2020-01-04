@@ -72,6 +72,44 @@ class ToDoList extends React.Component {
     });
   }
 
+  renderItem(item, classes) {
+    console.log(item);
+    return (
+      <ListItem key={item.id} divider={true}>
+        <FormControl className={classes.formControl}>
+          <FormControlLabel
+            label={item.name}
+            className={classes.formControlLabel}
+            control= {
+              <Checkbox
+                edge="end"
+                checked={item.isComplete}
+                className={classes.checkbox}
+                onChange={() => {
+                  fetch(this.props.apiEndpoint + '/' + item.id , {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                      id: item.id,
+                      name: item.name,
+                      isComplete: !item.isComplete
+                    }),
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                  })
+                  .then(() => this.loadItems())
+              }}
+              />
+            }
+          />
+          <ListItemSecondaryAction>
+
+          </ListItemSecondaryAction>
+        </FormControl>
+      </ListItem>
+    );
+  }
+
   render() {
     const {classes} = this.props;
     const complete = this.state.items.filter(i => i.isComplete);
@@ -128,73 +166,11 @@ class ToDoList extends React.Component {
               <List style={{width: 512}}>
                 <ListSubheader>Incomplete</ListSubheader>
                 {
-                  incomplete.map(item => (
-                    <ListItem key={item.id} divider={true}>
-                      <FormControl className={classes.formControl}>
-                        <FormControlLabel
-                          label={item.name}
-                          className={classes.formControlLabel}
-                          control= {
-                            <Checkbox
-                              edge="end"
-                              checked={false}
-                              className={classes.checkbox}
-                              onChange={() => {
-                                fetch(this.props.apiEndpoint + '/' + item.id , {
-                                  method: 'PUT',
-                                  body: JSON.stringify({
-                                    id: item.id,
-                                    name: item.name,
-                                    isComplete: !item.isComplete
-                                  }),
-                                  headers: {
-                                    'Content-Type': 'application/json'
-                                  }
-                                })
-                                .then(() => this.loadItems())
-                            }}
-                            />
-                          }
-                        />
-                        <ListItemSecondaryAction>
-
-                        </ListItemSecondaryAction>
-                      </FormControl>
-                    </ListItem>
-                  ))
+                  incomplete.map((i) => this.renderItem(i, classes))
                 }
                 <ListSubheader>Complete</ListSubheader>
                 {
-                  complete.map(item => (
-                    <ListItem key={item.id} divider={true}>
-                      <FormControlLabel
-                        label={item.name}
-                        control= {
-                          <Checkbox
-                            edge="end"
-                            checked={false}
-                            onChange={() => {
-                              fetch(this.props.apiEndpoint + '/' + item.id , {
-                                method: 'PUT',
-                                body: JSON.stringify({
-                                  id: item.id,
-                                  name: item.name,
-                                  isComplete: !item.isComplete
-                                }),
-                                headers: {
-                                  'Content-Type': 'application/json'
-                                }
-                              })
-                              .then(() => this.loadItems())
-                          }}
-                          />
-                        }
-                      />
-                      <ListItemSecondaryAction>
-
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                  ))
+                  complete.map((i) => this.renderItem(i, classes))
                 }
               </List>
             </Container>
