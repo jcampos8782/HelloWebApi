@@ -4,6 +4,8 @@ This is a sample .NET Core web API application for experimenting with .NET micro
 running via docker/kubernetes on AWS.
 
 ## Components
+* React/Material-UI UI
+  * `cd ui && npm start`
 * To-Do List
   * http://localhost:3000
   * Postman collection available in the `postman` directory.
@@ -20,11 +22,8 @@ running via docker/kubernetes on AWS.
 #### Future Enhancements
 
 * UI - Simple React UI
-  * ReactJS
-  * MaterialUI [https://material.io/develop/web/]
   * Gulp
-  * Webpack
-
+  * Dockerize
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Data streams - Push changes to Kafka or RabbitMQ to feed into cache and search stacks
 * Caching - Some simple caching layers
