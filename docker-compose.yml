@@ -46,8 +46,7 @@ services:
     environment:
       - node.name=es01
       - cluster.name=es-docker-cluster
-      - discovery.seed_hosts=es02,es03
-      - cluster.initial_master_nodes=es01,es02,es03
+      - cluster.initial_master_nodes=es01
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
@@ -56,44 +55,6 @@ services:
         hard: -1
     ports:
       - 9200:9200
-    networks:
-      - elastic
-
-   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
-    container_name: es02
-    environment:
-      - node.name=es02
-      - cluster.name=es-docker-cluster
-      - discovery.seed_hosts=es01,es03
-      - cluster.initial_master_nodes=es01,es02,es03
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    ports:
-      - 9201:9201
-    networks:
-      - elastic
-
-   es03:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
-    container_name: es03
-    environment:
-      - node.name=es03
-      - cluster.name=es-docker-cluster
-      - discovery.seed_hosts=es01,es02
-      - cluster.initial_master_nodes=es01,es02,es03
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    ports:
-      - 9202:9202
     networks:
       - elastic
 
@@ -112,8 +73,6 @@ services:
      build: ./dev/logstash
      depends_on:
        - es01
-       - es02
-       - es03
        - rabbitmq
      networks:
        - default
