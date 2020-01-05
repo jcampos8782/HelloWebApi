@@ -24,17 +24,20 @@ const styles = theme => (
   {
     root: {
       display: "inline-block",
-      padding: 5
+      padding: 5,
     },
     button: {
       margin: 12,
     },
     checkbox: {
-      marginRight: 10
+      marginRight: 10,
     },
     textField: {
       marginTop: 20,
-      width: 300
+      width: 300,
+    },
+    trashIcon: {
+      color: theme.palette.primary.contrastText,
     },
   }
 );
@@ -162,7 +165,7 @@ class ToDoList extends React.Component {
           <IconButton
             edge="end"
             aria-label="delete"
-            color="secondary"
+            className={classes.trashIcon}
             onClick={ () => {
               fetch(this.props.apiEndpoint + '/' + item.id , {
                 method: 'DELETE'

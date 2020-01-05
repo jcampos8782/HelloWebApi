@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
-  contactIcons: {
+  icons: {
     textAlign: 'right',
     '& span': {
       fontSize: '1.25em',
@@ -33,7 +33,7 @@ class TopNav extends React.Component {
               {this.props.title}
             </Typography>
           </Container>
-          <Container className={classes.contactIcons}>
+          <Container className={classes.icons}>
             <IconButton
               edge="end"
               aria-label="toggle theme"
