@@ -7,7 +7,6 @@ import ToDoList from './ToDoList';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blueGrey from '@material-ui/core/colors/blueGrey';
-import grey from '@material-ui/core/colors/grey';
 
 import './index.css';
 

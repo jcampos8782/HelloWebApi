@@ -4,6 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
+import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +16,11 @@ const styles = theme => ({
       fontSize: '1.25em',
       color: theme.palette.secondary.dark
     }
-  }
+  },
+  divider: {
+    backgroundColor: theme.palette.primary.contrastText,
+    display: 'inline'
+  },
 });
 
 class TopNav extends React.Component {
@@ -40,6 +45,7 @@ class TopNav extends React.Component {
               onClick={this.props.toggleTheme}>
               <Icon className='fas fa-sun' />
             </IconButton>
+            <Divider className={classes.divider} orientation="vertical" variant="inset" />
             <IconButton
               edge="end"
               aria-label="github"
