@@ -36,21 +36,27 @@ class TopNav extends React.Component {
           <Container className={classes.contactIcons}>
             <IconButton
               edge="end"
+              aria-label="toggle theme"
+              onClick={this.props.toggleTheme}>
+              <Icon className='fas fa-sun' />
+            </IconButton>
+            <IconButton
+              edge="end"
               aria-label="github"
               onClick={() => window.location.href=this.props.githubUrl}>
-              <Icon className='fab fa-github fa-5x' />
+              <Icon className='fab fa-github' />
             </IconButton>
             <IconButton
               edge="end"
               aria-label="linkedin"
               onClick={() => window.location.href=this.props.linkedInProfile}>
-              <Icon className='fab fa-linkedin fa-5x' />
+              <Icon className='fab fa-linkedin' />
             </IconButton>
             <IconButton
               edge="end"
               aria-label="email"
               onClick={() => window.location.href="mailto:" + this.props.email}>
-              <Icon className='far fa-envelope fa-3x' />
+              <Icon className='far fa-envelope' />
             </IconButton>
           </Container>
         </Toolbar>
