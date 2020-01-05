@@ -126,7 +126,7 @@ class ToDoList extends React.Component {
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
           <Paper elevation={5}>
-            <Typography variant="h4">{this.props.title}</Typography>
+            <Typography variant="h5">{this.props.title}</Typography>
             <Container>
               <TextField
                 id="time"
