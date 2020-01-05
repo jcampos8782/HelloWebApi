@@ -171,7 +171,7 @@ class ToDoList extends React.Component {
               </Fab>
             </Container>
             <Container>
-              <List style={{width: 512}}>
+              <List>
                 <ListSubheader>Incomplete</ListSubheader>
                 {
                   incomplete.map((i) => this.renderItem(i, classes))
