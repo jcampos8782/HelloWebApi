@@ -7,6 +7,7 @@ import ToDoList from './ToDoList';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blueGrey from '@material-ui/core/colors/blueGrey';
+import grey from '@material-ui/core/colors/grey';
 
 import './index.css';
 
@@ -32,6 +33,9 @@ const dark = createMuiTheme({
     primary: {
       main: blueGrey[800],
     },
+    background: {
+      paper: grey[300],
+    }
   }
 });
 
@@ -48,28 +52,25 @@ class App extends React.Component {
     const theme = this.state.useDarkTheme ? dark : light;
 
     return (
-      <React.Fragment>
-        <CssBaseline>
-          <div>
-            <ThemeProvider theme={theme}>
-              <TopNav
-                title=".NET Core + ReactJS & Material-Ui"
-                githubUrl="http://github.com/jcampos8782/HelloWebApi"
-                linkedInProfile="http://linkedin.com/in/json-campos"
-                emailAddress="jcampos8782@gmail.com"
-                toggleTheme={() =>
-                  this.setState({
-                  useDarkTheme: !this.state.useDarkTheme
-                })}
-                />
-              <ToDoList
-                title="To-Do List"
-                defaultText="Don't forget to..."
-                apiEndpoint="http://192.168.86.31:5000/api/todoitems"/>
-            </ThemeProvider>
-          </div>
-        </CssBaseline>
-      </React.Fragment>
+        <div>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <TopNav
+              title=".NET Core + ReactJS & Material-Ui"
+              githubUrl="http://github.com/jcampos8782/HelloWebApi"
+              linkedInProfile="http://linkedin.com/in/json-campos"
+              emailAddress="jcampos8782@gmail.com"
+              toggleTheme={() =>
+                this.setState({
+                useDarkTheme: !this.state.useDarkTheme
+              })}
+              />
+            <ToDoList
+              title="To-Do List"
+              defaultText="Don't forget to..."
+              apiEndpoint="http://192.168.86.31:5000/api/todoitems"/>
+          </ThemeProvider>
+        </div>
     )
   }
 }
