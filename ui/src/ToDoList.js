@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './font-awesome/5.12.0/css/all.css';
-import { MuiThemeProvider, withStyles, createMuiTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 import Fab from '@material-ui/core/Fab';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -20,16 +20,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 import AddIcon from '@material-ui/icons/Add';
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiTypography: {
-      root: {
-        marginLeft: 10
-      },
-    },
-  },
-});
-
 const styles = theme => (
   {
     root: {
@@ -40,7 +30,7 @@ const styles = theme => (
       margin: 12,
     },
     checkbox: {
-      wordSpacing: 10
+      marginRight: 10
     },
     textField: {
       marginTop: 20,
@@ -74,49 +64,6 @@ class ToDoList extends React.Component {
     });
   }
 
-  renderItem(item, classes) {
-    return (
-      <ListItem key={item.id} divider={true}>
-        <Checkbox
-          edge="end"
-          checked={item.isComplete}
-          className={classes.checkbox}
-          onChange={() => {
-            fetch(this.props.apiEndpoint + '/' + item.id , {
-              method: 'PUT',
-              body: JSON.stringify({
-                id: item.id,
-                name: item.name,
-                isComplete: !item.isComplete
-              }),
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            })
-            .then(() => this.loadItems())
-        }}
-        />
-        <ListItemText>
-          <Typography>{item.name}</Typography>
-        </ListItemText>
-        <ListItemSecondaryAction>
-          <IconButton
-            edge="end"
-            aria-label="delete"
-            onClick={ () => {
-              fetch(this.props.apiEndpoint + '/' + item.id , {
-                method: 'DELETE'
-              })
-              .then(() => this.loadItems())
-            }}
-          >
-            <Icon className="fas fa-trash" />
-          </IconButton>
-        </ListItemSecondaryAction>
-      </ListItem>
-    );
-  }
-
   render() {
     const {classes} = this.props;
     const complete = this.state.items.filter(i => i.isComplete);
@@ -124,7 +71,6 @@ class ToDoList extends React.Component {
 
     return (
       <div className={classes.root}>
-        <MuiThemeProvider theme={theme}>
           <Paper elevation={5}>
             <Typography variant="h5">{this.props.title}</Typography>
             <Container>
@@ -183,8 +129,51 @@ class ToDoList extends React.Component {
               </List>
             </Container>
           </Paper>
-        </MuiThemeProvider>
       </div>
+    );
+  }
+
+  renderItem(item, classes) {
+    return (
+      <ListItem key={item.id} divider={true}>
+        <Checkbox
+          edge="end"
+          checked={item.isComplete}
+          className={classes.checkbox}
+          onChange={() => {
+            fetch(this.props.apiEndpoint + '/' + item.id , {
+              method: 'PUT',
+              body: JSON.stringify({
+                id: item.id,
+                name: item.name,
+                isComplete: !item.isComplete
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+            .then(() => this.loadItems())
+        }}
+        />
+        <ListItemText>
+          <Typography>{item.name}</Typography>
+        </ListItemText>
+        <ListItemSecondaryAction>
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            color="secondary"
+            onClick={ () => {
+              fetch(this.props.apiEndpoint + '/' + item.id , {
+                method: 'DELETE'
+              })
+              .then(() => this.loadItems())
+            }}
+          >
+            <Icon className="fas fa-trash" />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
     );
   }
 }

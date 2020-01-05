@@ -32,9 +32,6 @@ const dark = createMuiTheme({
     type: 'dark',
     primary: {
       main: blueGrey[800],
-    },
-    background: {
-      paper: grey[300],
     }
   }
 });
