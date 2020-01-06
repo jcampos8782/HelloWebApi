@@ -8,7 +8,7 @@ export default
     hintText: 'Don\'t forget to...',
   },
   drawer: {
-    anchor: 'right',
+    anchor: 'left',
     items: [
       {
         title: "Admin",

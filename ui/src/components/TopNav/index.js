@@ -2,13 +2,12 @@ import TopNav from './TopNav';
 import {withStyles} from '@material-ui/core/styles';
 
 const styles = theme => ({
-  icons: {
-    textAlign: 'right',
-    '& span': {
-      fontSize: '1.25em',
-      color: theme.palette.secondary.dark
+  toolbar: {
+    '& > h5': {
+      left: 225,
+      position: 'relative'
     }
-  },
+  }
 });
 
 export default withStyles(styles)(TopNav);

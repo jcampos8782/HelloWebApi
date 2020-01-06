@@ -7,6 +7,9 @@ const styles = theme => (
     root: {
       display: "inline-block",
       padding: 5,
+      position: 'relative',
+      top: 15,
+      left: 240
     },
     button: {
       margin: 12,

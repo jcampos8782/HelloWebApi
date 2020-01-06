@@ -14,36 +14,10 @@ export default class TopNav extends React.Component {
 
     return (
       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            aria-label="open drawer"
-            onClick={this.props.toggleMenu}>
-            <Icon className='fas fa-bars' />
-          </IconButton>
-          <Container>
-            <Typography variant="h5">
-              {this.props.title}
-            </Typography>
-          </Container>
-          <Container className={classes.icons}>
-            <Tooltip title="Toggle Theme">
-              <IconButton
-                edge="end"
-                aria-label="toggle theme"
-                onClick={this.props.toggleTheme}>
-                <Icon className='fas fa-sun' />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="About">
-              <IconButton
-                edge="end"
-                aria-label="about"
-                onClick={this.props.toggleAbout}>
-                <Icon className='fas fa-info-circle' />
-              </IconButton>
-            </Tooltip>
-          </Container>
+        <Toolbar className={classes.toolbar}>
+          <Typography variant="h5">
+            {this.props.title}
+          </Typography>
         </Toolbar>
       </AppBar>
     );

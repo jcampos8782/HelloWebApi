@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import AboutModal from './components/AboutModal';
+import BottomNav from './components/BottomNav';
 import ManagementDrawer from './components/ManagementDrawer';
 import TopNav from './components/TopNav';
 import ToDoList from './components/ToDoList';
@@ -21,7 +22,7 @@ class App extends React.Component {
       console.log(props);
       this.state = {
         useDarkTheme: props.theme === 'dark',
-        drawerOpen: false,
+        drawerOpen: true,
         modalOpen: false
       }
   }
@@ -33,34 +34,30 @@ class App extends React.Component {
         <div>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <TopNav
-              title={this.props.title}
-              toggleMenu={() =>
-                this.setState({
-                  drawerOpen: !this.state.drawerOpen
-                })
-              }
-              toggleTheme={() =>
-                this.setState({
-                  useDarkTheme: !this.state.useDarkTheme
-                })
-              }
-              toggleAbout={() =>
-                this.setState({
-                  modalOpen: true
-                })
-              }
-              />
+            <TopNav title={this.props.title} />
             <ManagementDrawer
               anchor={this.props.drawer.anchor}
               open={this.state.drawerOpen}
               drawerItems={this.props.drawer.items}
             />
             <ToDoList
-              title={this.props.todoList.header}
+              title={this.props.todoList.heading}
               defaultText={this.props.todoList.hintText}
               apiEndpoint={this.props.todoList.apiEndpoint}
             />
+
+            <BottomNav
+              onAboutClick={() =>
+                this.setState({modalOpen:true})
+              }
+              onTechnologiesClick={() =>
+                this.setState({modalOpen:true})
+              }
+              onThemeClick={() =>
+                this.setState({useDarkTheme: !this.state.useDarkTheme})
+              }
+            />
+
             <AboutModal
               open={this.state.modalOpen}
               onClose={() =>
