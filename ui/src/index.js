@@ -18,8 +18,9 @@ class App extends React.Component {
 
   constructor(props) {
       super(props);
+      console.log(props);
       this.state = {
-        useDarkTheme: true,
+        useDarkTheme: props.theme === 'dark',
         drawerOpen: false,
         modalOpen: false
       }
@@ -33,7 +34,7 @@ class App extends React.Component {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <TopNav
-              title={properties.title}
+              title={this.props.title}
               toggleMenu={() =>
                 this.setState({
                   drawerOpen: !this.state.drawerOpen
@@ -51,14 +52,14 @@ class App extends React.Component {
               }
               />
             <ManagementDrawer
-              anchor="right" // TODO: Move this to the left!
+              anchor={this.props.drawer.anchor}
               open={this.state.drawerOpen}
-              drawerItems={properties.drawer.items}
+              drawerItems={this.props.drawer.items}
             />
             <ToDoList
-              title={properties.todoList.header}
-              defaultText={properties.todoList.hintText}
-              apiEndpoint={properties.todoList.apiEndpoint}
+              title={this.props.todoList.header}
+              defaultText={this.props.todoList.hintText}
+              apiEndpoint={this.props.todoList.apiEndpoint}
             />
             <AboutModal
               open={this.state.modalOpen}
@@ -73,7 +74,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App {...properties} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

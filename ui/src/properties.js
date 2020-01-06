@@ -1,12 +1,14 @@
 export default
 {
   title: '.NET Core + ReactJS w/ Material-UI',
+  theme: 'dark',
   todoList: {
     apiEndpoint: 'http://192.168.86.31:5000/api/todoitems',
     heading: 'To-Do List',
     hintText: 'Don\'t forget to...',
   },
   drawer: {
+    anchor: 'right',
     items: [
       {
         title: "Admin",
