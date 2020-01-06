@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './font-awesome/5.12.0/css/all.css';
-import { withStyles } from '@material-ui/core/styles';
+// TODO: A better way than relative path?
+import '../../styles/font-awesome/5.12.0/css/all.css';
 
 import Fab from '@material-ui/core/Fab';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -21,34 +21,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 import AddIcon from '@material-ui/icons/Add';
 
-const styles = theme => (
-  {
-    root: {
-      display: "inline-block",
-      padding: 5,
-    },
-    button: {
-      margin: 12,
-    },
-    checkbox: {
-      marginRight: 10,
-    },
-    textField: {
-      marginTop: 20,
-      width: 300,
-    },
-    title: {
-      paddingLeft: 15,
-      paddingTop: 10,
-    },
-    trashIcon: {
-      color: '#ffa000',
-    },
-  }
-);
-
-class ToDoList extends React.Component {
-
+export default class ToDoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -187,5 +160,3 @@ class ToDoList extends React.Component {
     );
   }
 }
-
-export default withStyles(styles)(ToDoList);

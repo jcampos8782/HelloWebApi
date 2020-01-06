@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {withStyles} from '@material-ui/core/styles';
-
 import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
@@ -13,9 +11,7 @@ import ListItemAvatar from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {}
-
-class ManagementDrawer extends React.Component {
+export default class ManagementDrawer extends React.Component {
   render() {
     return (
       <Drawer
@@ -53,5 +49,3 @@ class ManagementDrawer extends React.Component {
     );
   }
 }
-
-export default withStyles(styles)(ManagementDrawer);
