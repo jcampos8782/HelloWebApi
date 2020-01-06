@@ -36,8 +36,12 @@ const styles = theme => (
       marginTop: 20,
       width: 300,
     },
+    title: {
+      paddingLeft: 15,
+      paddingTop: 10,
+    },
     trashIcon: {
-      color: theme.palette.primary.contrastText,
+      color: '#ffa000',
     },
   }
 );
@@ -75,7 +79,7 @@ class ToDoList extends React.Component {
     return (
       <div className={classes.root}>
           <Paper elevation={5}>
-            <Typography variant="h5">{this.props.title}</Typography>
+            <Typography variant="h5" className={classes.title}>{this.props.title}</Typography>
             <Container>
               <TextField
                 id="time"

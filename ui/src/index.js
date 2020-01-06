@@ -77,6 +77,9 @@ const light = createMuiTheme({
     },
     secondary: {
       main: '#f48fb1'
+    },
+    warning: {
+      main: '#ffc107',
     }
   }
 });
@@ -87,6 +90,9 @@ const dark = createMuiTheme({
     type: 'dark',
     primary: {
       main: blueGrey[800],
+    },
+    warning: {
+      main: '#ffc107',
     }
   }
 });
