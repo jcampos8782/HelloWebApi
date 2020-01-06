@@ -4,6 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -37,18 +38,22 @@ class TopNav extends React.Component {
             </Typography>
           </Container>
           <Container className={classes.icons}>
-            <IconButton
-              edge="end"
-              aria-label="toggle theme"
-              onClick={this.props.toggleTheme}>
-              <Icon className='fas fa-sun' />
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="about"
-              onClick={this.props.toggleAbout}>
-              <Icon className='fas fa-info-circle' />
-            </IconButton>
+            <Tooltip title="Toggle Theme">
+              <IconButton
+                edge="end"
+                aria-label="toggle theme"
+                onClick={this.props.toggleTheme}>
+                <Icon className='fas fa-sun' />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="About">
+              <IconButton
+                edge="end"
+                aria-label="about"
+                onClick={this.props.toggleAbout}>
+                <Icon className='fas fa-info-circle' />
+              </IconButton>
+            </Tooltip>
           </Container>
         </Toolbar>
       </AppBar>

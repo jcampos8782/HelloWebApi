@@ -9,6 +9,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import Container from '@material-ui/core/container'
 import Paper from '@material-ui/core/paper'
@@ -166,19 +167,21 @@ class ToDoList extends React.Component {
           <Typography>{item.name}</Typography>
         </ListItemText>
         <ListItemSecondaryAction>
-          <IconButton
-            edge="end"
-            aria-label="delete"
-            className={classes.trashIcon}
-            onClick={ () => {
-              fetch(this.props.apiEndpoint + '/' + item.id , {
-                method: 'DELETE'
-              })
-              .then(() => this.loadItems())
-            }}
-          >
-            <Icon className="fas fa-trash" />
-          </IconButton>
+          <Tooltip title="Delete">
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              className={classes.trashIcon}
+              onClick={ () => {
+                fetch(this.props.apiEndpoint + '/' + item.id , {
+                  method: 'DELETE'
+                })
+                .then(() => this.loadItems())
+              }}
+            >
+              <Icon className="fas fa-trash" />
+            </IconButton>
+          </Tooltip>
         </ListItemSecondaryAction>
       </ListItem>
     );
