@@ -4,7 +4,6 @@ import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -17,10 +16,6 @@ const styles = theme => ({
       color: theme.palette.secondary.dark
     }
   },
-  divider: {
-    backgroundColor: theme.palette.primary.contrastText,
-    display: 'inline'
-  },
 });
 
 class TopNav extends React.Component {
@@ -30,7 +25,10 @@ class TopNav extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" aria-label="open drawer">
+          <IconButton
+            edge="start"
+            aria-label="open drawer"
+            onClick={this.props.toggleMenu}>
             <Icon className='fas fa-bars' />
           </IconButton>
           <Container>
@@ -45,24 +43,11 @@ class TopNav extends React.Component {
               onClick={this.props.toggleTheme}>
               <Icon className='fas fa-sun' />
             </IconButton>
-            <Divider className={classes.divider} orientation="vertical" variant="inset" />
             <IconButton
               edge="end"
-              aria-label="github"
-              onClick={() => window.location.href=this.props.githubUrl}>
-              <Icon className='fab fa-github' />
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="linkedin"
-              onClick={() => window.location.href=this.props.linkedInProfile}>
-              <Icon className='fab fa-linkedin' />
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="email"
-              onClick={() => window.location.href="mailto:" + this.props.email}>
-              <Icon className='far fa-envelope' />
+              aria-label="about"
+              onClick={this.props.toggleAbout}>
+              <Icon className='fas fa-info-circle' />
             </IconButton>
           </Container>
         </Toolbar>

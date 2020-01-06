@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon / product-logo / 64x64px / stack / white</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon-/-product-logo-/-64x64px-/-stack-/-white" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(4.999800, 5.000000)" fill="#FFFFFF">
+            <path d="M54.0002,15 L54.0002,4.219 C54.0002,1.889 52.1112,0 49.7812,0 L4.2192,0 C1.8892,0 0.0002,1.889 0.0002,4.219 L0.0002,15 L54.0002,15 Z" id="Fill-1"></path>
+            <polygon id="Fill-3" points="0.0002 34 54.0002 34 54.0002 20 0.0002 20"></polygon>
+            <path d="M29.5315,39 L29.5315,54 L49.7815,54 C52.1115,54 54.0005,52.111 54.0005,49.781 L54.0005,39 L29.5315,39 Z" id="Fill-5"></path>
+            <path d="M24.469,39 L-3.55271368e-15,39 L-3.55271368e-15,49.781 C-3.55271368e-15,52.111 1.889,54 4.219,54 L24.469,54 L24.469,39 Z" id="Fill-6"></path>
+        </g>
+    </g>
+</svg>

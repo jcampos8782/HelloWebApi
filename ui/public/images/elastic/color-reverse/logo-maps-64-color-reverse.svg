@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>icon / product-logo / 64x64px / maps / color-reverse</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0.7965 53.9998 0.7965 53.9998 26 0 26"></polygon>
+        <polygon id="path-3" points="0.9687 0.011 33.0317 0.011 33.0317 25.8006 0.9687 25.8006"></polygon>
+    </defs>
+    <g id="icon-/-product-logo-/-64x64px-/-maps-/-color-reverse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-11" transform="translate(5.000000, 5.000000)">
+            <path d="M27,36.3109 C27,36.3109 34.301,32.6269 39.049,26.7849 L34.822,23.6159 C30.188,20.1389 23.812,20.1389 19.178,23.6159 L14.951,26.7849 C19.699,32.6269 27,36.3109 27,36.3109" id="Fill-1" fill="#343741"></path>
+            <path d="M27,36.3109 C27,36.3109 34.301,32.6269 39.049,26.7849 L34.822,23.6159 C30.188,20.1389 23.812,20.1389 19.178,23.6159 L14.951,26.7849 C19.699,32.6269 27,36.3109 27,36.3109" id="Fill-3" fill="#FFFFFF"></path>
+            <g id="Group-7" transform="translate(0.000000, 28.989000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-6"></g>
+                <path d="M43.0488,0.7965 C41.7098,2.4735 40.1158,4.1125 38.2598,5.6945 C33.8438,9.4605 29.4318,11.6955 29.2448,11.7895 L26.9998,12.9185 L24.7548,11.7895 C24.5688,11.6955 20.1558,9.4605 15.7398,5.6945 C13.8838,4.1125 12.2898,2.4735 10.9508,0.7965 L-0.0002,9.0095 L19.1778,23.3925 C23.8128,26.8695 30.1878,26.8695 34.8218,23.3925 L53.9998,9.0095 L43.0488,0.7965 Z" id="Fill-5" fill="#FA744E" mask="url(#mask-2)"></path>
+            </g>
+            <g id="Group-10" transform="translate(10.000000, 0.989000)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Clip-9"></g>
+                <path d="M9.1777,22.6266 C13.8127,19.1496 20.1877,19.1496 24.8227,22.6266 L29.0547,25.8006 C31.3377,22.9926 33.0317,19.6856 33.0317,16.0426 C33.0317,7.1886 25.8537,0.0106 16.9997,0.0106 C8.1467,0.0106 0.9687,7.1886 0.9687,16.0426 C0.9687,19.6856 2.6617,22.9926 4.9457,25.8006 L9.1777,22.6266 Z" id="Fill-8" fill="#1BA9F5" mask="url(#mask-4)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
