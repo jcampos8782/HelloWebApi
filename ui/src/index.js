@@ -11,17 +11,8 @@ import { light, dark } from './styles/themes';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import drawerItems from './drawerItems';
+import properties from './properties';
 import * as serviceWorker from './serviceWorker';
-
-const properties = {
-  title: '.NET Core + ReactJS w/ Material-UI',
-  todoList: {
-    apiEndpoint: 'http://192.168.86.31:5000/api/todoitems',
-    heading: 'To-Do List',
-    hintText: 'Don\'t forget to...',
-  }
-}
 
 class App extends React.Component {
 
@@ -62,7 +53,7 @@ class App extends React.Component {
             <ManagementDrawer
               anchor="right" // TODO: Move this to the left!
               open={this.state.drawerOpen}
-              drawerItems={drawerItems}
+              drawerItems={properties.drawer.items}
             />
             <ToDoList
               title={properties.todoList.header}
