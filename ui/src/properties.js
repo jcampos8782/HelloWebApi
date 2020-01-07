@@ -1,3 +1,8 @@
+/*
+  This file should be a flat json file called properties.json or config.json or something
+  to that extent. However, create-react-app comes with webpack already preconfigured
+  and ignores webpack.config.json in the project root. For now, leave this here. 
+*/
 export default
 {
   title: '.NET Core + ReactJS w/ Material-UI',
