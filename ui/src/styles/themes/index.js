@@ -6,9 +6,6 @@ export const light = createMuiTheme({
   palette: {
     type: 'light',
     // Customize the colors
-    secondary: {
-      main: '#f48fb1'
-    },
     warning: {
       main: '#ffc107',
     },
