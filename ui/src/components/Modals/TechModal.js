@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+// TODO: refactor
 const useStyles = makeStyles(theme => ({
   root: {
     display:'flex',
@@ -44,46 +45,21 @@ const useStyles = makeStyles(theme => ({
 
 export default function(props) {
   const classes = useStyles();
+  console.log("rendering tech modal!");
   return (
     <Modal
+      key="technology_modal"
+      id="technology_modal"
       className={classes.root}
       open={props.open}
       onClose={props.onClose}
     >
       <Container>
         <Typography variant='h5'>
-          {props.contact.name}
+          Coming soon!
         </Typography>
         <Typography paragraph variant="overline">
-          {props.title}
         </Typography>
-
-        {
-          props.description.map((paragraph,i) => (
-            <Typography paragraph variant="caption"
-              key={i}
-              className={classes.text}
-            >
-              {paragraph}
-            </Typography>
-          ))
-        }
-
-        <Avatar
-          alt={props.contact.name}
-          src={props.avatar}
-          className={classes.avatar}
-        />
-
-        <a href={props.contact.linkedin} target='_new'>
-          <Icon className="fab fa-linkedin" />
-        </a>
-        <a href={props.contact.github} target='_new'>
-          <Icon className="fab fa-github" />
-        </a>
-        <a href={`mailto:{props.contact.mail}`} target='_new'>
-          <Icon className="far fa-envelope" />
-        </a>
       </Container>
     </Modal>
   );

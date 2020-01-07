@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import AboutModal from './components/AboutModal';
+import {AboutModal,CopyrightModal,TechModal} from './components/Modals';
 import BottomNav from './components/BottomNav';
 import ManagementDrawer from './components/ManagementDrawer';
 import TopNav from './components/TopNav';
@@ -22,7 +22,7 @@ class App extends React.Component {
       this.state = {
         useDarkTheme: props.theme === 'dark',
         drawerOpen: true,
-        modalOpen: false
+        openModel: null
       }
   }
 
@@ -53,21 +53,36 @@ class App extends React.Component {
 
             <BottomNav
               onAboutClick={() =>
-                this.setState({modalOpen:true})
+                this.setState({ openModal: 'about' })
               }
-              onTechnologiesClick={() => null }
-              onCopyrightClick={() => null }
+
+              onTechnologiesClick={() =>
+                this.setState({ openModal: 'technologies' })
+              }
+
+              onCopyrightClick={() =>
+                this.setState({ openModal: 'copyright' })
+              }
             />
 
-            <AboutModal {...properties.modals.about}
+            <AboutModal {...this.props.modals.about}
+              key="about_modal"
               contact={this.props.contact}
-              open={this.state.modalOpen}
+              open={this.state.openModal === 'about'}
               avatar={this.props.avatars.default}
-              onClose={() =>
-                this.setState({
-                  modalOpen: false
-                })
-              }
+              onClose={() => this.setState({openModal: null})}
+            />
+
+            <TechModal {...this.props.modals.technologies}
+              key="tech_modal"
+              open={this.state.openModal === 'technologies'}
+              onClose={() => this.setState({openModal: null})}
+            />
+
+            <CopyrightModal {...this.props.modals.copyright}
+              key="copyright_modal"
+              open={this.state.openModal === 'copyright'}
+              onClose={() => this.setState({openModal: null})}
             />
           </ThemeProvider>
         </div>

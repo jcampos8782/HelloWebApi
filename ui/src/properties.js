@@ -21,8 +21,8 @@ export default
   },
   modals: {
     about: {
-      'title': 'Software Solutions Architect',
-      'description': [
+      title: 'Software Solutions Architect',
+      description: [
         `I have been writing code for over twenty years. I began by creating small websites for
           my gaming clans as a teenager and eventually earned by Bachelor's degree in Computer Science
           from San Jose State University, earning a Cum Laude distinction with a 3.89 GPA.`,
@@ -35,6 +35,12 @@ export default
         `Please visit my LinkedIn profile, Github page, or send me an e-mail if you would like
           to get in contact for any reason.`,
       ]
+    },
+    copyright: {
+      holder: 'Jason D. Campos',
+    },
+    technologies: {
+
     }
   },
   drawer: {
