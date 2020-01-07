@@ -15,6 +15,13 @@ const styles = theme => ({
       position: 'relative',
       top: 6,
     }
+  },
+  switch: {
+    position: 'absolute',
+    right: '0%',
+    marginTop: 5,
+    marginRight: 5,
+    width: 'fit-content',
   }
 });
 

@@ -4,8 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
+import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 
 export default class TopNav extends React.Component {
@@ -30,6 +32,24 @@ export default class TopNav extends React.Component {
               </IconButton>
             </Tooltip>
           </Container>
+
+          <Grid className={classes.switch} container alignItems="center" spacing={1}>
+            <Grid item>
+              <Icon className="fas fa-sun" />
+            </Grid>
+            <Grid item>
+              <Switch
+                id="theme-switch"
+                checked={this.props.switchOn}
+                onChange={this.props.onSwitchToggle}
+                value="theme"
+                color="secondary"
+              />
+            </Grid>
+            <Grid item>
+              <Icon className="fas fa-moon" />
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
     );

@@ -33,7 +33,13 @@ class App extends React.Component {
         <div>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <TopNav title={this.props.title} />
+            <TopNav
+              title={this.props.title}
+              switchOn={this.state.useDarkTheme}
+              onSwitchToggle={() =>
+                this.setState({useDarkTheme: !this.state.useDarkTheme})
+              }
+            />
             <ManagementDrawer
               anchor={this.props.drawer.anchor}
               open={this.state.drawerOpen}
@@ -49,12 +55,8 @@ class App extends React.Component {
               onAboutClick={() =>
                 this.setState({modalOpen:true})
               }
-              onTechnologiesClick={() =>
-                this.setState({modalOpen:true})
-              }
-              onThemeClick={() =>
-                this.setState({useDarkTheme: !this.state.useDarkTheme})
-              }
+              onTechnologiesClick={() => null }
+              onCopyrightClick={() => null }
             />
 
             <AboutModal {...properties.modals.about}

@@ -20,9 +20,9 @@ export default class BottomNav extends React.Component {
           onClick={this.props.onTechnologiesClick}
         />
         <BottomNavigationAction
-          label="Theme"
-          icon={<Icon className='fas fa-sun'  />}
-          onClick={this.props.onThemeClick}
+          label="Copyright"
+          icon={<Icon className='fas fa-copyright'  />}
+          onClick={this.props.onCopyrightClick}
         />
       </BottomNavigation>
     );
