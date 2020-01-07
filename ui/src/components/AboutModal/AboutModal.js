@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
     marginRight: 10,
     top: 8
   },
+  text: {
+    textAlign: 'justify',
+  }
 }));
 
 export default function(props) {
@@ -51,9 +54,20 @@ export default function(props) {
         <Typography variant='h5'>
           {props.contact.name}
         </Typography>
-        <Typography paragraph>
-          {props.text}
+        <Typography paragraph variant="overline">
+          {props.title}
         </Typography>
+
+        {
+          props.description.map((paragraph,i) => (
+            <Typography paragraph variant="caption"
+              key={i}
+              className={classes.text}
+            >
+              {paragraph}
+            </Typography>
+          ))
+        }
 
         <Avatar
           alt={props.contact.name}

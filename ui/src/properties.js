@@ -21,7 +21,20 @@ export default
   },
   modals: {
     about: {
-      'text': 'Software Solutions Architect'
+      'title': 'Software Solutions Architect',
+      'description': [
+        `I have been writing code for over twenty years. I began by creating small websites for
+          my gaming clans as a teenager and eventually earned by Bachelor's degree in Computer Science
+          from San Jose State University, earning a Cum Laude distinction with a 3.89 GPA.`,
+
+        `I have worked professionally as a full stack application developer for over ten years,
+          primarily working with healthcare software. I have experience with dozens of different
+          types of technologies from all levels of the application stack, from RDBMS to UI to
+          configuration management to deployment and containerization.`,
+
+        `Please visit my LinkedIn profile, Github page, or send me an e-mail if you would like
+          to get in contact for any reason.`,
+      ]
     }
   },
   drawer: {
