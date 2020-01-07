@@ -1,5 +1,10 @@
 import React from 'react';
+
+import Avatar from '@material-ui/core/Avatar';
+import Container from '@material-ui/core/Container';
+import Icon from '@material-ui/core/Icon';
 import Modal from '@material-ui/core/Modal';
+import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -11,34 +16,61 @@ const useStyles = makeStyles(theme => ({
     top: '50%',
     margin: 'auto',
     width: 400,
-    height: 300,
+    height: 'fit-content',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     '& > div': {
       outline: 'none',
-    }
+      '& > a': {
+        color: theme.palette.info.light,
+        marginRight: 10
+      },
+      '& > p': {
+        marginBottom: 5,
+      }
+    },
+  },
+  avatar: {
+    display: 'inline-block',
+    marginRight: 10,
+    top: 8
   },
 }));
 
 export default function(props) {
   const classes = useStyles();
-
   return (
     <Modal
       className={classes.root}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
       open={props.open}
       onClose={props.onClose}
     >
-      <div>
-        <h2 id="simple-modal-title">Coming soon!</h2>
-        <p id="simple-modal-description">
+      <Container>
+        <Typography variant='h5'>
+          {props.contact.name}
+        </Typography>
+        <Typography paragraph>
+          {props.text}
+        </Typography>
 
-        </p>
-      </div>
+        <Avatar
+          alt={props.contact.name}
+          src={props.avatar}
+          className={classes.avatar}
+        />
+
+        <a href={props.contact.linkedin} target='_new'>
+          <Icon className="fab fa-linkedin" />
+        </a>
+        <a href={props.contact.github} target='_new'>
+          <Icon className="fab fa-github" />
+        </a>
+        <a href={`mailto:{props.contact.mail}`} target='_new'>
+          <Icon className="far fa-envelope" />
+        </a>
+      </Container>
     </Modal>
   );
 }

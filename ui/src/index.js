@@ -57,13 +57,16 @@ class App extends React.Component {
               }
             />
 
-            <AboutModal
+            <AboutModal {...properties.modals.about}
+              contact={this.props.contact}
               open={this.state.modalOpen}
+              avatar={this.props.avatars.default}
               onClose={() =>
                 this.setState({
                   modalOpen: false
                 })
-            } />
+              }
+            />
           </ThemeProvider>
         </div>
     )

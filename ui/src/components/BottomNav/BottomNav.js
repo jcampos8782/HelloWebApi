@@ -10,8 +10,8 @@ export default class BottomNav extends React.Component {
     return (
       <BottomNavigation showLabels className={this.props.classes.root}>
         <BottomNavigationAction
-          label="About"
-          icon={<Icon className='fas fa-bars' />}
+          label="Developer"
+          icon={<Icon className='fas fa-glasses' />}
           onClick={this.props.onAboutClick}
         />
         <BottomNavigationAction
