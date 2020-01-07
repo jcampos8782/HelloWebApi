@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {AboutModal,CopyrightModal,TechModal} from './components/Modals';
+import * as Modals from './components/Modals';
 import BottomNav from './components/BottomNav';
 import ManagementDrawer from './components/ManagementDrawer';
 import TopNav from './components/TopNav';
@@ -44,7 +44,9 @@ class App extends React.Component {
               anchor={this.props.drawer.anchor}
               open={this.state.drawerOpen}
               drawerItems={this.props.drawer.items}
+              loginAction={() => this.setState({ openModal: 'login' })}
             />
+
             <ToDoList
               title={this.props.todoList.heading}
               defaultText={this.props.todoList.hintText}
@@ -65,22 +67,24 @@ class App extends React.Component {
               }
             />
 
-            <AboutModal {...this.props.modals.about}
-              key="about_modal"
+            <Modals.About {...this.props.modals.about}
               contact={this.props.contact}
               open={this.state.openModal === 'about'}
               avatar={this.props.avatars.default}
               onClose={() => this.setState({openModal: null})}
             />
 
-            <TechModal {...this.props.modals.technologies}
-              key="tech_modal"
+            <Modals.Tech {...this.props.modals.technologies}
               open={this.state.openModal === 'technologies'}
               onClose={() => this.setState({openModal: null})}
             />
 
-            <CopyrightModal {...this.props.modals.copyright}
-              key="copyright_modal"
+            <Modals.Login {...this.props.modals.login}
+              open={this.state.openModal === 'login'}
+              onClose={() => this.setState({openModal: null})}
+            />
+
+            <Modals.Copyright {...this.props.modals.copyright}
               open={this.state.openModal === 'copyright'}
               onClose={() => this.setState({openModal: null})}
             />

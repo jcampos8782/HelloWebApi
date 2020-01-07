@@ -43,11 +43,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function(props) {
   const classes = useStyles();
-  console.log("rendering copyright modal");
   return (
     <Modal
-      key="copyright_modal"
-      id="copyright_modal"
       className={classes.root}
       open={props.open}
       onClose={props.onClose}

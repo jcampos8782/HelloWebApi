@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
-import Icon from '@material-ui/core/Icon';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 
@@ -45,11 +43,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function(props) {
   const classes = useStyles();
-  console.log("rendering tech modal!");
   return (
     <Modal
-      key="technology_modal"
-      id="technology_modal"
       className={classes.root}
       open={props.open}
       onClose={props.onClose}

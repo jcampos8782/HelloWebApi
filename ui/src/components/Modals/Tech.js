@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Avatar from '@material-ui/core/Avatar';
 import Container from '@material-ui/core/Container';
-import Icon from '@material-ui/core/Icon';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 
@@ -45,7 +43,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function(props) {
   const classes = useStyles();
-  console.log("rendering about modal");
   return (
     <Modal
       className={classes.root}
@@ -54,38 +51,10 @@ export default function(props) {
     >
       <Container>
         <Typography variant='h5'>
-          {props.contact.name}
+          Coming soon!
         </Typography>
         <Typography paragraph variant="overline">
-          {props.title}
         </Typography>
-
-        {
-          props.description.map((paragraph,i) => (
-            <Typography paragraph variant="caption"
-              key={i}
-              className={classes.text}
-            >
-              {paragraph}
-            </Typography>
-          ))
-        }
-
-        <Avatar
-          alt={props.contact.name}
-          src={props.avatar}
-          className={classes.avatar}
-        />
-
-        <a href={props.contact.linkedin} target='_new'>
-          <Icon className="fab fa-linkedin" />
-        </a>
-        <a href={props.contact.github} target='_new'>
-          <Icon className="fab fa-github" />
-        </a>
-        <a href={`mailto:{props.contact.mail}`} target='_new'>
-          <Icon className="far fa-envelope" />
-        </a>
       </Container>
     </Modal>
   );
