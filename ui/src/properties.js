@@ -40,7 +40,68 @@ export default
       holder: 'Jason D. Campos',
     },
     technologies: {
-
+      title: 'Powered By',
+      sections: [
+        {
+          title: 'Front End',
+          items: [
+            {
+              name: 'ReactJS',
+              url: 'http://reactjs.org',
+            },
+            {
+              name: 'Material-UI',
+              url: 'http://material-ui.com',
+            },
+            {
+              name: 'Sass',
+              url: 'http://sass-lang.com',
+            },
+          ]
+        },
+        {
+          title: 'Back End',
+          items: [
+            {
+              name: '.NET Core',
+              url: 'https://docs.microsoft.com/en-us/dotnet/core/'
+            },
+            {
+              name: 'MySQL',
+              url: 'https://www.mysql.com/'
+            }
+          ]
+        },
+        {
+          title: 'Infrastructure & Monitoring',
+          items: [
+            {
+              name: "AWS",
+              url: "http://aws.amazon.com",
+            },
+            {
+              name: 'Docker',
+              url: 'http://docker.io',
+            },
+            {
+              name: 'Kubernetes',
+              url: 'http://kubernetes.io'
+            },
+            {
+              name: 'Elastic',
+              url: 'http://elastic.co',
+            },
+            {
+              name: 'RabbitMQ',
+              url: 'http://www.rabbitmq.com'
+            },
+            {
+              name: 'Consul',
+              url: 'http://www.consul.io'
+            }
+          ]
+        },
+      ]
     }
   },
   drawer: {
@@ -69,7 +130,7 @@ export default
             subtext: 'Event Queue',
             location: 'http://localhost:15672',
             avatar: '/images/rabbitmq.svg',
-          }
+          },
         ]
       }
     ]

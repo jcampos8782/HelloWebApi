@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent:'center',
     top: '50%',
     margin: 'auto',
-    width: 400,
+    width: 600,
     height: 'fit-content',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
@@ -22,23 +23,23 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 4, 3),
     '& > div': {
       outline: 'none',
-      '& > a': {
-        color: theme.palette.info.light,
-        marginRight: 10
-      },
       '& > p': {
         marginBottom: 5,
       }
     },
   },
-  avatar: {
-    display: 'inline-block',
-    marginRight: 10,
-    top: 8
+  sections: {
+    marginBottom: 10,
   },
-  text: {
-    textAlign: 'justify',
-  }
+  gridRow: {
+      marginTop: -24,
+      marginBottom: 10,
+      textDecoration: 'none',
+      '& a': {
+        color: theme.palette.info.light,
+        marginRight: 10
+      }
+    }
 }));
 
 export default function(props) {
@@ -51,10 +52,39 @@ export default function(props) {
     >
       <Container>
         <Typography variant='h5'>
-          Coming soon!
+          {props.title}
         </Typography>
-        <Typography paragraph variant="overline">
-        </Typography>
+
+        {
+          props.sections.map((section,i) => {
+            let section_key = `section_${section.title.replace(' ', '_').toLowerCase()}`;
+            return (
+              <Container className={classes.section} key={section_key}>
+                <Typography paragraph variant="overline">
+                  {section.title}
+                </Typography>
+                <Grid container spacing={1} className={classes.gridRow} >
+                {
+                  section.items.map(item => {
+                    let k = `${section_key}_${item.name.replace(' ', '_').toLowerCase()}`;
+
+                    return (
+                      <Grid item key={k} xs={4} sm={4} >
+                        <Typography className={classes.technology} variant="body1">
+                          <a href={item.url} target="_new">
+                            {item.name}
+                          </a>
+                        </Typography>
+                      </Grid>
+                    )
+                  })
+                }
+                </Grid>
+              </Container>
+            );
+          }
+          )
+        }
       </Container>
     </Modal>
   );
