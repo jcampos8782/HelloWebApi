@@ -1,14 +1,14 @@
 /*
   This file should be a flat json file called properties.json or config.json or something
   to that extent. However, create-react-app comes with webpack already preconfigured
-  and ignores webpack.config.json in the project root. For now, leave this here. 
+  and ignores webpack.config.json in the project root. For now, leave this here.
 */
 export default
 {
   title: '.NET Core + ReactJS w/ Material-UI',
   theme: 'dark',
   todoList: {
-    apiEndpoint: 'http://192.168.86.31:5000/api/todoitems',
+    apiEndpoint: `${process.env.REACT_APP_TODO_URL}/api/todoitems`,
     heading: 'To-Do List',
     hintText: 'Don\'t forget to...',
   },
@@ -119,21 +119,21 @@ export default
             id: 'kibana',
             text: 'Kibana',
             subtext: 'Monitoring & Dashboards',
-            location: 'http://localhost:5601',
+            location: `${process.env.REACT_APP_TODO_URL}`,
             avatar: '/images/elastic/color/logo-kibana-64-color.svg'
           },
           {
             id: 'consul',
             text: 'Consul',
             subtext: 'Configuration management',
-            location: 'http://localhost:8500/ui',
+            location: `${process.env.REACT_APP_TODO_URL}/ui`,
             avatar: '/images/hashicorp/consul/Logos/SVG/Vertical Logos/Full Color/Consul_VerticalLogo_FullColor.svg',
           },
           {
             id: 'rmq',
             text: 'RabbitMQ',
             subtext: 'Event Queue',
-            location: 'http://localhost:15672',
+            location: `${process.env.REACT_APP_TODO_URL}`,
             avatar: '/images/rabbitmq.svg',
           },
         ]

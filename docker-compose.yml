@@ -2,7 +2,19 @@
 version: "3.7"
 services:
 
-   app:
+    ui:
+      build: ./ui
+      environment:
+        - REACT_APP_TODO_URL=http://app:5000
+        - REACT_APP_CONSUL_URL=http://consul:8500
+        - REACT_APP_KIBANA_URL=http://kib01:5601
+        - REACT_APP_RABBITMQ_URL=http://rabbitmq:15672
+      ports:
+        - "8080:80"
+      depends_on:
+        - app
+
+    app:
       build: ./services/HelloWebApi
       environment:
          - CONSUL_HOST=http://consul:8500
@@ -14,74 +26,74 @@ services:
          - consul
          - rabbitmq
 
-   mysql:
+    mysql:
       build: ./dev/db
       ports:
          - "3306:3306"
       environment:
          - MYSQL_ROOT_PASSWORD=password
 
-   rabbitmq:
+    rabbitmq:
       build: ./dev/rmq
       hostname: rmq01
       ports:
          - "15672:15672" # Admin UI
 
-   consul:
+    consul:
       image: consul:1.6.2
       ports:
          - "8500:8500" # UI
       environment:
          - CONSUL_BIND_INTERFACE=eth0
 
-   consul-importer:
+    consul-importer:
       build: ./dev/consul
       depends_on:
          - consul
 
    # ES dev example from https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-docker.html
-   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
-    container_name: es01
-    environment:
-      - node.name=es01
-      - cluster.name=es-docker-cluster
-      - cluster.initial_master_nodes=es01
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    ports:
-      - 9200:9200
-    networks:
-      - elastic
+    es01:
+      image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
+      container_name: es01
+      environment:
+        - node.name=es01
+        - cluster.name=es-docker-cluster
+        - cluster.initial_master_nodes=es01
+        - bootstrap.memory_lock=true
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      ulimits:
+        memlock:
+          soft: -1
+          hard: -1
+      ports:
+        - 9200:9200
+      networks:
+        - elastic
 
-   kib01:
-    image: docker.elastic.co/kibana/kibana:7.5.1
-    container_name: kib01
-    ports:
-      - 5601:5601
-    environment:
-      ELASTICSEARCH_URL: http://es01:9200
-      ELASTICSEARCH_HOSTS: http://es01:9200
-    networks:
-      - elastic
+    kib01:
+      image: docker.elastic.co/kibana/kibana:7.5.1
+      container_name: kib01
+      ports:
+        - 5601:5601
+      environment:
+        ELASTICSEARCH_URL: http://es01:9200
+        ELASTICSEARCH_HOSTS: http://es01:9200
+      networks:
+        - elastic
 
-   logstash:
-     build: ./dev/logstash
-     depends_on:
-       - es01
-       - rabbitmq
-     networks:
-       - default
-       - elastic
+    logstash:
+      build: ./dev/logstash
+      depends_on:
+        - es01
+        - rabbitmq
+      networks:
+        - default
+        - elastic
 
 networks:
-   elastic:
+  elastic:
     driver: bridge
 
 configs:
-   rmq_plugins:
-      file: ./dev/rmq/enabled_plugins
+  rmq_plugins:
+    file: ./dev/rmq/enabled_plugins

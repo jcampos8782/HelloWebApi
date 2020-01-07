@@ -11,8 +11,8 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
 
-import Container from '@material-ui/core/container'
-import Paper from '@material-ui/core/paper'
+import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
