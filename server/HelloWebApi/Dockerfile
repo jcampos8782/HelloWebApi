@@ -5,7 +5,7 @@ COPY *.sln .
 COPY app/*.csproj ./app/
 RUN dotnet restore
 
-COPY app/. ./app/
+COPY ./app ./app/
 WORKDIR /HelloWebApi/app
 RUN dotnet publish -c Release -o bld
 
