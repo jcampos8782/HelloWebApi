@@ -15,9 +15,21 @@ export default class TopNav extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <Typography variant="h5">
-            {this.props.title}
-          </Typography>
+          <Container className={classes.container}>
+            <Typography variant='h4'>Apps</Typography>
+
+            <Tooltip title="To-Do List">
+              <IconButton edge="end" aria-label="todo-list">
+                <Icon className='fas fa-list' />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="More Apps Coming Soon!">
+              <IconButton edge="end" aria-label="coming-soon">
+                <Icon className='fas fa-ellipsis-h' />
+              </IconButton>
+            </Tooltip>
+          </Container>
         </Toolbar>
       </AppBar>
     );

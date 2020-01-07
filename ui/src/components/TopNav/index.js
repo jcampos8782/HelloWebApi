@@ -2,10 +2,18 @@ import TopNav from './TopNav';
 import {withStyles} from '@material-ui/core/styles';
 
 const styles = theme => ({
-  toolbar: {
-    '& > h5': {
-      left: 225,
-      position: 'relative'
+  container: {
+    left: 225,
+    position: 'absolute',
+    width: 'fit-content',
+    '& > button': {
+      marginLeft: 20,
+      color: theme.palette.secondary.light,
+    },
+    '& > h4': {
+      display: 'inline-block',
+      position: 'relative',
+      top: 6,
     }
   }
 });
