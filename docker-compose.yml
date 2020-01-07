@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
    app:
-      build: ./server/HelloWebApi
+      build: ./services/HelloWebApi
       environment:
          - CONSUL_HOST=http://consul:8500
          - CONSUL_KEY=hello-web-api/master
