@@ -1,14 +1,8 @@
-# For quick iteration/development using docker-compose
-version: "3.7"
+version: "3"
 services:
 
     ui:
       build: ./ui
-      environment:
-        - REACT_APP_TODO_URL=http://app:5000
-        - REACT_APP_CONSUL_URL=http://consul:8500
-        - REACT_APP_KIBANA_URL=http://kib01:5601
-        - REACT_APP_RABBITMQ_URL=http://rabbitmq:15672
       ports:
         - "8080:80"
       depends_on:
@@ -93,7 +87,3 @@ services:
 networks:
   elastic:
     driver: bridge
-
-configs:
-  rmq_plugins:
-    file: ./dev/rmq/enabled_plugins
