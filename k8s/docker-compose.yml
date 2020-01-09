@@ -1,0 +1,30 @@
+version: "3"
+services:
+
+    ui:
+      build: ../ui
+      ports:
+        - "8080:80"
+
+    app:
+      build: ../services/HelloWebApi
+      environment:
+         - CONSUL_HOST=http://consul:8500
+         - CONSUL_KEY=hello-web-api/master
+      ports:
+         - "5000:80"
+
+    consul:
+      image: consul:1.6.2
+      ports:
+         - "8500:8500" # UI
+      environment:
+         - CONSUL_BIND_INTERFACE=eth0
+
+    mysql:
+      build: ../dev/db
+      ports:
+        - "3306:3306"
+      environment:
+        - "MYSQL_ROOT_PASSWORD=password"
+        - "MYSQL_DATABASE=hello_web_api"

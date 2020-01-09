@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert --file=../docker-compose.yml
+    kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
@@ -23,10 +23,12 @@ spec:
           value: http://consul:8500
         - name: CONSUL_KEY
           value: hello-web-api/master
-        image: app
+        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/app:latest
         name: app
         ports:
         - containerPort: 80
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: aws-ecr
 status: {}

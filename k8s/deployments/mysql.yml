@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert --file=../docker-compose.yml
+    kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
@@ -21,10 +21,14 @@ spec:
       - env:
         - name: MYSQL_ROOT_PASSWORD
           value: password
-        image: mysql
+        - name: MYSQL_DATABASE
+          value: hello_web_api
+        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/db:latest
         name: mysql
         ports:
         - containerPort: 3306
         resources: {}
       restartPolicy: Always
+      imagePullSecrets:
+        - name: aws-ecr
 status: {}
