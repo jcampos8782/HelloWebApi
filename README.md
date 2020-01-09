@@ -10,6 +10,10 @@ This is a sample application using .NET Core services with a ReactJS UI. This pr
 ## Components
 All required and optional components are included with this project.
 
+Runtime Platforms:
+* Docker
+* Kubernetes
+
 Primary Components:
 * React/Material-UI UI
 * .NET Core To-Do List Service
@@ -33,8 +37,6 @@ Optional Infrastructure Components:
 #### Future Enhancements
 
 * Kubernetes
-  * Deployment & Service Definitions
-  * Setup scripts or Tasks
   * AWS EKS
 * Terraform - Deploy to AWS EKS and RDS with Terraform
 * Data streams - Push changes to Kafka or RabbitMQ to feed into cache and search stacks
@@ -96,8 +98,4 @@ OR create it from the RabbitMQ admin UI http://localhost:15672
 
 ### Kubernetes
 
-As noted above, seemless bootstrapping of this application and its components as a
-kubernetes cluster is under development. For now, the steps are as follows (more
-  documentation coming soon!)
-
-Check out the `k8s` folder for up to date status of Kubernetes support.
+Check out the `k8s` folder for a guide on running this application on a Kube cluster.

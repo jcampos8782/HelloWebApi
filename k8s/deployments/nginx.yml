@@ -6,8 +6,8 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: app
-  name: app
+    io.kompose.service: nginx
+  name: nginx
 spec:
   replicas: 1
   strategy: {}
@@ -15,15 +15,12 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: app
+        io.kompose.service: nginx
+    spec:
       containers:
       - env:
-        - name: CONSUL_HOST
-          value: http://consul:8500
-        - name: CONSUL_KEY
-          value: hello-web-api/master
-        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/app:latest
-        name: app
+        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/nginx:latest
+        name: nginx
         ports:
         - containerPort: 80
         resources: {}

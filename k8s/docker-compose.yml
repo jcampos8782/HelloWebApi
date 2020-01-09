@@ -28,3 +28,6 @@ services:
       environment:
         - "MYSQL_ROOT_PASSWORD=password"
         - "MYSQL_DATABASE=hello_web_api"
+
+    nginx:
+      build: ../dev/nginx
