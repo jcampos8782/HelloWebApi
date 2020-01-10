@@ -1,33 +1,28 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
     io.kompose.service: app
   name: app
 spec:
-  replicas: 1
-  strategy: {}
+  replicas: 3
   template:
     metadata:
-      creationTimestamp: null
       labels:
         io.kompose.service: app
+    spec:
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: aws-ecr
+        
       containers:
-      - env:
+      - name: app
+        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/app:latest
+        ports:
+          - containerPort: 80
+        env:
         - name: CONSUL_HOST
           value: http://consul:8500
         - name: CONSUL_KEY
           value: hello-web-api/master
-        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/app:latest
-        name: app
-        ports:
-        - containerPort: 80
-        resources: {}
-      restartPolicy: Always
-      imagePullSecrets:
-        - name: aws-ecr
-status: {}
