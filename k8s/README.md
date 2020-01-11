@@ -15,7 +15,7 @@ the of where you will be running this app (localhost for me) OR you will need to
 update `ui/.env.production.local` and change the `REACT_APP_TODO_URL`. The value is
 established at *build* time, so do so *before* you build the images. For me, its just
 easier to make changes to my host file :). If you want to get really fancy, you
-could stand up a DNS server but that seemed like overkill for development purposes. 
+could stand up a DNS server but that seemed like overkill for development purposes.
 
 ## Notes
 I am using an Amazon ECR in us-west-1 for my container registry. Use the AWS CLI to log in to the registry:
@@ -101,3 +101,27 @@ but it does provide some flexibility and retains portability to other cloud prov
 GCS or Azure.
 
 * Terraform ALL THE THINGS!
+
+# AWS Notes
+This can be easily run in AWS but takes a bit of setup either in the AWS Console
+or via the CLI. I still haven't figured out why the load balancer wasn't forwarding
+to my nginx container like I thought it would, but that can be the next step. For now,
+`kubectl port-forward` to the nginx pod confirmed that the application was functioning
+in the pod.
+
+A list of steps to get this running on AWS
+* Create an EKS cluster
+* Create IAM role with necessary permissions if one does not already exist
+  * https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html
+* Create NodeGroup for workers. Note the number of TCP ports available on the
+instance size when creating the workers as this will limit the number of pods that
+can run on any particular instance.
+* Add context to ~/.kube/config   
+  * https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+* Load balancer: TODO
+
+Next steps:
+* Get a load balancer working. ALB? Or NLB w/ nginx Ingress?
+* Delete all IAM roles and groups and start over from scratch. Note each step
+so that it can be terraformed.
+* It would be nice to use RDS instead of a mysql deployment... lets get it all terraformed first though!
