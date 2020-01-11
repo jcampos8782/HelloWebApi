@@ -6,7 +6,7 @@ metadata:
     io.kompose.service: app
   name: app
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,7 +15,7 @@ spec:
       restartPolicy: Always
       imagePullSecrets:
         - name: aws-ecr
-        
+
       containers:
       - name: app
         image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/app:latest
