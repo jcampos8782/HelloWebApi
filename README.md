@@ -98,4 +98,4 @@ OR create it from the RabbitMQ admin UI http://localhost:15672
 
 ### Kubernetes
 
-Check out the `k8s` folder for a guide on running this application on a Kube cluster.
+Check out the `deploy/k8s` folder for a guide on running this application on a Kube cluster.
