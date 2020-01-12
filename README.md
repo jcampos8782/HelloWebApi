@@ -2,6 +2,8 @@
 
 This is a sample application using .NET Core services with a ReactJS UI. This project uses Docker for local development and is simple to bootstrap and begin playing with.
 
+This project includes Kubernetes and Terraform definitions for running this application on AWS (See the `deploy` folder).
+
 ## Screenshots
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/light.png' width=250 />
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/dark.png' width=250 />
