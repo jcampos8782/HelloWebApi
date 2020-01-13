@@ -1,9 +1,11 @@
 variable "cluster_name" {}
 variable "kubernetes_version" {}
 variable "cluster_role_arn" {}
-variable "subnet_ids" {}
 
-variable "cluster_log_types" {
+variable "cluster_subnet_ids" {}
+variable "worker_subnet_ids" {}
+
+variable "enabled_cluster_log_types" {
   default = []
 }
 

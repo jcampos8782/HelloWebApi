@@ -1,12 +1,11 @@
 resource "aws_eks_cluster" "main" {
-
   name                      = var.cluster_name
   version                   = var.kubernetes_version
-  enabled_cluster_log_types = var.cluster_log_types
+  enabled_cluster_log_types = var.enabled_cluster_log_types
   role_arn                  = var.cluster_role_arn
 
   vpc_config {
-    subnet_ids = var.subnet_ids
+    subnet_ids = var.cluster_subnet_ids
   }
 }
 
@@ -18,7 +17,7 @@ resource "aws_eks_node_group" "main" {
   node_role_arn = var.node_group_role_arn
 
   # Networking
-  subnet_ids = var.subnet_ids
+  subnet_ids = var.worker_subnet_ids
 
   # Resource allocation
   ami_type       = var.node_group_ami_type
@@ -30,4 +29,9 @@ resource "aws_eks_node_group" "main" {
     min_size     = var.node_group_min_size
     max_size     = var.node_group_max_size
   }
+
+  # Add explicit depends
+  depends_on = [
+    aws_eks_cluster.main
+  ]
 }

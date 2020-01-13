@@ -38,9 +38,17 @@ module "eks" {
   cluster_name     = var.eks_cluster_name
   cluster_role_arn = module.iam.eks_cluster_role_arn
 
-  subnet_ids = [
+  # Two public and two private subnets. Public for load balancers and
+  # public facing services. Private for all else.
+  cluster_subnet_ids = [
     module.vpc.subnet_pub01_id,
     module.vpc.subnet_pub02_id,
+    module.vpc.subnet_pvt01_id,
+    module.vpc.subnet_pvt02_id
+  ]
+
+  # Deploy worker nodes to private subnets only!
+  worker_subnet_ids = [
     module.vpc.subnet_pvt01_id,
     module.vpc.subnet_pvt02_id
   ]
