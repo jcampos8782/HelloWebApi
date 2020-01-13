@@ -12,5 +12,5 @@ fi
 
 echo ""
 echo "Importing keys to consul..."
-keys=$(cat ../dev/consul/values.json) > /dev/null
+keys=$(cat ../../dev/consul/values.json) > /dev/null
 kubectl get pods | grep consul | awk '{print $1}' | xargs -I '{}' kubectl exec {} consul kv import "$keys"
