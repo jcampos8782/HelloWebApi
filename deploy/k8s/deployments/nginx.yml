@@ -19,3 +19,9 @@ spec:
         image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/nginx:latest
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
