@@ -40,3 +40,7 @@ variable "vpc_subnet_pvt02_cidr" {
 variable "kubernetes_version" {
   default = "1.14"
 }
+
+variable "cluster_name" {
+  default = "main"
+}

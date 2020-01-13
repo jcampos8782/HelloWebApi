@@ -8,6 +8,7 @@ module "iam" {
 
 module "vpc" {
   source                = "./vpc"
+  cluster_name          = var.cluster_name
   vpc_cidr              = var.vpc_cidr
   vpc_subnet_01_az      = var.vpc_subnet_01_az
   vpc_subnet_02_az      = var.vpc_subnet_02_az
@@ -19,7 +20,7 @@ module "vpc" {
 
 module "eks" {
   source             = "./eks"
-  cluster_name       = "app-cluster"
+  cluster_name       = var.cluster_name
   kubernetes_version = var.kubernetes_version
   role_arn           = module.iam.iam_role_arn
   subnet_ids = [

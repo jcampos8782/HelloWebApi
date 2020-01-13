@@ -1,4 +1,5 @@
 variable vpc_cidr {}
+variable cluster_name {}
 variable vpc_subnet_01_az {}
 variable vpc_subnet_02_az {}
 variable vpc_subnet_pub01_cidr {}

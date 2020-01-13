@@ -1,6 +1,10 @@
 resource "aws_vpc" "main" {
   cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
+
+  tags = {
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+  }
 }
 
 # Two Public Subnets - Load Balancers
@@ -35,7 +39,8 @@ resource "aws_subnet" "subnet_pvt01" {
   cidr_block        = var.vpc_subnet_pvt01_cidr
 
   tags = {
-    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/role/internal-elb"           = "1",
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
@@ -45,7 +50,8 @@ resource "aws_subnet" "subnet_pvt02" {
   cidr_block        = var.vpc_subnet_pvt02_cidr
 
   tags = {
-    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/role/internal-elb"           = "1",
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
