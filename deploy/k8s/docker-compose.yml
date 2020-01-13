@@ -2,12 +2,12 @@ version: "3"
 services:
 
     ui:
-      build: ../ui
+      build: ../../ui
       ports:
         - "8080:80"
 
     app:
-      build: ../services/HelloWebApi
+      build: ../../services/HelloWebApi
       environment:
          - CONSUL_HOST=http://consul:8500
          - CONSUL_KEY=hello-web-api/master
@@ -22,7 +22,7 @@ services:
          - CONSUL_BIND_INTERFACE=eth0
 
     mysql:
-      build: ../dev/db
+      build: ../../dev/db
       ports:
         - "3306:3306"
       environment:
@@ -30,4 +30,4 @@ services:
         - "MYSQL_DATABASE=hello_web_api"
 
     nginx:
-      build: ../dev/nginx
+      build: ../../dev/nginx
