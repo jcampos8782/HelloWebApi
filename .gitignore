@@ -406,3 +406,4 @@ ASALocalRun/
 
 # Terraform state
 **/.terraform/*
+*.tfstate*
