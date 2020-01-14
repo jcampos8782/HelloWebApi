@@ -97,4 +97,4 @@ OR create it from the RabbitMQ admin UI http://localhost:15672
 Note the quotes... this is *not* a production application! 
 
 #### AWS
-For deployment onto the AWS Cloud, see the [deploy/k8s](./deploy/k8s) and [deploy/terraform](./deploy/terraform/aws pages.
+For deployment onto the AWS Cloud, see the [deploy/k8s](./deploy/k8s) and [deploy/terraform](./deploy/terraform/aws) pages.
