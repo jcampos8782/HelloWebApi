@@ -1,8 +1,6 @@
 # HelloWebApi
 
-This is a sample application using .NET Core services with a ReactJS UI. This project uses Docker for local development and is simple to bootstrap and begin playing with.
-
-This project includes Kubernetes and Terraform definitions for running this application on AWS (See the `deploy` folder).
+This is a sample full stack application utilizing technologies such as .NET Core, ReactJS, Material-UI, Docker, Kubernetes, and Terraform. You can have this application running on the AWS Cloud on EKS with minimal setup -- all steps are documented and the Terraform resources are all included. 
 
 ## Screenshots
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/light.png' width=250 />
@@ -12,9 +10,13 @@ This project includes Kubernetes and Terraform definitions for running this appl
 ## Components
 All required and optional components are included with this project.
 
+Terraform Cloud Support: 
+ * AWS 
+ * GCP (Coming next!)
+ 
 Runtime Platforms:
-* Docker
-* Kubernetes
+* Docker (development)
+* Kubernetes ("production")
 
 Primary Components:
 * React/Material-UI UI
@@ -38,33 +40,25 @@ Optional Infrastructure Components:
 
 #### Future Enhancements
 
-* Kubernetes
-  * AWS EKS
-* Terraform - Deploy to AWS EKS and RDS with Terraform
+* Health Checks - Health checks and monitoring
 * Data streams - Push changes to Kafka or RabbitMQ to feed into cache and search stacks
   * Caching - Some simple caching layers
   * Search - Elasticsearch support
-* Health Checks - Health checks and monitoring
 * Configuration
   * Store secrets in Vault or Docker/Kubernetes secrets API
 
 ## Getting Started
 
-It is recommended that you run this project using Docker. The provided `docker-compose.yml`
-configures custom images that will bootstrap all primary components of the application and
-spin up the optional components.
+### Development
+The provided `docker-compose.yml` configures custom images that will bootstrap all primary components of the application and
+spin up the optional components. 
 
-Alternatively, kubernetes deployment and service files are provided for running the
-required components. However, bootstrapping must be done manually (see instructions below)
-and requires some modifications to the supplied deployment files. Eventually, these
-things will be ironed out and kubernetes will be a fully supported deployment mode.
-
-### Prerequisites
+#### Prerequisites
 
 * `docker`
 * `docker-compose`
 
-### Building
+#### Building
 
 This entire project can be built and started with docker-compose:
 
@@ -91,6 +85,7 @@ The following is a list of all exposed services:
 #### Troubleshooting
 Occasionally the consul configuration store will take longer to create than the
 To-Do service and the service fails to start. If
+
 #### Configuring Logs
 The exchange for logs can only be set up once RMQ is up and running. To do so, run
 ```
@@ -98,6 +93,8 @@ docker ps | grep rabbitmq | awk {'print $1'} | xargs -I '{}' docker exec '{}' in
 ```
 OR create it from the RabbitMQ admin UI http://localhost:15672
 
-### Kubernetes
+### "Production" 
+Note the quotes... this is *not* a production application! 
 
-Check out the `deploy/k8s` folder for a guide on running this application on a Kube cluster.
+#### AWS
+For deployment onto the AWS Cloud, see the [deploy/k8s](./deploy/k8s) and [deploy/terraform](./deploy/terraform/aws pages.
