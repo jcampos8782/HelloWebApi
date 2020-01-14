@@ -5,7 +5,7 @@ This is a sample full stack application utilizing technologies such as .NET Core
 ## Screenshots
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/light.png' width=250 />
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/dark.png' width=250 />
-<img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/modal.png' width=250 />
+<img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/aws_architecture.png' width=250 />
 
 ## Components
 All required and optional components are included with this project.
