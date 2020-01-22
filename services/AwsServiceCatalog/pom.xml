@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.jsoncmpos.svc.aws</groupId>
-  <artifactId>dictionary</artifactId>
+  <artifactId>aws-service-catalog-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
