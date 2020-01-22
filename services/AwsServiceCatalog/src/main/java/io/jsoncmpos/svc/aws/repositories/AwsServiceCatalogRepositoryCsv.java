@@ -1,8 +1,7 @@
 package io.jsoncmpos.svc.aws.repositories;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,7 +22,6 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
-import io.jsoncmpos.svc.aws.App;
 import io.jsoncmpos.svc.aws.models.dao.AwsServiceCatalogItem;
 
 @Repository
@@ -75,8 +73,7 @@ public class AwsServiceCatalogRepositoryCsv implements AwsServiceCatalogReposito
 	@Override
 	@PostConstruct
 	public void init() {
-    	File file = new File(App.class.getClassLoader().getResource(this.filename).getFile());
-		try(var reader = new JsonReader(new FileReader(file))) {
+		try(var reader = new JsonReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(this.filename)))) {
 			catalogItems = new Gson().fromJson(reader, type);
 		} catch (JsonIOException | JsonSyntaxException | IOException e) {
 			e.printStackTrace();
