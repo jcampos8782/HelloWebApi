@@ -1,0 +1,1094 @@
+[
+  {
+    "name": "Amazon Athena",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "Query S3 using SQL",
+    "url": "https://aws.amazon.com/athena/"
+  },
+  {
+    "name": "Amazon Elastic Map Reduce",
+    "group": "Analytics",
+    "acronym": "EMR",
+    "description": "Managed map reduce framework.",
+    "url": "https://aws.amazon.com/emr/"
+  },
+  {
+    "name": "Amazon CloudSearch",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "Managed search for web application. Highlighting, auto-complete, and geospatial search support",
+    "url": "https://aws.amazon.com/cloudsearch/"
+  },
+  {
+    "name": "Amazon Elasticsearch Service",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "",
+    "url": "https://aws.amazon.com/elasticsearch-service/"
+  },
+  {
+    "name": "Amazon Kinesis",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "Real-time data streaming",
+    "url": "https://aws.amazon.com/kinesis/"
+  },
+  {
+    "name": "Amazon Redshift",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "Data warehouse",
+    "url": "https://aws.amazon.com/redshift/"
+  },
+  {
+    "name": "Amazon QuickSight",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "BI dashboards for browsers and mobile devices.",
+    "url": "https://aws.amazon.com/quicksight/"
+  },
+  {
+    "name": "AWS Data Pipeline",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "Process and move data between AWS resources",
+    "url": "https://aws.amazon.com/datapipeline/"
+  },
+  {
+    "name": "AWS Glue",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "ETL service. Automatically discovers data and stores associated metadata in the AWS Glue Data Catalog",
+    "url": "https://aws.amazon.com/glue/"
+  },
+  {
+    "name": "AWS Lake Formation",
+    "group": "Analytics",
+    "acronym": "",
+    "description": "Creates a centralized, curated, secure data repository in original and analytic form",
+    "url": "https://aws.amazon.com/lake-formation/"
+  },
+  {
+    "name": "Amazon Managed Streaming for Kafka",
+    "group": "Analytics",
+    "acronym": "MSK",
+    "description": "Fully managed service for building and running Kafka clusters",
+    "url": "https://aws.amazon.com/msk/"
+  },
+  {
+    "name": "AWS Step Functions",
+    "group": "Application Integration",
+    "acronym": "",
+    "description": "Coordinate services into serverless workflows and stitch together services",
+    "url": "https://aws.amazon.com/step-functions/"
+  },
+  {
+    "name": "Amazon MQ",
+    "group": "Application Integration",
+    "acronym": "",
+    "description": "Managed Apache ActiveMQ",
+    "url": "https://aws.amazon.com/amazon-mq/"
+  },
+  {
+    "name": "Amazon Simple Queue Service",
+    "group": "Application Integration",
+    "acronym": "SQS",
+    "description": "Message queue for decoupling services and systems",
+    "url": "https://aws.amazon.com/sqs/"
+  },
+  {
+    "name": "Amazon Simple Notification Service",
+    "group": "Application Integration",
+    "acronym": "SNS",
+    "description": "Pub/sub messaging that can fan out into other AWS services",
+    "url": "https://aws.amazon.com/sns/"
+  },
+  {
+    "name": "Amazom Simple Workflow",
+    "group": "Application Integration",
+    "acronym": "SWF",
+    "description": "Build, run, and scale background jobs that have parallel or sequential steps",
+    "url": "https://aws.amazon.com/swf/"
+  },
+  {
+    "name": "Amazon Sumerian",
+    "group": "AR and VR",
+    "acronym": "",
+    "description": "Create and run VR, AR, and 3D apps without requiring any specialized programming or 3D graphics expertise",
+    "url": "https://aws.amazon.com/sumerian/"
+  },
+  {
+    "name": "AWS Cost Explorer",
+    "group": "Cost Management",
+    "acronym": "",
+    "description": "Visualize, understand, and manage your AWS costs and usage over time.",
+    "url": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/"
+  },
+  {
+    "name": "AWS Budgets",
+    "group": "Cost Management",
+    "acronym": "",
+    "description": "Set custom budgets that alert you when your costs or usage exceed your budget.",
+    "url": "https://aws.amazon.com/aws-cost-management/aws-budgets/"
+  },
+  {
+    "name": "AWS Cost & Usage Report",
+    "group": "Cost Management",
+    "acronym": "",
+    "description": "Comprehensive reporter generator.",
+    "url": "https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/"
+  },
+  {
+    "name": "Reserved Instance Reporting",
+    "group": "Cost Management",
+    "acronym": "",
+    "description": "Inspect RI specific costs",
+    "url": "https://aws.amazon.com/aws-cost-management/reserved-instance-reporting/"
+  },
+  {
+    "name": "Amazon Managed Blockchain",
+    "group": "Blockchain",
+    "acronym": "",
+    "description": "Manage and create scalable blockchain networks using popular open source frameworks",
+    "url": "https://aws.amazon.com/managed-blockchain/"
+  },
+  {
+    "name": "Alexa for Business",
+    "group": "Business Applications",
+    "acronym": "",
+    "description": "Enabled organizations and employees to use Alexa",
+    "url": "https://aws.amazon.com/alexaforbusiness/"
+  },
+  {
+    "name": "Amazon WorkDocs",
+    "group": "Business Applications",
+    "acronym": "",
+    "description": "Enterprice storage and sharing service",
+    "url": "https://aws.amazon.com/workdocs/"
+  },
+  {
+    "name": "Amazon WorkMail",
+    "group": "Business Applications",
+    "acronym": "",
+    "description": "Managed email and calendar",
+    "url": "https://aws.amazon.com/workmail/"
+  },
+  {
+    "name": "Amazon Chime",
+    "group": "Business Applications",
+    "acronym": "",
+    "description": "Online meeting app",
+    "url": "https://aws.amazon.com/chime/"
+  },
+  {
+    "name": "Amazon Elastic Compute Cloud",
+    "group": "Compute",
+    "acronym": "EC2",
+    "description": "Provides virtual hosts for web applications",
+    "url": "https://aws.amazon.com/ec2/"
+  },
+  {
+    "name": "Amazon Elastic Container Registry",
+    "group": "Compute",
+    "acronym": "ECR",
+    "description": "Docker container registry",
+    "url": "https://aws.amazon.com/ecr/"
+  },
+  {
+    "name": "Amazon Elastic Container Service",
+    "group": "Compute",
+    "acronym": "ECS",
+    "description": "Container orchestration service",
+    "url": "https://aws.amazon.com/ecs/"
+  },
+  {
+    "name": "Amazon Elastic Container Service for Kubernetes",
+    "group": "Compute",
+    "acronym": "EKS",
+    "description": "Managed Kubernetes",
+    "url": "https://aws.amazon.com/eks/"
+  },
+  {
+    "name": "Amazon Lightsail",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Lightsail is ideal for simpler workloads, quick deployments, and getting started on AWS.",
+    "url": "https://aws.amazon.com/lightsail/"
+  },
+  {
+    "name": "AWS Batch",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Run batch jobs on AWS with automatic provisioning or resources",
+    "url": "https://aws.amazon.com/batch/"
+  },
+  {
+    "name": "AWS Elastic Beanstalk",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Deployment and scaling service for web applications",
+    "url": "https://aws.amazon.com/elasticbeanstalk/"
+  },
+  {
+    "name": "AWS Fargate",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Compute engine for running containers without having to manage servers or clusters.",
+    "url": "https://aws.amazon.com/fargate/"
+  },
+  {
+    "name": "AWS Lambda",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Serverless code execution engine",
+    "url": "https://aws.amazon.com/lambda/"
+  },
+  {
+    "name": "AWS Serverless Application Repository",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Deploy code samples, components, or applications for ocmmon use cases.",
+    "url": "https://aws.amazon.com/serverless/serverlessrepo/"
+  },
+  {
+    "name": "AWS Outposts",
+    "group": "Compute",
+    "acronym": "",
+    "description": "Native AWS services, infrastructure, and operating models to on-prem data center.",
+    "url": "https://aws.amazon.com/outposts/"
+  },
+  {
+    "name": "Amazon Connect",
+    "group": "Customer Engagement",
+    "acronym": "",
+    "description": "Cloud based contact center service",
+    "url": "https://aws.amazon.com/connect/"
+  },
+  {
+    "name": "Amazon Simple Email Service",
+    "group": "Customer Engagement",
+    "acronym": "SES",
+    "description": "Cloud-based email service",
+    "url": "https://aws.amazon.com/ses/"
+  },
+  {
+    "name": "Amazon Aurora",
+    "group": "Database",
+    "acronym": "",
+    "description": "MySQL and PostgreSQL compatible database engine",
+    "url": "https://aws.amazon.com/rds/aurora/"
+  },
+  {
+    "name": "Amazon Relational Database Service",
+    "group": "Database",
+    "acronym": "RDS",
+    "description": "Cloud-based relational database service",
+    "url": "https://aws.amazon.com/rds/"
+  },
+  {
+    "name": "Amazon DynamoDB",
+    "group": "Database",
+    "acronym": "",
+    "description": "Fully managed key-value and document database",
+    "url": "https://aws.amazon.com/dynamodb/"
+  },
+  {
+    "name": "Amazon Elasticache",
+    "group": "Database",
+    "acronym": "",
+    "description": "Cloud-based in-memory cache with Redis and Memcached engine support",
+    "url": "https://aws.amazon.com/elasticache/"
+  }, 
+  {
+    "name": "Amazon Neptune",
+    "group": "Database",
+    "acronym": "",
+    "description": "Fully manage graph database that supports Property Graph and RDF.",
+    "url": "https://aws.amazon.com/neptune/"
+  },
+  {
+    "name": "Amazon Quantum Ledger Database",
+    "group": "Database",
+    "acronym": "QLDB",
+    "description": "Fully managed ledger with an immutable, cryptographically secure transaction log",
+    "url": "https://aws.amazon.com/qldb/"
+  },
+  {
+    "name": "Amazon Timestream",
+    "group": "Database",
+    "acronym": "",
+    "description": "Fully managed time-series database service for IoT and operational applications",
+    "url": "https://aws.amazon.com/timestream/"
+  },
+  {
+    "name": "Amazon Workspaces",
+    "group": "Desktop and App Streaming",
+    "acronym": "",
+    "description": "Cloud desktop service",
+    "url": "https://aws.amazon.com/workspaces/"
+  },
+  {
+    "name": "Amazon AppStream 2.0",
+    "group": "Desktop and App Streaming",
+    "acronym": "",
+    "description": "Centrally manage and stream desktop applications to any computer",
+    "url": "https://aws.amazon.com/appstream2/"
+  },
+  {
+    "name": "AWS CodeCommit",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Git repository",
+    "url": "https://aws.amazon.com/codecommit/"
+  },
+  {
+    "name": "AWS CodeBuild",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Compiles source, runs tests, and produces artifacts",
+    "url": "https://aws.amazon.com/codebuild/"
+  },
+  {
+    "name": "CodeDeploy",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Automates deployments to any instance",
+    "url": "https://aws.amazon.com/codedeploy/"
+  },
+  {
+    "name": "CodePipeline",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Continuous delivery pipeline tool",
+    "url": "https://aws.amazon.com/codepipeline/"
+  },
+  {
+    "name": "Amazon Codestar",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Development pipelines and JIRA",
+    "url": "https://aws.amazon.com/codestar/"
+  },
+  {
+    "name": "Amazon Corretto",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Amazon Java JDK",
+    "url": "https://aws.amazon.com/corretto/"
+  },
+  {
+    "name": "Amazon Cloud9",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Cloud based IDE",
+    "url": "https://aws.amazon.com/cloud9/"
+  },
+  {
+    "name": "AWS X-Ray",
+    "group": "Developer Tools",
+    "acronym": "",
+    "description": "Analyze and debug applications. Provides insight into service performance to identify and troubleshoot",
+    "url": "https://aws.amazon.com/xray/"
+  },
+  {
+    "name": "Amazon GameLift",
+    "group": "Game Tech",
+    "acronym": "",
+    "description": "Managed service for deploying, operating, and scaling game servers",
+    "url": "https://aws.amazon.com/gamelift/"
+  },
+  {
+    "name": "Amazon Lumberyard",
+    "group": "Game Tech",
+    "acronym": "",
+    "description": "Free, cross-platform, 3D game engine",
+    "url": "https://aws.amazon.com/lumberyard/"
+  },
+  {
+    "name": "Amazon IoT Core",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Managed cloud service that lets connected devices interact with cloud apps and other devices",
+    "url": "https://aws.amazon.com/iot-core/"
+  },
+  {
+    "name": "Amazon FreeFTOS",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Open source operating system for microcontrollers",
+    "url": "https://aws.amazon.com/freertos/"
+  },
+  {
+    "name": "Amazon IoT Greengrass",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Extend AWS to devices to act on local data",
+    "url": "https://aws.amazon.com/greengrass/"
+  },
+  {
+    "name": "AWS IoT 1-Click",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Enables simple devices to trigger AWS Lamba functions.",
+    "url": "https://aws.amazon.com/iot-1-click/"
+  },
+  {
+    "name": "AWS IoT Analytics",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Fully-managed service for running executing analytics on massive volumes of IoT data",
+    "url": "https://aws.amazon.com/iot-analytics/"
+  },
+  {
+    "name": "AWS IoT Button",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Programmable button based on Amazon Dash Button",
+    "url": "https://aws.amazon.com/iotbutton/"
+  },
+  {
+    "name": "AWS IoT Device Defender",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Fully managed service to help secure IoT devices",
+    "url": "https://aws.amazon.com/iot-device-defender/"
+  },
+  {
+    "name": "AWS IoT Device Management",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Securely onboard, organize, monitor, and remotely manage IoT devices at scale",
+    "url": "https://aws.amazon.com/iot-device-management/"
+  },
+  {
+    "name": "AWS IoT Events",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Fully managed IoT service that makes it easy to detect and respond to events from IoT sensors and applications.",
+    "url": "https://aws.amazon.com/iot-events/"
+  },
+  {
+    "name": "Amazon IoT SiteWise",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Managed service to collect and organize data from industrial equipment at scale",
+    "url": "https://aws.amazon.com/iot-sitewise/"
+  },
+  {
+    "name": "AWS IoT Things Graph",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Service to visually connect IoT devices and services to build applications",
+    "url": "https://aws.amazon.com/iot-things-graph/"
+  },
+  {
+    "name": "AWS Partner Device Catalog",
+    "group": "Internet of Things (IoT)",
+    "acronym": "",
+    "description": "Catalog of devices and hardware to help explore, build, and go to market with an IoT solution",
+    "url": "https://devices.amazonaws.com/"
+  },
+  {
+    "name": "Amazon SageMaker",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Fully managed service that provides developers with the ability to build, train, and deploy ML models",
+    "url": "https://aws.amazon.com/sagemaker/"
+  },
+  {
+    "name": "Amazon Comprehend",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Natural Language Processing (NLP) service to gather insights and relationships from text",
+    "url": "https://aws.amazon.com/comprehend/"
+  },
+  {
+    "name": "Amazon Lex",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Service for building conversational interfaces using voice and text",
+    "url": "https://aws.amazon.com/lex/"
+  },
+  {
+    "name": "Amazon Polly",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Turns text into lifelike speech",
+    "url": "https://aws.amazon.com/polly/"
+  },
+  {
+    "name": "Amazon Rekognition",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Image analysis for detecting objects, scenes, and faces",
+    "url": "https://aws.amazon.com/rekognition/"
+  },
+  {
+    "name": "Amazon Translate",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Language translation service",
+    "url": "https://aws.amazon.com/translate/"
+  },
+  {
+    "name": "Amazon Transcribe",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Add speech-to-text capabilities to any application",
+    "url": "https://aws.amazon.com/transcribe/"
+  },
+  {
+    "name": "Amazon Elastic Inference",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Allows you to attach low-cost GPU-powered acceleration to EC2 and SageMaker instances to reduce the cost of running deep learning inference.",
+    "url": "https://aws.amazon.com/machine-learning/elastic-inference/"
+  },
+  {
+    "name": "Amazon Forecast",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Fully-managed service that uses ML to deliver highly accurate time series forecasts.",
+    "url": "https://aws.amazon.com/forecast/"
+  },
+  {
+    "name": "Amazon Textract",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Service which automatically extracts text and data from scanned documents",
+    "url": "https://aws.amazon.com/textract/"
+  },
+  {
+    "name": "Amazon Personalize",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Machine learning to create individualized recommendations for customers",
+    "url": "https://aws.amazon.com/personalize/"
+  },
+  {
+    "name": "Amazon Deep Learning AMIs",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Machine images which provide infrastructure and tools for ML practitioners and researchers",
+    "url": "https://aws.amazon.com/machine-learning/amis/"
+  },
+  {
+    "name": "AWS Deep Lens",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "Fully programmable video camera, tutorials, code, and pre-trained models to expand deep learning skills",
+    "url": "https://aws.amazon.com/deeplens/"
+  },
+  {
+    "name": "AWS DeepRacer",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "1/18 scale race car and cloud based racing simulator",
+    "url": "https://aws.amazon.com/deepracer/"
+  },
+  {
+    "name": "AWS Inferentia",
+    "group": "Machine Learning",
+    "acronym": "",
+    "description": "High-performance ML inference chip",
+    "url": "https://aws.amazon.com/machine-learning/inferentia/"
+  },
+  {
+    "name": "Amazon Cloudwatch",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Monitoring and management service for developers, SREs, and IT workers",
+    "url": "https://aws.amazon.com/cloudwatch/"
+  },
+  {
+    "name": "AWS Auto Scaling",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Monitors and automatically adjusts resources based on capacity and usage",
+    "url": "https://aws.amazon.com/autoscaling/"
+  },
+  {
+    "name": "AWS Control Tower",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Automates the set-up of a base environment based on AWS well-architected best practices",
+    "url": "https://aws.amazon.com/controltower/"
+  },
+  {
+    "name": "AWS Systems Manager",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Provides a unified user interface so you can view operational data from multiple AWS services and allows you to automate operational tasks across your AWS resources",
+    "url": "https://aws.amazon.com/systems-manager/"
+  },
+  {
+    "name": "AWS CloudFormation",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Use CloudFormation templates to create infrastructure as code",
+    "url": "https://aws.amazon.com/cloudformation/"
+  },
+  {
+    "name": "AWS CloudTrail",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Records API calls for AWS account",
+    "url": "https://aws.amazon.com/cloudtrail/"
+  },
+  {
+    "name": "AWS Config",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Managed service which provides an AWS resource inventory, configuration hostiroy, and change notifications",
+    "url": "https://aws.amazon.com/config/"
+  },
+  {
+    "name": "AWS OpsWorks",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Managed Chef or Puppet",
+    "url": "https://aws.amazon.com/opsworks/"
+  },
+  {
+    "name": "AWS Service Catalog",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Create and manage catalogs of IT services approved for use on AWS",
+    "url": "https://aws.amazon.com/servicecatalog/"
+  },
+  {
+    "name": "AWS Trusted Advisor",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Provides real time guidance to help provision resources using AWS best practices",
+    "url": "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/"
+  },
+  {
+    "name": "AWS Personal Health Dashboard",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Alerts and remediation guidance for AWS resources which impact your AWS resources",
+    "url": "https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/"
+  },
+  {
+    "name": "AWS Managed Services",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Operates AWS on your behalf by implementing best practices to run your infrastructure",
+    "url": "https://aws.amazon.com/managed-services/"
+  },
+  {
+    "name": "AWS License Manager",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Manages software licenses from vendors such as Microsoft, SAP, etc. Create custom rules that emulate terms to avoid license violations.",
+    "url": "https://aws.amazon.com/license-manager/"
+  },
+  {
+    "name": "AWS Well-Architected Tool",
+    "group": "Maintenance and Governance",
+    "acronym": "",
+    "description": "Helps review the state of workloads and compares them to the latest AWS best practices. This tool is FREE",
+    "url": "https://aws.amazon.com/well-architected-tool/"
+  },
+  {
+    "name": "Amazon Elastic Transcoder",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "Cloud based media transcoding",
+    "url": "https://aws.amazon.com/elastictranscoder/"
+  },
+  {
+    "name": "AWS Elemental MediaConnect",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "High-quality transport service for live video.",
+    "url": "https://aws.amazon.com/mediaconnect/"
+  },
+  {
+    "name": "AWS Elemental MediaConvert",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "Video Transcoding service to create video-on-demand content for broadcast",
+    "url": "https://aws.amazon.com/mediaconvert/"
+  },
+  {
+    "name": "AWS Elemental MediaLive",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "Live video processing service to create high-quality video streams",
+    "url": "https://aws.amazon.com/medialive/"
+  },
+  {
+    "name": "AWS Elemental Media Package",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "Prepares and protects your video for delivery over the Internet",
+    "url": "https://aws.amazon.com/mediapackage/"
+  },
+  {
+    "name": "AWS Elemental MediaStore",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "Storage service optimized for media which provides performance, consistency, and low latency required to deliver live streaming video.",
+    "url": "https://aws.amazon.com/mediastore/"
+  },
+  {
+    "name": "AWS Elemental MediaTailor",
+    "group": "Media Services",
+    "acronym": "",
+    "description": "Lets video providers insert individually targeted advertising into their video streams without sacrificing broadcast-level quality-of-service",
+    "url": "https://aws.amazon.com/mediatailor/"
+  },
+  {
+    "name": "AWS Migration Hub",
+    "group": "Migration and Transfer",
+    "acronym": "",
+    "description": "Track progress of application migrations across multiple AWS partner solutions.",
+    "url": "https://aws.amazon.com/migration-hub/"
+  },
+  {
+    "name": "AWS Application Discovery Service",
+    "group": "Migration and Transfer",
+    "acronym": "",
+    "description": "Tool to aid enterprise customers migrate projects to AWS by gathering information about on-premise data centers",
+    "url": "https://aws.amazon.com/application-discovery/"
+  },
+  {
+    "name": "AWS Database Migration Service",
+    "group": "Migration and Transfer",
+    "acronym": "DMS",
+    "description": "Tool to help migrate databases to AWS",
+    "url": "https://aws.amazon.com/dms/"
+  },
+  {
+    "name": "AWS Server Migration Service",
+    "group": "Migration and Transfer",
+    "acronym": "SMS",
+    "description": "Agentless service which allows you to automate, scheduled, and track migration of workloads to AWS",
+    "url": "https://aws.amazon.com/server-migration-service/"
+  },
+  {
+    "name": "AWS Snowball",
+    "group": "Migration and Transfer",
+    "acronym": "",
+    "description": "Petabyte scale data transport solution that uses appliances to transfer large about of data into and out of AWS",
+    "url": "https://aws.amazon.com/snowball/"
+  },
+  {
+    "name": "AWS Snowmobile",
+    "group": "Migration and Transfer",
+    "acronym": "",
+    "description": "An exabyte scale data transfer service used to move extremely large volumes of data to AWS",
+    "url": "https://aws.amazon.com/snowmobile/"
+  },
+  {
+    "name": "AWS DataSync",
+    "group": "Migration and Transfer",
+    "acronym": "",
+    "description": "Sync data between your NFS or SMB storage device to S3 or EFS",
+    "url": "https://aws.amazon.com/datasync/"
+  },
+  {
+    "name": "AWS Transfer for SFTP",
+    "group": "Migration and Transfer",
+    "acronym": "",
+    "description": "Tool which enables SFTP file transfers into and out of Amazon S3",
+    "url": "https://aws.amazon.com/sftp/"
+  },
+  {
+    "name": "AWS Amplify",
+    "group": "Mobile",
+    "acronym": "",
+    "description": "Platform for creating, configuring, and deploying mobile applications on AWS",
+    "url": "https://aws.amazon.com/amplify/"
+  },
+  {
+    "name": "Amazon Cognito",
+    "group": "Mobile",
+    "acronym": "",
+    "description": "User sign up and sign in for mobile apps.",
+    "url": "https://aws.amazon.com/cognito/"
+  },
+  {
+    "name": "Amazon Pinpoint",
+    "group": "Mobile",
+    "acronym": "",
+    "description": "Send targeted messages to customers through multiple engagement channels",
+    "url": "https://aws.amazon.com/pinpoint/"
+  },
+  {
+    "name": "AWS Device Farm",
+    "group": "Mobile",
+    "acronym": "",
+    "description": "Application testing across an extensive range of desktop browsers and mobile devices",
+    "url": "https://aws.amazon.com/device-farm/"
+  },
+  {
+    "name": "AWS AppSync",
+    "group": "Mobile",
+    "acronym": "",
+    "description": "simplifies application development by letting you create a flexible API to securely access, manipulate, and combine data from one or more data sources",
+    "url": "https://aws.amazon.com/appsync/"
+  },
+  {
+    "name": "Amazon Virtual Private Cloud",
+    "group": "Networking and Content Delivery",
+    "acronym": "VPC",
+    "description": "Provision and logically isolate sections of the cloud as private networks",
+    "url": "https://aws.amazon.com/vpc/"
+  },
+  {
+    "name": "Amazon Cloudfront",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Global CDN",
+    "url": "https://aws.amazon.com/cloudfront/"
+  },
+  {
+    "name": "Amazon Route 53",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Domain Name Service (DNS)",
+    "url": "https://aws.amazon.com/route53/"
+  },
+  {
+    "name": "Amazon PrivateLink",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the Amazon network",
+    "url": "https://aws.amazon.com/privatelink/"
+  },
+  {
+    "name": "AWS Direct Connect",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Establishes a dedicated network connection from your premises to AWS",
+    "url": "https://aws.amazon.com/directconnect/"
+  },
+  {
+    "name": "AWS Global Accelerator",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Provides static IP addresses to act as fixed entry points to your application in a single or multiple AWS Regions",
+    "url": "https://aws.amazon.com/global-accelerator/"
+  },
+  {
+    "name": "Amazon API Gateway",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Fully-managed service for creating, publishing, and monitoring APIs to backend services on EC2, Lambda, etc.",
+    "url": "https://aws.amazon.com/api-gateway/"
+  },
+  {
+    "name": "AWS Transit Gateway",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Connect VPCs and on premise networks to a single gateway to connect networks across accounts or geographic locations.",
+    "url": "https://aws.amazon.com/transit-gateway/"
+  },
+  {
+    "name": "AWS App Mesh",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Provides application level networking to make it easy for services to communicate across different types of infrastructure",
+    "url": "https://aws.amazon.com/app-mesh/"
+  },
+  {
+    "name": "AWS Cloud Map",
+    "group": "Networking and Content Delivery",
+    "acronym": "",
+    "description": "Cloud resource discovery service. Register services, databases, queues, etc with custom names.",
+    "url": "https://aws.amazon.com/cloud-map/"
+  },
+  {
+    "name": "Elastic Load Balancing",
+    "group": "Networking and Content Delivery",
+    "acronym": "ELB",
+    "description": "Distributes incoming application traffic across multiple targets such as EC2 instances, containers, or IP addresses.",
+    "url": ""
+  },
+  {
+    "name": "AWS RoboMaker",
+    "group": "Robotics",
+    "acronym": "",
+    "description": "Provides the tools to make building intelligent robotics applications more accessible, a fully managed simulation service for quick and easy testing, and a deployment service for lifecycle management",
+    "url": "https://aws.amazon.com/robomaker/"
+  },
+  {
+    "name": "AWS Ground Station",
+    "group": "Satellite",
+    "acronym": "",
+    "description": " control satellite communications, process data, and scale your operations without having to worry about building or managing your own ground station infrastructure",
+    "url": "https://aws.amazon.com/ground-station/"
+  },
+  {
+    "name": "AWS Security Hub",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Comprehensive view of your high-priority security alerts and compliance status across AWS accounts",
+    "url": "https://aws.amazon.com/security-hub/"
+  },
+  {
+    "name": "AWS Cloud Directory",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Enables you to build flexible cloud-native directories for organizing hierarchies of data along multiple dimensions.",
+    "url": "https://aws.amazon.com/cloud-directory/"
+  },
+  {
+    "name": "AWS Identity and Access Management",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "IAM",
+    "description": "Create and manage AWS users, groups, and roles and define permissions for each entity.",
+    "url": "https://aws.amazon.com/iam/"
+  },
+  {
+    "name": "Amazon GuardDuty",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Threat detection service that monitors for malicious activity and unauthorized behavior to protect your AWS account and workloads.",
+    "url": "https://aws.amazon.com/guardduty/"
+  },
+  {
+    "name": "Amazon Inspector",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Automated security assessment service which detects deviations from best practices",
+    "url": "https://aws.amazon.com/inspector/"
+  },
+  {
+    "name": "Amazon Macie",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Machine learning security service to automatically detect and classify sensitive data",
+    "url": "https://aws.amazon.com/macie/"
+  },
+  {
+    "name": "Amazon Artifact",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Central resource for compliance related reports and documents.",
+    "url": "https://aws.amazon.com/artifact/"
+  },
+  {
+    "name": "AWS Certificate manager",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "ACM",
+    "description": "A service to provision, manage, and deploy public and private SSL/TLS certificates for use with AWS services and internal resources.",
+    "url": "https://aws.amazon.com/certificate-manager/"
+  },
+  {
+    "name": "AWS CloudHSM",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "A cloud based hardware security module that enables you to generate and use your own encryption keys on AWS",
+    "url": "https://aws.amazon.com/cloudhsm/"
+  },
+  {
+    "name": "AWS Directory Service",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Managed Active Directory",
+    "url": "https://aws.amazon.com/directoryservice/"
+  },
+  {
+    "name": "Amazon Firewall Manager",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Centrallmanage firewall rules across accounts and applications in AWS Organizations",
+    "url": "https://aws.amazon.com/firewall-manager/"
+  },
+  {
+    "name": "Amazon Key Management Service",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "KMS",
+    "description": "Create and manage keys and control the use of encryption across AWS services",
+    "url": "https://aws.amazon.com/kms/"
+  },
+  {
+    "name": "AWS Organizations",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Organize and manage AWS accounts from a central location",
+    "url": "https://aws.amazon.com/organizations/"
+  },
+  {
+    "name": "AWS Secrets Manager",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Service for managing and retrieving application secrets via API calls",
+    "url": "https://aws.amazon.com/secrets-manager/"
+  },
+  {
+    "name": "AWS Shield",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Managed DDoS protection",
+    "url": "https://aws.amazon.com/shield/"
+  },
+  {
+    "name": "AWS Single Sign-On (SSO)",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "",
+    "description": "Centrally manage access to multiple AWS accounts and business applications and provide users with single sign-on access to all their assigned accounts and applications from one place",
+    "url": "https://aws.amazon.com/single-sign-on/"
+  },
+  {
+    "name": "Amazon Web Application Firewall",
+    "group": "Security, Identity, and Compliance",
+    "acronym": "WAF",
+    "description": "Protects against exploits such as XSS or SQL injection",
+    "url": "https://aws.amazon.com/waf/"
+  },
+  {
+    "name": "Amazon Simple Storage Service",
+    "group": "Storage",
+    "acronym": "S3",
+    "description": "Object level storage with 11 9s of availability",
+    "url": "https://aws.amazon.com/s3/"
+  },
+  {
+    "name": "Amazon Elastic Block Store",
+    "group": "Storage",
+    "acronym": "EBS",
+    "description": "Cloud based block storage",
+    "url": "https://aws.amazon.com/ebs/"
+  },
+  {
+    "name": "Amazon Elastic File System",
+    "group": "Storage",
+    "acronym": "EFS",
+    "description": "Fully managed elastic NFS file system for use with cloud or on prem resources",
+    "url": "https://aws.amazon.com/efs/"
+  },
+  {
+    "name": "Amazon FSx for Lustre",
+    "group": "Storage",
+    "acronym": "",
+    "description": "Fully managed file system optimized for compute intensive workloads on a Lustre filesystem",
+    "url": "https://aws.amazon.com/fsx/lustre/"
+  },
+  {
+    "name": "Amazon FSx for Windows File Server",
+    "group": "Storage",
+    "acronym": "",
+    "description": "Fully managed native Microsoft Windows file system for easily moving Windows-based applications that require file storage to AWS",
+    "url": "https://aws.amazon.com/fsx/windows/"
+  },
+  {
+    "name": "Amazon S3 Glacier",
+    "group": "Storage",
+    "acronym": "",
+    "description": "Secure, durable, and extremely low cost S3 cloud storage classes for data archiving and long-term backup",
+    "url": "https://aws.amazon.com/glacier/"
+  },
+  {
+    "name": "Amazon Storage Gateway",
+    "group": "Storage",
+    "acronym": "",
+    "description": "Hybrid cloud storage service that gives you on-premises access to cloud storage",
+    "url": "https://aws.amazon.com/storagegateway/"
+  }
+]

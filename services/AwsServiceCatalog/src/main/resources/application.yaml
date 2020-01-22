@@ -1,0 +1,8 @@
+repository:
+  file: "dictionary.json"
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
