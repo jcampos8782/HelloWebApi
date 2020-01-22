@@ -407,3 +407,11 @@ ASALocalRun/
 # Terraform state
 **/.terraform/*
 *.tfstate*
+
+# Eclipse cruft
+**/.project
+**/.settings/*
+
+# Java cruft
+.classpath
+**/target/*
