@@ -15,7 +15,7 @@ export default class TopNav extends React.Component {
     const {classes} = this.props;
 
     return (
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Container className={classes.container}>
             <Tooltip title="Home">
