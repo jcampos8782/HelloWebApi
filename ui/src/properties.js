@@ -119,6 +119,7 @@ export default
   },
   drawer: {
     anchor: 'left',
+    open: false,
     items: [
       {
         title: "Admin",
