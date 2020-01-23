@@ -17,7 +17,7 @@ services:
     aws:
       build: ../../services/AwsServiceCatalog
       ports:
-         - "5001:8080"
+         - "8080:8080"
 
     consul:
       image: consul:1.6.2

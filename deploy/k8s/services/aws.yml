@@ -10,8 +10,8 @@ metadata:
   name: aws
 spec:
   ports:
-  - name: "5001"
-    port: 5001
+  - name: "8080"
+    port: 8080
     targetPort: 8080
   selector:
     io.kompose.service: aws

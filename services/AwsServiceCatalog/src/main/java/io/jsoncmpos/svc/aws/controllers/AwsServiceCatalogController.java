@@ -14,7 +14,7 @@ import io.jsoncmpos.svc.aws.services.AwsServiceCatalogSearchService;
 import io.jsoncmpos.svc.aws.services.AwsServiceCatalogService;
 
 @RestController
-@RequestMapping(path = "/services")
+@RequestMapping(path = "/api/services")
 public class AwsServiceCatalogController {
 	
 	private AwsServiceCatalogService catalogSvc;
