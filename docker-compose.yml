@@ -6,8 +6,8 @@ services:
       ports:
         - "8080:80"
 
-    app:
-      build: ./services/HelloWebApi
+    todo:
+      build: ./services/ToDoList
       environment:
          - CONSUL_HOST=http://consul:8500
          - CONSUL_KEY=hello-web-api/master
@@ -16,7 +16,11 @@ services:
       depends_on:
          - mysql
          - consul
-         - rabbitmq
+
+    aws:
+      build: ./services/AwsServiceCatalog
+      ports:
+        - "5001:8080"
 
     mysql:
       build: ./dev/db

@@ -32,7 +32,8 @@ AWS_ECR_REGISTRY=$(aws ecr get-login | awk '{print $9}' | cut -d '/' -f 3)
 # From the k8s directory...
 docker-compose build
 docker tag k8s_ui ${AWS_ECR_REGISTRY}/hello_webapi/ui:latest
-docker tag k8s_app ${AWS_ECR_REGISTRY}/hello_webapi/app:latest
+docker tag k8s_todo ${AWS_ECR_REGISTRY}/hello_webapi/todo:latest
+docker tag k8s_aws ${AWS_ECR_REGISTRY}/hello_webapi/aws:latest
 docker tag k8s_db ${AWS_ECR_REGISTRY}/hello_webapi/db:latest
 docker tag k8s_nginx ${AWS_ECR_REGISTRY}/hello_webapi/nginx:latest
 ```
@@ -41,8 +42,9 @@ If you don't already have the repository created, create them:
 
 ```
 aws ecr create-repository --repository-name=hello_webapi/ui
-aws ecr create-repository --repository-name=hello_webapi/app
-aws ecr create-repository --repository-name=hello_webapi/app
+aws ecr create-repository --repository-name=hello_webapi/todo
+aws ecr create-repository --repository-name=hello_webapi/aws
+aws ecr create-repository --repository-name=hello_webapi/mysql
 aws ecr create-repository --repository-name=hello_webapi/nginx
 ```
 
@@ -50,7 +52,8 @@ You should now be able to push images.
 
 ```
 docker push ${AWS_ECR_REGISTRY}/hello_webapi/ui:latest
-docker push ${AWS_ECR_REGISTRY}/hello_webapi/app:latest
+docker push ${AWS_ECR_REGISTRY}/hello_webapi/todo:latest
+docker push ${AWS_ECR_REGISTRY}/hello_webapi/aws:latest
 docker push ${AWS_ECR_REGISTRY}/hello_webapi/db:latest
 docker push ${AWS_ECR_REGISTRY}/hello_webapi/nginx:latest
 ```
@@ -121,7 +124,4 @@ can run on any particular instance.
 * Load balancer: TODO
 
 Next steps:
-* Get a load balancer working. ALB? Or NLB w/ nginx Ingress?
-* Delete all IAM roles and groups and start over from scratch. Note each step
-so that it can be terraformed.
 * It would be nice to use RDS instead of a mysql deployment... lets get it all terraformed first though!

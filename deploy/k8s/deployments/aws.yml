@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: aws
+  name: aws
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        io.kompose.service: aws
+    spec:
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: aws-ecr
+
+      containers:
+      - name: todo
+        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/aws:latest
+        ports:
+          - containerPort: 80

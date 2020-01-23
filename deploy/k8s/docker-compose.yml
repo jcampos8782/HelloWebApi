@@ -6,13 +6,18 @@ services:
       ports:
         - "8080:80"
 
-    app:
-      build: ../../services/HelloWebApi
+    todo:
+      build: ../../services/ToDoList
       environment:
          - CONSUL_HOST=http://consul:8500
          - CONSUL_KEY=hello-web-api/master
       ports:
          - "5000:80"
+
+    aws:
+      build: ../../services/AwsServiceCatalog
+      ports:
+         - "5001:8080"
 
     consul:
       image: consul:1.6.2

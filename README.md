@@ -1,6 +1,6 @@
 # HelloWebApi
 
-This is a sample full stack application utilizing technologies such as .NET Core, ReactJS, Material-UI, Docker, Kubernetes, and Terraform. You can have this application running on the AWS Cloud on EKS with minimal setup -- all steps are documented and the Terraform resources are all included. 
+This is a sample full stack application utilizing technologies such as .NET Core, ReactJS, Material-UI, Docker, Kubernetes, and Terraform. You can have this application running on the AWS Cloud on EKS with minimal setup -- all steps are documented and the Terraform resources are all included.
 
 ## Screenshots
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/light.png' width=250 />
@@ -10,10 +10,10 @@ This is a sample full stack application utilizing technologies such as .NET Core
 ## Components
 All required and optional components are included with this project.
 
-Terraform Cloud Support: 
- * AWS 
+Terraform Cloud Support:
+ * AWS
  * GCP (Coming next!)
- 
+
 Runtime Platforms:
 * Docker (development)
 * Kubernetes ("production")
@@ -21,6 +21,7 @@ Runtime Platforms:
 Primary Components:
 * React/Material-UI UI
 * .NET Core To-Do List Service
+* Spring Boot AWS Service Catalog
 
 Required Infrastructure Components:
 * Consul
@@ -51,7 +52,7 @@ Optional Infrastructure Components:
 
 ### Development
 The provided `docker-compose.yml` configures custom images that will bootstrap all primary components of the application and
-spin up the optional components. 
+spin up the optional components.
 
 #### Prerequisites
 
@@ -93,8 +94,8 @@ docker ps | grep rabbitmq | awk {'print $1'} | xargs -I '{}' docker exec '{}' in
 ```
 OR create it from the RabbitMQ admin UI http://localhost:15672
 
-### "Production" 
-Note the quotes... this is *not* a production application! 
+### "Production"
+Note the quotes... this is *not* a production application!
 
 #### AWS
 For deployment onto the AWS Cloud, see the [deploy/k8s](./deploy/k8s) and [deploy/terraform](./deploy/terraform/aws) pages.

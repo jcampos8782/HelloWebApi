@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: app
-  name: app
+    io.kompose.service: todo
+  name: todo
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        io.kompose.service: app
+        io.kompose.service: todo
     spec:
       restartPolicy: Always
       imagePullSecrets:
         - name: aws-ecr
 
       containers:
-      - name: app
-        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/app:latest
+      - name: todo
+        image: 752478895906.dkr.ecr.us-west-1.amazonaws.com/hello_webapi/todo:latest
         ports:
           - containerPort: 80
         env:
