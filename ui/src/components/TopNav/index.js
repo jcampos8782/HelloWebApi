@@ -2,29 +2,31 @@ import TopNav from './TopNav';
 import {withStyles} from '@material-ui/core/styles';
 
 const styles = theme => ({
+  toolbar: {
+    paddingLeft: 0
+  },
   container: {
-    left: 225,
-    position: 'absolute',
-    '& > h4': {
-      display: 'inline-block',
-      position: 'relative',
-      top: 6,
-    },
+    position: 'relative',
+    paddingLeft: 0,
     '& > a': {
       textDecoration: 'none',
       marginLeft: 20
     }
   },
   switch: {
-    position: 'absolute',
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'flex-end',
     right: '0%',
     marginTop: 5,
     marginRight: 5,
-    width: 'fit-content',
+  },
+  switchItem: {
+    display: 'inline-block'
   },
   navLink: {
     width: 'fit-content',
-    color: theme.palette.secondary.light
+    color: theme.palette.primary.contrastText
   }
 });
 

@@ -17,6 +17,7 @@ import './index.css';
 import { light, dark } from './styles/themes';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 import properties from './properties';
 import * as serviceWorker from './serviceWorker';
@@ -27,7 +28,7 @@ class App extends React.Component {
       super(props);
       this.state = {
         useDarkTheme: props.theme === 'dark',
-        drawerOpen: true,
+        drawerOpen: props.drawer.open,
         openModel: null
       }
   }
@@ -55,7 +56,7 @@ class App extends React.Component {
 
             <Switch>
               <Route exact path="/">
-
+                <Typography variant='h3'>Coming Soon!</Typography>
               </Route>
 
               <Route path="/todo">
@@ -66,8 +67,8 @@ class App extends React.Component {
                 />
               </Route>
 
-              <Route path="aws">
-                
+              <Route path="/aws">
+                <Typography variant='h3'>Coming Soon!</Typography>
               </Route>
             </Switch>
 

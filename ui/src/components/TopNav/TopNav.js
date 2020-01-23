@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
 
 export default class TopNav extends React.Component {
   render() {
@@ -19,8 +18,6 @@ export default class TopNav extends React.Component {
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
           <Container className={classes.container}>
-            <Typography variant='h4'>Apps</Typography>
-
             <Tooltip title="Home">
               <NavLink to="/">
                 <IconButton edge="end" aria-label="todo-list">
@@ -29,7 +26,7 @@ export default class TopNav extends React.Component {
               </NavLink>
             </Tooltip>
 
-            <Tooltip title="To-Do List">
+            <Tooltip title="To-Do List" className={classes.tooltip}>
               <NavLink to="/todo">
                 <IconButton edge="end" aria-label="todo-list">
                   <Icon className={classes.navLink + ' fas fa-list'} />
@@ -47,10 +44,10 @@ export default class TopNav extends React.Component {
           </Container>
 
           <Grid className={classes.switch} container alignItems="center" spacing={1}>
-            <Grid item>
+            <Grid item className={classes.displayItem}>
               <Icon className="fas fa-sun" />
             </Grid>
-            <Grid item>
+            <Grid item className={classes.displayItem}>
               <Switch
                 id="theme-switch"
                 checked={this.props.switchOn}
@@ -59,7 +56,7 @@ export default class TopNav extends React.Component {
                 color="secondary"
               />
             </Grid>
-            <Grid item>
+            <Grid item className={classes.displayItem}>
               <Icon className="fas fa-moon" />
             </Grid>
           </Grid>
