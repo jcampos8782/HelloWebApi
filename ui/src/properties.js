@@ -8,9 +8,13 @@ export default
   title: '.NET Core + ReactJS w/ Material-UI',
   theme: 'dark',
   todoList: {
-    apiEndpoint: `${process.env.REACT_APP_TODO_URL}/api/todoitems`,
+    apiEndpoint: `${process.env.REACT_APP_BASE_URL}/api/todoitems`,
     heading: 'To-Do List',
     hintText: 'Don\'t forget to...',
+  },
+  awsServiceCatalog: {
+    apiEndpoint: `${process.env.REACT_APP_BASE_URL}/api/services`,
+    heading: 'AWS Service Catalog',
   },
   contact: {
     name: 'Jason D. Campos',
@@ -74,6 +78,10 @@ export default
             {
               name: 'MySQL',
               url: 'https://www.mysql.com/'
+            },
+            {
+              name: 'Spring Boot',
+              url: 'https://spring.io/projects/spring-boot'
             }
           ]
         },

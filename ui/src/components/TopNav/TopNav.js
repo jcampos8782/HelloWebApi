@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
@@ -20,16 +21,28 @@ export default class TopNav extends React.Component {
           <Container className={classes.container}>
             <Typography variant='h4'>Apps</Typography>
 
-            <Tooltip title="To-Do List">
-              <IconButton edge="end" aria-label="todo-list">
-                <Icon className='fas fa-list' />
-              </IconButton>
+            <Tooltip title="Home">
+              <NavLink to="/">
+                <IconButton edge="end" aria-label="todo-list">
+                  <Icon className={classes.navLink + ' fas fa-home'} />
+                </IconButton>
+              </NavLink>
             </Tooltip>
 
-            <Tooltip title="More Apps Coming Soon!">
-              <IconButton edge="end" aria-label="coming-soon">
-                <Icon className='fas fa-ellipsis-h' />
-              </IconButton>
+            <Tooltip title="To-Do List">
+              <NavLink to="/todo">
+                <IconButton edge="end" aria-label="todo-list">
+                  <Icon className={classes.navLink + ' fas fa-list'} />
+                </IconButton>
+              </NavLink>
+            </Tooltip>
+
+            <Tooltip title="AWS">
+              <NavLink to="/aws" className={classes.navLink}>
+                <IconButton edge="end" aria-label="coming-soon">
+                  <Icon className={classes.navLink + ' fas fa-cloud'} />
+                </IconButton>
+              </NavLink>
             </Tooltip>
           </Container>
 

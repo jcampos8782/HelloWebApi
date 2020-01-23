@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 import * as Modals from './components/Modals';
 import BottomNav from './components/BottomNav';
 import ManagementDrawer from './components/ManagementDrawer';
@@ -47,11 +53,23 @@ class App extends React.Component {
               loginAction={() => this.setState({ openModal: 'login' })}
             />
 
-            <ToDoList
-              title={this.props.todoList.heading}
-              defaultText={this.props.todoList.hintText}
-              apiEndpoint={this.props.todoList.apiEndpoint}
-            />
+            <Switch>
+              <Route exact path="/">
+
+              </Route>
+
+              <Route path="/todo">
+                <ToDoList
+                  title={this.props.todoList.heading}
+                  defaultText={this.props.todoList.hintText}
+                  apiEndpoint={this.props.todoList.apiEndpoint}
+                />
+              </Route>
+
+              <Route path="aws">
+                
+              </Route>
+            </Switch>
 
             <BottomNav
               onAboutClick={() =>
@@ -94,7 +112,11 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App {...properties} />, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <App {...properties} />
+  </Router>
+  , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

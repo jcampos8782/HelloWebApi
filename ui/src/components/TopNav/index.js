@@ -5,15 +5,14 @@ const styles = theme => ({
   container: {
     left: 225,
     position: 'absolute',
-    width: 'fit-content',
-    '& > button': {
-      marginLeft: 20,
-      color: theme.palette.secondary.light,
-    },
     '& > h4': {
       display: 'inline-block',
       position: 'relative',
       top: 6,
+    },
+    '& > a': {
+      textDecoration: 'none',
+      marginLeft: 20
     }
   },
   switch: {
@@ -22,6 +21,10 @@ const styles = theme => ({
     marginTop: 5,
     marginRight: 5,
     width: 'fit-content',
+  },
+  navLink: {
+    width: 'fit-content',
+    color: theme.palette.secondary.light
   }
 });
 
