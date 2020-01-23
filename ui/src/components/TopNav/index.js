@@ -2,6 +2,10 @@ import TopNav from './TopNav';
 import {withStyles} from '@material-ui/core/styles';
 
 const styles = theme => ({
+  appbar: {
+    position: 'relative',
+    display: 'inline-block',
+  },
   toolbar: {
     paddingLeft: 0
   },
