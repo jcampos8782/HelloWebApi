@@ -28,15 +28,15 @@ export default class AppDrawer extends React.Component {
       >
         <List>
           {
-            this.props.items.map(group => (
+            this.props.groups.map(group => (
               <Container key={group.title}>
                 <ListSubheader>{group.title}</ListSubheader>
                 <Divider />
                 {
-                  group.items.map(item => (
+                  group.items.map((item,i) => (
                   <Link
-                    to={item.location}
-                    key={item.id}
+                    to={item.route}
+                    key={i}
                     className={classes.link}
                     >
                     <ListItem
@@ -45,12 +45,12 @@ export default class AppDrawer extends React.Component {
                         <ListItemAvatar>
                           <Avatar
                             src={item.avatar}
-                            alt={item.text}
+                            alt={item.title}
                             className={classes.avatar}
                           />
                         </ListItemAvatar>
                         <ListItemText>
-                          <Typography>{item.text}</Typography>
+                          <Typography>{item.title}</Typography>
                         </ListItemText>
                     </ListItem>
                   </Link>

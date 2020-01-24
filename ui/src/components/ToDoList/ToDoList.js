@@ -35,7 +35,7 @@ export default class ToDoList extends React.Component {
   }
 
   loadItems() {
-    fetch(this.props.apiEndpoint)
+    fetch(this.props.endpoint)
       .then(res => res.json())
       .then((result) => {
         this.setState({
@@ -58,7 +58,7 @@ export default class ToDoList extends React.Component {
               <TextField
                 id="time"
                 type="text"
-                placeholder={this.props.defaultText}
+                placeholder={this.props.hintText}
                 className={classes.textField}
                 value={this.state.itemFormText}
                 onChange={ (e) => {
@@ -78,7 +78,7 @@ export default class ToDoList extends React.Component {
                     return;
                   }
 
-                  fetch(this.props.apiEndpoint, {
+                  fetch(this.props.endpoint, {
                     method: 'POST',
                     body: JSON.stringify({ name: this.state.itemFormText }),
                     headers: {
@@ -122,7 +122,7 @@ export default class ToDoList extends React.Component {
           checked={item.isComplete}
           className={classes.checkbox}
           onChange={() => {
-            fetch(this.props.apiEndpoint + '/' + item.id , {
+            fetch(this.props.endpoint + '/' + item.id , {
               method: 'PUT',
               body: JSON.stringify({
                 id: item.id,
@@ -146,7 +146,7 @@ export default class ToDoList extends React.Component {
               aria-label="delete"
               className={classes.trashIcon}
               onClick={ () => {
-                fetch(this.props.apiEndpoint + '/' + item.id , {
+                fetch(this.props.endpoint + '/' + item.id , {
                   method: 'DELETE'
                 })
                 .then(() => this.loadItems())

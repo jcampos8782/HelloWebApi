@@ -29,14 +29,21 @@ export default class App extends React.Component {
 
   render() {
     const theme = this.state.useDarkTheme ? dark : light;
-    var {classes} = this.props;
+
+    var {
+      avatars,
+      classes,
+      components,
+      contact,
+      routes
+    } = this.props;
 
     return (
         <div>
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <TopNav
-              contact={this.props.contact}
+              contact={contact}
               switchOn={this.state.useDarkTheme}
               onSwitchToggle={() =>
                 this.setState({useDarkTheme: !this.state.useDarkTheme})
@@ -46,8 +53,8 @@ export default class App extends React.Component {
               }
             />
             <AppDrawer
-              {...this.props.classes}
-              {...this.props.components.drawer}
+              {...classes}
+              {...components.drawer}
 
               open={this.state.drawerOpen}
               loginAction={() => this.setState({ openModal: 'login' })}
@@ -56,24 +63,20 @@ export default class App extends React.Component {
 
             <Container className={classes.content}>
               <Switch>
-                <Route exact path="/">
+                <Route exact path={routes.home}>
                   <Home
-                    {...this.props.classes}
-                    {...this.props.components.home}
-                    avatar={this.props.avatars.default}
-                    contact={this.props.contact}
+                    {...classes}
+                    {...components.home}
+                    avatar={avatars.default}
+                    contact={contact}
                   />
                 </Route>
 
-                <Route path="/todo">
-                  <ToDoList
-                    title={this.props.todoList.heading}
-                    defaultText={this.props.todoList.hintText}
-                    apiEndpoint={this.props.todoList.apiEndpoint}
-                  />
+                <Route path={routes.todo}>
+                  <ToDoList {...components.todo} />
                 </Route>
 
-                <Route path="/aws">
+                <Route path={routes.aws}>
                   <Typography variant='h3'>Coming Soon!</Typography>
                 </Route>
               </Switch>
@@ -89,17 +92,17 @@ export default class App extends React.Component {
               }
             />
 
-            <Modals.Tech {...this.props.modals.technologies}
+            <Modals.Tech {...components.modals.technologies}
               open={this.state.openModal === 'technologies'}
               onClose={() => this.setState({openModal: null})}
             />
 
-            <Modals.Login {...this.props.modals.login}
+            <Modals.Login {...components.modals.login}
               open={this.state.openModal === 'login'}
               onClose={() => this.setState({openModal: null})}
             />
 
-            <Modals.Copyright {...this.props.modals.copyright}
+            <Modals.Copyright {...components.modals.copyright}
               open={this.state.openModal === 'copyright'}
               onClose={() => this.setState({openModal: null})}
             />

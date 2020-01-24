@@ -3,6 +3,11 @@
   to that extent. However, create-react-app comes with webpack already preconfigured
   and ignores webpack.config.json in the project root. For now, leave this here.
 */
+import routes from './routes';
+import services from './services';
+
+const defaultTheme = 'dark';
+
 const contacts = {
   name: 'Jason D. Campos',
   email: 'jcampos8782@gmail.com',
@@ -11,26 +16,42 @@ const contacts = {
 };
 
 const avatars = {
+    aws: 'https://d0.awsstatic.com/logos/powered-by-aws-white.png',
     main: 'https://avatars0.githubusercontent.com/u/3411401?s=400&u=bd10458dbf4bc6011a4de3a0adbb62d274a69a83&v=4',
     github: 'https://avatars0.githubusercontent.com/u/3411401?s=400&u=bd10458dbf4bc6011a4de3a0adbb62d274a69a83&v=4',
     google: 'https://lh3.googleusercontent.com/a-/AAuE7mCnJ3Z-BcKPhpfpDhFae_APhXcNZ5Fd3_QTm4M-eA=s96-cc-rg',
     linkedin: 'https://media.licdn.com/dms/image/C5603AQHCKGEgAMNVRA/profile-displayphoto-shrink_200_200/0?e=1583971200&v=beta&t=7QAydTm6EwbMY_IUTHIIqUPF1K-16JE8kTMx0mRftUY'
 };
 
+const apps = {
+  todo: {
+    title: "To Do List",
+    route: routes.todo,
+    avatar: '/images/list.png',
+    config: {
+      heading: 'To-Do List',
+      hintText: 'Don\'t forget to...',
+      endpoint: services.todo.endpoint
+    }
+  },
+  aws: {
+    title: "AWS Catalog",
+    route: "/aws",
+    avatar: avatars.aws,
+    config: {
+      endpoint: services.aws.endpoint
+    }
+  }
+};
+
 export default
 {
-  theme: 'dark',
-  todoList: {
-    apiEndpoint: `${process.env.REACT_APP_BASE_URL}/api/todoitems`,
-    heading: 'To-Do List',
-    hintText: 'Don\'t forget to...',
-  },
-  awsServiceCatalog: {
-    apiEndpoint: `${process.env.REACT_APP_BASE_URL}/api/services`,
-    heading: 'AWS Service Catalog',
-  },
+  theme: defaultTheme,
+  routes: routes,
+  services: services,
   contact: contacts,
   avatars: avatars,
+
   components: {
     home: {
       content: [
@@ -80,12 +101,12 @@ export default
             {
               text: 'View My Badge',
               type: 'link',
-              location: "https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2020-01-21&ci=AWS01240931",
+              location: 'https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2020-01-21&ci=AWS01240931',
             },
             {
               text: 'Verify My Credentials',
               type: 'link',
-              location: '"https://aw.certmetrics.com/amazon/public/verification.aspx"'
+              location: 'https://aw.certmetrics.com/amazon/public/verification.aspx'
             }
           ]
         }
@@ -93,112 +114,97 @@ export default
     },
     drawer: {
       anchor: 'left',
-      items: [
+      groups: [
         {
           title: "Main Menu",
           items: [
             {
-              id: 'home',
-              text: 'About Me',
+              title: 'About Me',
               avatar: avatars.main,
-              type: 'route',
-              location: '/'
+              route: routes.home
             }
           ]
         },
         {
           title: 'Sample Gallery',
-          items: [
-            {
-              id: 'todo',
-              text: 'To Do List',
-              avatar: '/images/list.png',
-              type: 'route',
-              location: '/todo'
-            },
-            {
-              id: 'aws',
-              text: 'AWS Catalog',
-              avatar: 'https://d0.awsstatic.com/logos/powered-by-aws-white.png',
-              type: 'route',
-              location: '/aws'
-            }
-          ]
+          items: [apps.todo, apps.aws]
         },
       ]
-    }
-  },
-  modals: {
-    copyright: {
-      holder: 'Jason D. Campos',
     },
-    technologies: {
-      title: 'Powered By',
-      sections: [
-        {
-          title: 'Front End',
-          items: [
-            {
-              name: 'ReactJS',
-              url: 'http://reactjs.org',
-            },
-            {
-              name: 'Material-UI',
-              url: 'http://material-ui.com',
-            },
-            {
-              name: 'Sass',
-              url: 'http://sass-lang.com',
-            },
-          ]
-        },
-        {
-          title: 'Back End',
-          items: [
-            {
-              name: '.NET Core',
-              url: 'https://docs.microsoft.com/en-us/dotnet/core/'
-            },
-            {
-              name: 'MySQL',
-              url: 'https://www.mysql.com/'
-            },
-            {
-              name: 'Spring Boot',
-              url: 'https://spring.io/projects/spring-boot'
-            }
-          ]
-        },
-        {
-          title: 'Infrastructure & Monitoring',
-          items: [
-            {
-              name: "AWS",
-              url: "http://aws.amazon.com",
-            },
-            {
-              name: 'Docker',
-              url: 'http://docker.io',
-            },
-            {
-              name: 'Kubernetes',
-              url: 'http://kubernetes.io'
-            },
-            {
-              name: 'Elastic',
-              url: 'http://elastic.co',
-            },
-            {
-              name: 'RabbitMQ',
-              url: 'http://www.rabbitmq.com'
-            },
-            {
-              name: 'Consul',
-              url: 'http://www.consul.io'
-            }
-          ]
-        },
-      ]
-    }
-  }
+    modals: {
+      copyright: {
+        holder: 'Jason D. Campos',
+      },
+      technologies: {
+        title: 'Powered By',
+        sections: [
+          {
+            title: 'Front End',
+            items: [
+              {
+                name: 'ReactJS',
+                url: 'http://reactjs.org',
+              },
+              {
+                name: 'Material-UI',
+                url: 'http://material-ui.com',
+              },
+              {
+                name: 'Sass',
+                url: 'http://sass-lang.com',
+              },
+            ]
+          },
+          {
+            title: 'Back End',
+            items: [
+              {
+                name: '.NET Core',
+                url: 'https://docs.microsoft.com/en-us/dotnet/core/'
+              },
+              {
+                name: 'MySQL',
+                url: 'https://www.mysql.com/'
+              },
+              {
+                name: 'Spring Boot',
+                url: 'https://spring.io/projects/spring-boot'
+              }
+            ]
+          },
+          {
+            title: 'Infrastructure & Monitoring',
+            items: [
+              {
+                name: "AWS",
+                url: "http://aws.amazon.com",
+              },
+              {
+                name: 'Docker',
+                url: 'http://docker.io',
+              },
+              {
+                name: 'Kubernetes',
+                url: 'http://kubernetes.io'
+              },
+              {
+                name: 'Elastic',
+                url: 'http://elastic.co',
+              },
+              {
+                name: 'RabbitMQ',
+                url: 'http://www.rabbitmq.com'
+              },
+              {
+                name: 'Consul',
+                url: 'http://www.consul.io'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    todo: apps.todo.config,
+    aws: apps.aws.config
+  },
 }
