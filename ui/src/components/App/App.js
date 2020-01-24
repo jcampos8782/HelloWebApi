@@ -58,6 +58,7 @@ export default class App extends React.Component {
               <Switch>
                 <Route exact path="/">
                   <Home
+                    {...this.props.classes}
                     {...this.props.components.home}
                     avatar={this.props.avatars.default}
                     contact={this.props.contact}

@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 
-export default class About extends React.Component {
+export default class HomeCard extends React.Component {
   render() {
     const {classes} = this.props;
     return (
@@ -16,37 +16,37 @@ export default class About extends React.Component {
         <CardHeader
           avatar={
             <Avatar
-              alt={this.props.about.title}
+              alt={this.props.title}
               src={this.props.avatar}
-              aria-label={this.props.about.title}
+              aria-label={this.props.title}
               className={classes.avatar}>
             </Avatar>
           }
-          title={this.props.about.title}
+          title={this.props.title}
           titleTypographyProps={ { variant: 'h6' }}
-          subheader={this.props.about.subtitle}
+          subheader={this.props.subtitle}
           subheaderTypographyProps={ { variant: 'overline' }}
         />
 
         <CardContent className={classes.content}>
         {
-          this.props.about.content.map((c,i) => (
+          this.props.content.map((c,i) => (
             <Typography key={i} paragraph>{c}</Typography>
           ))
         }
         </CardContent>
 
         <CardActions>
-          <Button
-            className={classes.actionLink}
-            onClick={() => window.open(this.props.contact.github)}>
-            Check Out My Github
-          </Button>
-          <Button
-            className={classes.actionLink}
-            onClick={() => window.open(this.props.contact.linkedin)}>
-            Endorse Me on LinkedIn
-          </Button>
+        {
+          this.props.actions.map((a,i) => (
+            <Button
+              key={i}
+              className={classes.actionLink}
+              onClick={() => window.open(a.location)}>
+              {a.text}
+            </Button>
+          ))
+        }
         </CardActions>
       </Card>
     );
