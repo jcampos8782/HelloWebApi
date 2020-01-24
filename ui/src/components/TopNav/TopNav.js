@@ -1,10 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
-import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
 import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,33 +14,7 @@ export default class TopNav extends React.Component {
     return (
       <AppBar position="fixed" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
-          <Container className={classes.container}>
-            <Tooltip title="Home">
-              <NavLink to="/">
-                <IconButton edge="end" aria-label="todo-list">
-                  <Icon className={classes.navLink + ' fas fa-home'} />
-                </IconButton>
-              </NavLink>
-            </Tooltip>
-
-            <Tooltip title="To-Do List" className={classes.tooltip}>
-              <NavLink to="/todo">
-                <IconButton edge="end" aria-label="todo-list">
-                  <Icon className={classes.navLink + ' fas fa-list'} />
-                </IconButton>
-              </NavLink>
-            </Tooltip>
-
-            <Tooltip title="AWS">
-              <NavLink to="/aws" className={classes.navLink}>
-                <IconButton edge="end" aria-label="coming-soon">
-                  <Icon className={classes.navLink + ' fas fa-cloud'} />
-                </IconButton>
-              </NavLink>
-            </Tooltip>
-          </Container>
-
-          <Grid className={classes.switch} container alignItems="center" spacing={1}>
+          <Grid className={classes.switch} container alignItems="center" justify="flex-start" spacing={1}>
             <Grid item className={classes.displayItem}>
               <Icon className="fas fa-sun" />
             </Grid>
@@ -60,6 +31,25 @@ export default class TopNav extends React.Component {
               <Icon className="fas fa-moon" />
             </Grid>
           </Grid>
+
+          <Grid  container alignItems="center" justify="flex-end" spacing={2}>
+            <Grid item className={classes.displayItem}>
+              <IconButton aria-label="github" onClick={() => window.open(this.props.contact.github)}>
+                  <Icon className='fab fa-github'  />
+              </IconButton>
+            </Grid>
+            <Grid item className={classes.displayItem} onClick={() => window.open(this.props.contact.linkedin)}>
+              <IconButton aria-label="linkedin">
+                <Icon className='fab fa-linkedin' />
+              </IconButton>
+            </Grid>
+            <Grid item className={classes.displayItem} onClick={() => window.open(`mailto:this.props.contact.email`)}>
+              <IconButton aria-label="settings">
+                <Icon className='far fa-envelope' />
+              </IconButton>
+            </Grid>
+          </Grid>
+
         </Toolbar>
       </AppBar>
     );

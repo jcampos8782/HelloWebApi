@@ -19,11 +19,7 @@ const styles = theme => ({
   },
   switch: {
     position: 'relative',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    right: '0%',
-    marginTop: 5,
-    marginRight: 5,
+    marginLeft: 20,
   },
   switchItem: {
     display: 'inline-block'

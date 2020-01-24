@@ -1,12 +1,11 @@
 import React from 'react';
 
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import Container from '@material-ui/core/Container';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
 export default class About extends React.Component {
@@ -23,25 +22,6 @@ export default class About extends React.Component {
               className={classes.avatar}>
             </Avatar>
           }
-          action={
-            <Container>
-              <a href={this.props.contact.github} style={{textDecoration: 'none'}} target='_new'>
-                <IconButton aria-label="github">
-                    <Icon className={ classes.actionLink + ' fab fa-github' } />
-                </IconButton>
-              </a>
-              <a href={this.props.contact.linkedin} style={{textDecoration: 'none'}} target='_new'>
-                <IconButton aria-label="linkedin">
-                  <Icon className={ classes.actionLink + ' fab fa-linkedin' } />
-                </IconButton>
-              </a>
-              <a href={`mailto:{this.props.contact.mail}`} style={{textDecoration: 'none'}} target='_new'>
-                <IconButton aria-label="settings">
-                  <Icon className={ classes.actionLink + ' far fa-envelope' } />
-                </IconButton>
-              </a>
-            </Container>
-          }
           title={this.props.about.title}
           titleTypographyProps={ { variant: 'h6' }}
           subheader={this.props.about.subtitle}
@@ -55,6 +35,19 @@ export default class About extends React.Component {
           ))
         }
         </CardContent>
+
+        <CardActions>
+          <Button
+            className={classes.actionLink}
+            onClick={() => window.open(this.props.contact.github)}>
+            Check Out My Github
+          </Button>
+          <Button
+            className={classes.actionLink}
+            onClick={() => window.open(this.props.contact.linkedin)}>
+            Endorse Me on LinkedIn
+          </Button>
+        </CardActions>
       </Card>
     );
   }

@@ -36,7 +36,7 @@ export default class App extends React.Component {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <TopNav
-              title={this.props.title}
+              contact={this.props.contact}
               switchOn={this.state.useDarkTheme}
               onSwitchToggle={() =>
                 this.setState({useDarkTheme: !this.state.useDarkTheme})
