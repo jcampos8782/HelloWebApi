@@ -61,6 +61,42 @@ export default
         ]
       }
     },
+    drawer: {
+      anchor: 'left',
+      items: [
+        {
+          title: "Main Menu",
+          items: [
+            {
+              id: 'home',
+              text: 'About Me',
+              avatar: 'https://avatars0.githubusercontent.com/u/3411401?s=400&u=bd10458dbf4bc6011a4de3a0adbb62d274a69a83&v=4',
+              type: 'route',
+              location: '/'
+            }
+          ]
+        },
+        {
+          title: 'Sample Gallery',
+          items: [
+            {
+              id: 'todo',
+              text: 'To Do List',
+              avatar: '/images/list.png',
+              type: 'route',
+              location: '/todo'
+            },
+            {
+              id: 'aws',
+              text: 'AWS Catalog',
+              avatar: 'https://d0.awsstatic.com/logos/powered-by-aws-white.png',
+              type: 'route',
+              location: '/aws'
+            }
+          ]
+        },
+      ]
+    }
   },
   modals: {
     copyright: {
@@ -134,37 +170,5 @@ export default
         },
       ]
     }
-  },
-  drawer: {
-    anchor: 'left',
-    open: false,
-    items: [
-      {
-        title: "Admin",
-        items: [
-          {
-            id: 'kibana',
-            text: 'Kibana',
-            subtext: 'Monitoring & Dashboards',
-            location: `${process.env.REACT_APP_TODO_URL}`,
-            avatar: '/images/elastic/color/logo-kibana-64-color.svg'
-          },
-          {
-            id: 'consul',
-            text: 'Consul',
-            subtext: 'Configuration management',
-            location: `${process.env.REACT_APP_TODO_URL}/ui`,
-            avatar: '/images/hashicorp/consul/Logos/SVG/Vertical Logos/Full Color/Consul_VerticalLogo_FullColor.svg',
-          },
-          {
-            id: 'rmq',
-            text: 'RabbitMQ',
-            subtext: 'Event Queue',
-            location: `${process.env.REACT_APP_TODO_URL}`,
-            avatar: '/images/rabbitmq.svg',
-          },
-        ]
-      }
-    ]
   }
 }

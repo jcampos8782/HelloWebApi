@@ -22,7 +22,7 @@ export default class App extends React.Component {
       super(props);
       this.state = {
         useDarkTheme: props.theme === 'dark',
-        drawerOpen: props.drawer.open,
+        drawerOpen: false,
         openModel: null
       }
   }
@@ -41,12 +41,17 @@ export default class App extends React.Component {
               onSwitchToggle={() =>
                 this.setState({useDarkTheme: !this.state.useDarkTheme})
               }
+              onMenuToggle={() =>
+                this.setState({drawerOpen: !this.state.drawerOpen})
+              }
             />
             <AppDrawer
-              anchor={this.props.drawer.anchor}
+              {...this.props.classes}
+              {...this.props.components.drawer}
+
               open={this.state.drawerOpen}
-              drawerItems={this.props.drawer.items}
               loginAction={() => this.setState({ openModal: 'login' })}
+              close={() => this.setState({drawerOpen: false})}
             />
 
             <Container className={classes.content}>

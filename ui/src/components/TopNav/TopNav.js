@@ -14,8 +14,8 @@ export default class TopNav extends React.Component {
     return (
       <AppBar position="fixed" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
-          <IconButton aria-label="menu" className={classes.menuBtn}>
-            <Icon className='fas fa-bars' onClick={this.props.onMenuToggle} />
+          <IconButton aria-label="menu" className={classes.menuBtn} onClick={this.props.onMenuToggle}>
+            <Icon className='fas fa-bars' />
           </IconButton>
 
           <Grid className={classes.switch} container alignItems="center" justify="flex-start" spacing={1}>

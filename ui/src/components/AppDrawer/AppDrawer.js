@@ -1,11 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import Icon from '@material-ui/core/Icon';
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItem from '@material-ui/core/ListItem';
@@ -18,42 +17,43 @@ export default class AppDrawer extends React.Component {
     const {classes} = this.props;
 
     return (
+      <div
+        role="presentation"
+        onClick={this.props.close}
+        onKeyDown={this.props.close}
+      >
       <Drawer
         anchor={this.props.anchor}
         open={this.props.open}
-        variant="persistent"
       >
-        <Container className={classes.account}>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<Icon className="far fa-user-circle fa-3x" />}
-            onClick={this.props.loginAction}
-          >
-            Login
-          </Button>
-        </Container>
         <List>
           {
-            this.props.drawerItems.map(group => (
+            this.props.items.map(group => (
               <Container key={group.title}>
                 <ListSubheader>{group.title}</ListSubheader>
                 <Divider />
                 {
                   group.items.map(item => (
+                  <Link
+                    to={item.location}
+                    key={item.id}
+                    className={classes.link}
+                    >
                     <ListItem
-                      key={item.id}
                       button={true}
-                      disabled
-                      onClick={() => window.open(item.location)}
                       >
-                      <ListItemAvatar>
-                        <Avatar src={item.avatar} alt={item.text} />
-                      </ListItemAvatar>
-                      <ListItemText>
-                        <Typography>{item.text}</Typography>
-                      </ListItemText>
+                        <ListItemAvatar>
+                          <Avatar
+                            src={item.avatar}
+                            alt={item.text}
+                            className={classes.avatar}
+                          />
+                        </ListItemAvatar>
+                        <ListItemText>
+                          <Typography>{item.text}</Typography>
+                        </ListItemText>
                     </ListItem>
+                  </Link>
                   ))
                 }
               </Container>
@@ -61,6 +61,7 @@ export default class AppDrawer extends React.Component {
           }
         </List>
       </Drawer>
+      </div>
     );
   }
 }
