@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 
-import * as Modals from '../Modals';
+import AppDrawer from '../AppDrawer';
 import BottomNav from '../BottomNav';
-import ManagementDrawer from '../ManagementDrawer';
+import * as Modals from '../Modals';
 import TopNav from '../TopNav';
 
 import Home from '../Home';
@@ -42,7 +42,7 @@ export default class App extends React.Component {
                 this.setState({useDarkTheme: !this.state.useDarkTheme})
               }
             />
-            <ManagementDrawer
+            <AppDrawer
               anchor={this.props.drawer.anchor}
               open={this.state.drawerOpen}
               drawerItems={this.props.drawer.items}

@@ -13,7 +13,7 @@ import ListItemAvatar from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
-export default class ManagementDrawer extends React.Component {
+export default class AppDrawer extends React.Component {
   render() {
     const {classes} = this.props;
 

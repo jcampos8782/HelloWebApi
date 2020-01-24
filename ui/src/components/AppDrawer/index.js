@@ -1,4 +1,4 @@
-import ManagementDrawer from './ManagementDrawer';
+import AppDrawer from './AppDrawer';
 
 import {withStyles} from '@material-ui/core/styles';
 const styles = {
@@ -16,4 +16,4 @@ const styles = {
   }
 }
 
-export default withStyles(styles)(ManagementDrawer);
+export default withStyles(styles)(AppDrawer);

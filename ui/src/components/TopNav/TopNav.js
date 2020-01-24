@@ -14,11 +14,15 @@ export default class TopNav extends React.Component {
     return (
       <AppBar position="fixed" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
+          <IconButton aria-label="menu" className={classes.menuBtn}>
+            <Icon className='fas fa-bars' onClick={this.props.onMenuToggle} />
+          </IconButton>
+
           <Grid className={classes.switch} container alignItems="center" justify="flex-start" spacing={1}>
-            <Grid item className={classes.displayItem}>
+            <Grid item>
               <Icon className="fas fa-sun" />
             </Grid>
-            <Grid item className={classes.displayItem}>
+            <Grid item>
               <Switch
                 id="theme-switch"
                 checked={this.props.switchOn}
@@ -27,29 +31,24 @@ export default class TopNav extends React.Component {
                 color="secondary"
               />
             </Grid>
-            <Grid item className={classes.displayItem}>
+            <Grid item>
               <Icon className="fas fa-moon" />
             </Grid>
           </Grid>
 
-          <Grid  container alignItems="center" justify="flex-end" spacing={2}>
-            <Grid item className={classes.displayItem}>
+          <Grid  container alignItems="center" justify="flex-end" spacing={2} >
+            <Grid item>
               <IconButton aria-label="github" onClick={() => window.open(this.props.contact.github)}>
                   <Icon className='fab fa-github'  />
               </IconButton>
-            </Grid>
-            <Grid item className={classes.displayItem} onClick={() => window.open(this.props.contact.linkedin)}>
-              <IconButton aria-label="linkedin">
+              <IconButton aria-label="linkedin" onClick={() => window.open(this.props.contact.linkedin)}>
                 <Icon className='fab fa-linkedin' />
               </IconButton>
-            </Grid>
-            <Grid item className={classes.displayItem} onClick={() => window.open(`mailto:this.props.contact.email`)}>
-              <IconButton aria-label="settings">
+              <IconButton aria-label="settings" onClick={() => window.open('mailto:'+ this.props.contact.email )}>
                 <Icon className='far fa-envelope' />
               </IconButton>
             </Grid>
           </Grid>
-
         </Toolbar>
       </AppBar>
     );

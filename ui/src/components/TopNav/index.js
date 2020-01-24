@@ -17,6 +17,11 @@ const styles = theme => ({
       marginLeft: 20
     }
   },
+  menutBtn: {
+    position: 'relative',
+    display: 'inline-block',
+    top: -2
+  },
   switch: {
     position: 'relative',
     marginLeft: 20,
