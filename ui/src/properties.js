@@ -28,23 +28,41 @@ export default
     google: 'https://lh3.googleusercontent.com/a-/AAuE7mCnJ3Z-BcKPhpfpDhFae_APhXcNZ5Fd3_QTm4M-eA=s96-cc-rg',
     linkedin: 'https://media.licdn.com/dms/image/C5603AQHCKGEgAMNVRA/profile-displayphoto-shrink_200_200/0?e=1583971200&v=beta&t=7QAydTm6EwbMY_IUTHIIqUPF1K-16JE8kTMx0mRftUY',
   },
-  modals: {
-    about: {
-      title: 'Software Solutions Architect',
-      description: [
-        `I have been writing code for over twenty years. I began by creating small websites for
-          my gaming clans as a teenager and eventually earned by Bachelor's degree in Computer Science
-          from San Jose State University, earning a Cum Laude distinction with a 3.89 GPA.`,
+  components: {
+    home: {
+      about: {
+        title: 'Jason D. Campos',
+        subtitle: 'Software Solutions Architect',
+        content: [
+          `I began writing code over 20 years ago. It all started with simple HTML web pages
+          during my teenage years, evolved into writing Flash movies in the early 2000s,
+          and eventually led me to earn a Bachelor's of Science degree in Computer Science
+          from San Jose State University. I graduated in Cum Laude with a 3.84 GPA.`,
 
-        `I have worked professionally as a full stack application developer for over ten years,
-          primarily working with healthcare software. I have experience with dozens of different
-          types of technologies from all levels of the application stack, from RDBMS to UI to
-          configuration management to deployment and containerization.`,
+          `My professional career has been spent working primarily in medical software -- specifically,
+          electronic health records (EHR). I have experience at every level of the application stack and
+          in every facet of the deployment pipeline. I can debug your SQL queries, modify your React UI,
+          and deploy your application onto a Kubernetes cluster in the cloud.`,
 
-        `Please visit my LinkedIn profile, Github page, or send me an e-mail if you would like
-          to get in contact for any reason.`,
-      ]
+          `I am always looking for new and exciting things to work on. Please contact me via LinkedIn or email
+          if you have a cool project in mind. Also, check out my GitHub projects for code samples or just to
+          see what I've been working on lately.`,
+        ]
+      },
+      amazonCertification: {
+        title: "Amazon Certified Cloud Practictioner",
+        subtitle: "81M48L42FM41Q59K",
+        media: "/images/aws-cloud-practitioner.png",
+        badgeUrl: "https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2020-01-21&ci=AWS01240931",
+        validationUrl: "https://aw.certmetrics.com/amazon/public/verification.aspx",
+        content: [
+          `I have earned my Amazon Cloud Practitioner certification and hope to complete my Amazon
+          Solutions Architect and Amazon Developer Associate certifications in 2020.`
+        ]
+      }
     },
+  },
+  modals: {
     copyright: {
       holder: 'Jason D. Campos',
     },

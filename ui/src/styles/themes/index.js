@@ -9,6 +9,9 @@ export const light = createMuiTheme({
     warning: {
       main: '#ffc107',
     },
+    action: {
+      main: '#ff7f50'
+    }
   }
 });
 
@@ -21,6 +24,9 @@ export const dark = createMuiTheme({
     },
     warning: {
       main: '#ffc107',
+    },
+    action: {
+      main: '#ff7f50'
     }
   }
 });

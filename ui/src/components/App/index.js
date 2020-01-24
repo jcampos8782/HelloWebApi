@@ -6,7 +6,9 @@ const styles = theme => ({
     // The AppBar needs to be position: fixed so offset this by the bar's height
     position: 'relative',
     display: 'inline-block',
-    top: 64
+    top: 64,
+    left: '50%',
+    transform: 'translate(-50%,0px)'
   }
 });
 

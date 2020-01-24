@@ -8,9 +8,8 @@ const styles = theme => ({
       textDecoration: 'none'
     }
   },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+  content: {
+    textAlign: 'justify'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -22,8 +21,8 @@ const styles = theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  headerActionLinks: {
-    color: '#ff7f50',
+  actionLink: {
+    color: theme.palette.action.main,
   }
 });
 

@@ -6,7 +6,8 @@ const styles = theme => ({
     display: 'inline-block',
   },
   toolbar: {
-    paddingLeft: 0
+    paddingLeft: 0,
+    minWidth: 400
   },
   container: {
     position: 'relative',
