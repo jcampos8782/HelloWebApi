@@ -17,7 +17,7 @@ const styles = theme => ({
       marginLeft: 20
     }
   },
-  menutBtn: {
+  menuBtn: {
     position: 'relative',
     display: 'inline-block',
     top: -2
