@@ -1,25 +1,24 @@
 import React from 'react';
 
-// TODO: A better way than relative path?
-import '../../styles/font-awesome/5.12.0/css/all.css';
-
-import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 import Checkbox from '@material-ui/core/Checkbox';
+import Fab from '@material-ui/core/Fab';
+import Grid from '@material-ui/core/Grid';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip';
-
-import Container from '@material-ui/core/Container'
-import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-
-import AddIcon from '@material-ui/icons/Add';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 
 export default class ToDoList extends React.Component {
   constructor(props) {
@@ -51,12 +50,37 @@ export default class ToDoList extends React.Component {
     const incomplete = this.state.items.filter(i => !i.isComplete);
 
     return (
-      <div className={classes.root}>
-          <Paper elevation={5}>
-            <Typography variant="h5" className={classes.title}>{this.props.title}</Typography>
-            <Container>
+      <Card className={classes.card} raised>
+        <CardHeader
+          avatar={
+            <Avatar
+              alt={this.props.title}
+              src={this.props.avatar}
+              aria-label={this.props.title}
+              className={classes.avatar}>
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="github" className={classes.actionLink} onClick={() => window.open(this.props.github)}>
+                <Icon className='fab fa-github'  />
+            </IconButton>
+          }
+          title={this.props.title}
+          titleTypographyProps={ { variant: 'h6' }}
+          subheader={this.props.subtitle}
+          subheaderTypographyProps={ { variant: 'overline' }}
+        />
+
+        <CardContent className={classes.content}>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="flex-start"
+          spacing={5}
+          >
+            <Grid item xs={12} className={classes.addItemContainer}>
               <TextField
-                id="time"
                 type="text"
                 placeholder={this.props.hintText}
                 className={classes.textField}
@@ -96,21 +120,33 @@ export default class ToDoList extends React.Component {
                 }}>
                 <AddIcon />
               </Fab>
-            </Container>
-            <Container>
+            </Grid>
+            <Grid item xs={6}>
               <List>
                 <ListSubheader>Incomplete</ListSubheader>
                 {
-                  incomplete.map((i) => this.renderItem(i, classes))
-                }
-                <ListSubheader>Complete</ListSubheader>
-                {
-                  complete.map((i) => this.renderItem(i, classes))
+                  incomplete.length > 0 ?
+                    incomplete.map((i) => this.renderItem(i, classes)) :
+                    <Typography variant='overline'>No Items</Typography>
                 }
               </List>
-            </Container>
-          </Paper>
-      </div>
+            </Grid>
+            <Grid item xs={6}>
+              <List>
+                <ListSubheader>Complete</ListSubheader>
+                {
+                  complete.length > 0 ?
+                    complete.map((i) => this.renderItem(i, classes)) :
+                    <Typography variant='overline'>No Items</Typography>
+                }
+              </List>
+            </Grid>
+          </Grid>
+        </CardContent>
+
+        <CardActions>
+        </CardActions>
+      </Card>
     );
   }
 

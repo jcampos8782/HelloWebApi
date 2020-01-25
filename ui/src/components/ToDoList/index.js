@@ -9,6 +9,13 @@ const styles = theme => (
       padding: 5,
       position: 'absolute',
     },
+    actionLink: {
+      color: theme.palette.action.main
+    },
+    addItemContainer: {
+      textAlign: 'center',
+      minWidth: 400
+    },
     button: {
       margin: 12,
     },
@@ -18,10 +25,6 @@ const styles = theme => (
     textField: {
       marginTop: 20,
       width: 300,
-    },
-    title: {
-      paddingLeft: 15,
-      paddingTop: 10,
     },
     trashIcon: {
       color: '#ffa000',

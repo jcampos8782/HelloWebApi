@@ -8,7 +8,8 @@ const styles = theme => ({
     display: 'inline-block',
     top: 75,
     left: '50%',
-    transform: 'translate(-50%,0px)'
+    transform: 'translate(-50%,0px)',
+    minWidth: 440
   }
 });
 

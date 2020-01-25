@@ -29,9 +29,11 @@ const apps = {
     route: routes.todo,
     avatar: '/images/list.png',
     config: {
-      heading: 'To-Do List',
+      avatar: '/images/list.png',
+      github: 'https://github.com/jcampos8782/HelloWebApi/tree/master/services/ToDoList',
+      title: 'To-Do List',
       hintText: 'Don\'t forget to...',
-      endpoint: services.todo.endpoint
+      endpoint: services.todo.endpoint,
     }
   },
   aws: {
@@ -39,6 +41,8 @@ const apps = {
     route: "/aws",
     avatar: avatars.aws,
     config: {
+      avatar: avatars.aws,
+      title: 'AWS Service Catalog',
       endpoint: services.aws.endpoint
     }
   }

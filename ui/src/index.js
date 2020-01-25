@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import App from './components/App';
 import properties from './properties';
 import './index.css';
+import './styles/font-awesome/5.12.0/css/all.min.css';
 
 ReactDOM.render(
   <Router>
