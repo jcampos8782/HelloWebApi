@@ -43,6 +43,7 @@ const apps = {
     config: {
       avatar: avatars.aws,
       title: 'AWS Service Catalog',
+      hintText: 'Search Amazon Services',
       endpoint: services.aws.endpoint
     }
   }

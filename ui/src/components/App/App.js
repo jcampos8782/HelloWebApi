@@ -7,13 +7,13 @@ import * as Modals from '../Modals';
 import TopNav from '../TopNav';
 
 import Home from '../Home';
+import AwsCatalog from '../AwsCatalog';
 import ToDoList from '../ToDoList';
 
 import { light, dark } from '../../styles/themes';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 export default class App extends React.Component {
@@ -77,7 +77,7 @@ export default class App extends React.Component {
                 </Route>
 
                 <Route path={routes.aws}>
-                  <Typography variant='h3'>Coming Soon!</Typography>
+                  <AwsCatalog {...components.aws} />
                 </Route>
               </Switch>
             </Container>

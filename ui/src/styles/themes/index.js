@@ -11,6 +11,11 @@ export const light = createMuiTheme({
     },
     action: {
       main: '#ff7f50'
+    },
+    cards: {
+      secondary: {
+        main: '#696969'
+      }
     }
   }
 });
@@ -27,6 +32,11 @@ export const dark = createMuiTheme({
     },
     action: {
       main: '#ff7f50'
+    },
+    cards: {
+      secondary: {
+        main: '#696969'
+      }
     }
   }
 });
