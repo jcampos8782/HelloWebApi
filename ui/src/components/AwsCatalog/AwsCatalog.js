@@ -20,7 +20,8 @@ export default class AwsCatalog extends React.Component {
     this.state = {
       groups: [],
       items: [],
-      selectedGroup: null
+      searchText: "",
+      selectedGroup: ""
     };
   }
 
@@ -83,7 +84,6 @@ export default class AwsCatalog extends React.Component {
           spacing={2}
           className={classes.filterContainer}
           >
-
             <Grid item xs={6} className={classes.searchTextContainer}>
               <InputLabel shrink htmlFor="search-text">
                 {this.props.hintText}
@@ -92,8 +92,27 @@ export default class AwsCatalog extends React.Component {
                 type="text"
                 placeholder="EC2, S3, RDS..."
                 className={classes.textField}
-                value={this.state.itemFormText}
-                onChange={ (e) => {}}
+                value={this.state.searchText}
+                onChange={ (e) => {
+                  this.setState({
+                    searchText: e.target.value
+                  })
+
+                  fetch(`${this.props.endpoint}/search?q=${e.target.value}`)
+                    .then(res => res.json())
+                    .then((result) => {
+                      //TODO: Move this to service
+                      console.log(`Selected group: ${this.state.selectedGroup}`);
+                      if (this.state.selectedGroup !== "") {
+                        console.log(`Filtering group...`);
+                        result = result.filter(i => i.group === this.state.selectedGroup)
+                      }
+
+                      this.setState({
+                        items: result
+                      });
+                    })
+                }}
                 id="search-text"
                 />
             </Grid>
@@ -102,16 +121,45 @@ export default class AwsCatalog extends React.Component {
                 Service Type
               </InputLabel>
               <NativeSelect
-                value={this.state.selectedGroup || 'all'}
+                value={this.state.selectedGroup}
                 onChange={(e) => {
                   this.setState({
                     selectedGroup: e.target.value
+                  });
+                  if (e.target.value === "") {
+                    fetch(`${this.props.endpoint}`)
+                      .then(res => res.json())
+                      .then((result) => {
+                        //TODO: Move this to service
+                        if (this.state.searchText !== "") {
+                          result = result.filter(i => i.name.indexOf(this.state.searchText !== -1));
+                        }
+
+                        this.setState({
+                          items: result
+                        });
+                    });
+                    return;
+                  }
+
+                  fetch(`${this.props.endpoint}/groups/${e.target.value.toLowerCase()}`)
+                    .then(res => res.json())
+                    .then((result) => {
+                      //TODO: Move this to service
+                      if (this.state.searchText !== "") {
+                        result = result.filter(i => i.name.indexOf(this.state.searchText !== -1));
+                      }
+
+                      this.setState({
+                        items: result
+                      });
                   });
                 }}
                 inputProps={{
                   name: 'group',
                     id: 'group-select',
                 }}>
+                <option value="">All</option>
                 {
                   this.state.groups.map((group,id) => (
                     <option key={id} value={group}>{group}</option>
@@ -121,7 +169,7 @@ export default class AwsCatalog extends React.Component {
             </Grid>
             <Grid item xs={6} />
           </Grid>
-          <Grid container direction="row" justify="center" alignItems="flex-start" spacing={3}>
+          <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
             {
               this.state.items.map((item,id) => (
                 <Grid key={id} item xs={4}>
