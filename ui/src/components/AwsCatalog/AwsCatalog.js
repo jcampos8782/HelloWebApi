@@ -102,9 +102,7 @@ export default class AwsCatalog extends React.Component {
                     .then(res => res.json())
                     .then((result) => {
                       //TODO: Move this to service
-                      console.log(`Selected group: ${this.state.selectedGroup}`);
                       if (this.state.selectedGroup !== "") {
-                        console.log(`Filtering group...`);
                         result = result.filter(i => i.group === this.state.selectedGroup)
                       }
 
@@ -132,7 +130,7 @@ export default class AwsCatalog extends React.Component {
                       .then((result) => {
                         //TODO: Move this to service
                         if (this.state.searchText !== "") {
-                          result = result.filter(i => i.name.indexOf(this.state.searchText !== -1));
+                          result = result.filter(i => i.name.indexOf(this.state.searchText) !== -1);
                         }
 
                         this.setState({
@@ -147,7 +145,10 @@ export default class AwsCatalog extends React.Component {
                     .then((result) => {
                       //TODO: Move this to service
                       if (this.state.searchText !== "") {
-                        result = result.filter(i => i.name.indexOf(this.state.searchText !== -1));
+                        let txt = this.state.searchText.toLowerCase();
+                        result = result.filter(i =>
+                          i.name.toLowerCase().indexOf(txt) !== -1 ||
+                          i.acronym.toLowerCase().indexOf(txt) !== -1);
                       }
 
                       this.setState({

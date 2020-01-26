@@ -48,7 +48,7 @@ public class AwsServiceCatalogSearchServiceImpl implements AwsServiceCatalogSear
 	@Override
 	public Collection<AwsServiceCatalogItem> findCatalogItems(String searchText) {
 		return repository.find(i -> 
-			i.getName().contains(searchText) ||
-			i.getDescription().contains(searchText));
+			i.getName().toLowerCase().contains(searchText.toLowerCase()) ||
+			i.getAcronym().toLowerCase().contains(searchText.toLowerCase()));
 	}
 }
