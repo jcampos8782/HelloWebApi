@@ -14,7 +14,7 @@ import io.jsoncmpos.svc.aws.services.AwsServiceCatalogSearchService;
 import io.jsoncmpos.svc.aws.services.AwsServiceCatalogService;
 
 @RestController
-@RequestMapping(path = "/api/services")
+@RequestMapping(path = "/api/aws/services")
 public class AwsServiceCatalogController {
 	
 	private AwsServiceCatalogService catalogSvc;
@@ -29,6 +29,11 @@ public class AwsServiceCatalogController {
 	@GetMapping
 	public Collection<AwsServiceCatalogItem> getCatalogItems() {
 		return catalogSvc.getAll(); 
+	}
+	
+	@GetMapping("/groups")
+	public Collection<String> getGroups() {
+		return catalogSvc.getGroups();
 	}
 	
 	@GetMapping("/groups/{groupName}")

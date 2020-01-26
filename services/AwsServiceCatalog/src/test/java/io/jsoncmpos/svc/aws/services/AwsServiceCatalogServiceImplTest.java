@@ -31,7 +31,7 @@ public class AwsServiceCatalogServiceImplTest {
 	@Test 
 	public void testGetAllLoadsAllItemsFromRepository() {
 		service.getAll();
-		verify(repository, times(1)).all();
+		verify(repository, times(1)).allItems();
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class AwsServiceCatalogServiceImplTest {
 			items.add(item);
 		}
 		
-		when(repository.all()).thenReturn(items);
+		when(repository.allItems()).thenReturn(items);
 		
 		// Sort the array and then map the results to just their names and 
 		// assert that the arrays are equal

@@ -58,8 +58,13 @@ public class AwsServiceCatalogRepositoryCsv implements AwsServiceCatalogReposito
 	}
 	
 	@Override
-	public Collection<AwsServiceCatalogItem> all() {
+	public Collection<AwsServiceCatalogItem> allItems() {
 		return catalogItems.stream().collect(Collectors.toCollection(ArrayList::new));
+	}
+	
+	@Override
+	public Collection<String> allGroups() {
+		return catalogItems.parallelStream().map(i -> i.getGroup()).sorted().distinct().collect(Collectors.toCollection(ArrayList::new));
 	}
 	
 	@Override

@@ -15,6 +15,8 @@ public interface AwsServiceCatalogRepository {
 	public AwsServiceCatalogItem update(AwsServiceCatalogItem item);
 	public boolean delete(AwsServiceCatalogItem item);
 	
-	public Collection<AwsServiceCatalogItem> all();
+	public Collection<AwsServiceCatalogItem> allItems();
+	public Collection<String> allGroups();
+	
 	public Collection<AwsServiceCatalogItem> find(Predicate<AwsServiceCatalogItem> predicate);
 }

@@ -22,8 +22,13 @@ public class AwsServiceCatalogServiceImpl implements AwsServiceCatalogService {
 	
 	@Override
 	public Collection<AwsServiceCatalogItem> getAll() {
-		return repository.all().stream()
+		return repository.allItems().stream()
 				.sorted((a,b) -> a.getName().compareTo(b.getName()))
 				.collect(Collectors.toCollection(ArrayList::new));
+	}
+	
+	@Override 
+	public Collection<String> getGroups() {
+		return repository.allGroups();
 	}
 }
