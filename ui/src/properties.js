@@ -42,6 +42,7 @@ const apps = {
     avatar: avatars.aws,
     config: {
       avatar: avatars.aws,
+      github: 'https://github.com/jcampos8782/HelloWebApi/tree/master/services/AwsServiceCatalog',
       title: 'AWS Service Catalog',
       hintText: 'Search Amazon Services',
       endpoint: services.aws.endpoint
