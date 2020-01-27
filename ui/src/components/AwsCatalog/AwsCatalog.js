@@ -130,7 +130,10 @@ export default class AwsCatalog extends React.Component {
                       .then((result) => {
                         //TODO: Move this to service
                         if (this.state.searchText !== "") {
-                          result = result.filter(i => i.name.indexOf(this.state.searchText) !== -1);
+                          let txt = this.state.searchText.toLowerCase();
+                          result = result.filter(i =>
+                            i.name.toLowerCase().indexOf(txt) !== -1 ||
+                            i.acronym.toLowerCase().indexOf(txt) !== -1);
                         }
 
                         this.setState({
