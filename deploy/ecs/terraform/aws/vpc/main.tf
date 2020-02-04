@@ -76,12 +76,6 @@ resource "aws_eip" "ng01_eip" {
   tags = var.tags
 }
 
-
-resource "aws_eip" "ng02_eip" {
-  vpc  = true
-  tags = var.tags
-}
-
 resource "aws_nat_gateway" "nat_gateway_01" {
   allocation_id = aws_eip.ng01_eip.id
   subnet_id     = aws_subnet.subnet_pub01.id
@@ -89,17 +83,6 @@ resource "aws_nat_gateway" "nat_gateway_01" {
 
   depends_on = [
     aws_eip.ng01_eip,
-    aws_internet_gateway.inet_gateway
-  ]
-}
-
-resource "aws_nat_gateway" "nat_gateway_02" {
-  allocation_id = aws_eip.ng02_eip.id
-  subnet_id     = aws_subnet.subnet_pub02.id
-  tags          = var.tags
-
-  depends_on = [
-    aws_eip.ng02_eip,
     aws_internet_gateway.inet_gateway
   ]
 }
@@ -114,24 +97,9 @@ resource "aws_route_table" "rt_pvt01" {
   }
 }
 
-resource "aws_route_table" "rt_pvt02" {
-  vpc_id = aws_vpc.main.id
-  tags   = var.tags
-
-  route {
-    cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat_gateway_02.id
-  }
-}
-
-resource "aws_route_table_association" "rta_subnet_pvt01" {
-  subnet_id      = aws_subnet.subnet_pvt01.id
-  route_table_id = aws_route_table.rt_pvt01.id
-}
-
 resource "aws_route_table_association" "rta_subnet_pvt02" {
   subnet_id      = aws_subnet.subnet_pvt02.id
-  route_table_id = aws_route_table.rt_pvt02.id
+  route_table_id = aws_route_table.rt_pvt01.id
 }
 
 // Security groups
