@@ -3,7 +3,6 @@
 
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
-  instance_tenancy     = "default"
   tags                 = var.tags
   enable_dns_support   = true
   enable_dns_hostnames = true
@@ -95,6 +94,11 @@ resource "aws_route_table" "rt_pvt01" {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.nat_gateway_01.id
   }
+}
+
+resource "aws_route_table_association" "rta_subnet_pvt01" {
+  subnet_id      = aws_subnet.subnet_pvt01.id
+  route_table_id = aws_route_table.rt_pvt01.id
 }
 
 resource "aws_route_table_association" "rta_subnet_pvt02" {
