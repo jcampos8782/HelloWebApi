@@ -1,0 +1,51 @@
+output vpc_id {
+  value = aws_vpc.main.id
+}
+
+output "vpc_arn" {
+  value = aws_vpc.main.arn
+}
+
+output "subnet_pub01_arn" {
+  value = aws_subnet.subnet_pub01.arn
+}
+
+output "subnet_pub02_arn" {
+  value = aws_subnet.subnet_pub02.arn
+}
+
+output "subnet_pvt01_arn" {
+  value = aws_subnet.subnet_pvt01.arn
+}
+
+output "subnet_pvt02_arn" {
+  value = aws_subnet.subnet_pvt02.arn
+}
+
+output "subnet_pub01_id" {
+  value = aws_subnet.subnet_pub01.id
+}
+
+output "subnet_pub02_id" {
+  value = aws_subnet.subnet_pub02.id
+}
+
+output "subnet_pvt01_id" {
+  value = aws_subnet.subnet_pvt01.id
+}
+
+output "subnet_pvt02_id" {
+  value = aws_subnet.subnet_pvt02.id
+}
+
+output "sg_allow_http_id" {
+  value = aws_security_group.allow_http.id
+}
+
+output "sg_allow_mysql_id" {
+  value = aws_security_group.allow_mysql.id
+}
+
+output "sg_allow_consul_id" {
+  value = aws_security_group.allow_consul.id
+}

@@ -1,0 +1,18 @@
+[
+  {
+     "essential": true,
+     "image": "752478895906.dkr.ecr.us-west-2.amazonaws.com/jsoncampos/mysql",
+     "name": "mysql",
+     "portMappings": [
+        {
+           "containerPort": 3306,
+           "hostPort": 3306,
+           "protocol": "tcp"
+        }
+     ],
+     "environment": [
+       { "name": "MYSQL_ROOT_PASSWORD", "value": "password" },
+       { "name": "MYSQL_DATABASE", "value": "hello_web_api" }
+     ]
+  }
+]

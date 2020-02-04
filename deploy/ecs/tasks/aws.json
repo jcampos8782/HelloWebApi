@@ -1,0 +1,13 @@
+[
+  {
+     "essential": true,
+     "image": "752478895906.dkr.ecr.us-west-2.amazonaws.com/jsoncampos/aws",
+     "name": "aws",
+     "portMappings": [
+        {
+           "containerPort": 8080,
+           "protocol": "tcp"
+        }
+     ]
+  }
+]

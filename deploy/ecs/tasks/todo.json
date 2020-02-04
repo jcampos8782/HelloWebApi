@@ -1,0 +1,17 @@
+[
+  {
+     "essential": true,
+     "image": "752478895906.dkr.ecr.us-west-2.amazonaws.com/jsoncampos/todo",
+     "name": "todo",
+     "portMappings": [
+        {
+           "containerPort": 80,
+           "protocol": "tcp"
+        }
+     ],
+     "environment": [
+       { "name": "CONSUL_HOST", "value": "http://consul.svc.jsoncampos.local:8500" },
+       { "name": "CONSUL_KEY", "value": "hello-web-api/production" }
+     ]
+  }
+]
