@@ -10,13 +10,9 @@ This is a sample full stack application utilizing technologies such as .NET Core
 ## Components
 All required and optional components are included with this project.
 
-Terraform Cloud Support:
- * AWS
- * GCP (Coming next!)
-
-Runtime Platforms:
-* Docker (development)
-* Kubernetes ("production")
+Terraform Support:
+ * AWS EKS
+ * AWS ECS
 
 Primary Components:
 * React/Material-UI UI
@@ -98,4 +94,4 @@ OR create it from the RabbitMQ admin UI http://localhost:15672
 Note the quotes... this is *not* a production application!
 
 #### AWS
-For deployment onto the AWS Cloud, see the [deploy/k8s](./deploy/k8s) and [deploy/terraform](./deploy/terraform/aws) pages.
+For deployment onto the AWS Cloud, see the [deploy/eks](./deploy/eks) and [deploy/ecs(./deploy/ecs) pages.
