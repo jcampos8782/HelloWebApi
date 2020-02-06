@@ -23,8 +23,7 @@ resource "aws_lb_listener" "http_listener" {
 
   depends_on = [
     aws_lb.main,
-    aws_alb_target_group.ui,
-    aws_alb_target_group.aws
+    aws_alb_target_group.ui
   ]
 }
 
