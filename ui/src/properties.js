@@ -13,6 +13,7 @@ const contacts = {
   email: 'jcampos8782@gmail.com',
   linkedin: 'http://linkedin.com/in/json-campos',
   github: 'http://github.com/jcampos8782',
+  blog: 'http://blog.jsoncampos.com'
 };
 
 const avatars = {

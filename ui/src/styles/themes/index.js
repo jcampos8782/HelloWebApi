@@ -14,7 +14,7 @@ export const light = createMuiTheme({
     },
     cards: {
       secondary: {
-        main: '#696969'
+        main: '#efefef'
       }
     }
   }

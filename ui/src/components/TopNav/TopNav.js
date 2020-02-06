@@ -38,6 +38,9 @@ export default class TopNav extends React.Component {
 
           <Grid  container alignItems="center" justify="flex-end" spacing={2} >
             <Grid item>
+              <IconButton aria-label="blog" onClick={() => window.open(this.props.contact.blog)}>
+                  <Icon className='fas fa-blog'  />
+              </IconButton>
               <IconButton aria-label="github" onClick={() => window.open(this.props.contact.github)}>
                   <Icon className='fab fa-github'  />
               </IconButton>
