@@ -94,4 +94,4 @@ OR create it from the RabbitMQ admin UI http://localhost:15672
 Note the quotes... this is *not* a production application!
 
 #### AWS
-For deployment onto the AWS Cloud, see the [deploy/eks](./deploy/eks) and [deploy/ecs(./deploy/ecs) pages.
+For deployment onto the AWS Cloud, see the [deploy/eks](./deploy/eks) and [deploy/ecs](./deploy/ecs) pages.
