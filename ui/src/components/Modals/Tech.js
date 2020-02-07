@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent:'center',
     top: '50%',
     margin: 'auto',
-    width: 600,
+    maxWidth: 600,
     height: 'fit-content',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',

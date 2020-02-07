@@ -97,11 +97,6 @@ export default class App extends React.Component {
               onClose={() => this.setState({openModal: null})}
             />
 
-            <Modals.Login {...components.modals.login}
-              open={this.state.openModal === 'login'}
-              onClose={() => this.setState({openModal: null})}
-            />
-
             <Modals.Copyright {...components.modals.copyright}
               open={this.state.openModal === 'copyright'}
               onClose={() => this.setState({openModal: null})}
