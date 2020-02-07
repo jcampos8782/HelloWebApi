@@ -24,7 +24,7 @@ const styles = theme => ({
   },
   switch: {
     position: 'relative',
-    marginLeft: 20,
+    marginRight: -20,
   },
   switchItem: {
     display: 'inline-block'

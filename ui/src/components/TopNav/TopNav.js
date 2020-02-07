@@ -36,7 +36,7 @@ export default class TopNav extends React.Component {
             </Grid>
           </Grid>
 
-          <Grid  container alignItems="center" justify="flex-end" spacing={2} >
+          <Grid container alignItems="center" justify="flex-end" spacing={1} >
             <Grid item>
               <IconButton aria-label="blog" onClick={() => window.open(this.props.contact.blog)}>
                   <Icon className='fas fa-blog'  />

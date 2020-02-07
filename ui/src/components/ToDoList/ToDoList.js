@@ -121,7 +121,7 @@ export default class ToDoList extends React.Component {
                 <AddIcon />
               </Fab>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <List>
                 <ListSubheader>Incomplete</ListSubheader>
                 {
@@ -131,7 +131,7 @@ export default class ToDoList extends React.Component {
                 }
               </List>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <List>
                 <ListSubheader>Complete</ListSubheader>
                 {

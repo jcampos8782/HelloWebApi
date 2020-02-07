@@ -176,7 +176,7 @@ export default class AwsCatalog extends React.Component {
           <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3}>
             {
               this.state.items.map((item,id) => (
-                <Grid key={id} item xs={4}>
+                <Grid key={id} item xs={12} sm={6} md={4}>
                   <Card className={classes.itemCard}>
                     <CardContent>
                       <Typography gutterBottom variant="h6">
