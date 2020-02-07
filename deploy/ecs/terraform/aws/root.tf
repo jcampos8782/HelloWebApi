@@ -40,7 +40,6 @@ module "ecs" {
   source                  = "./ecs"
   name                    = var.name
   service_discovery_ns_id = module.discovery.service_discovery_ns_id
-  target_group_ui_arn     = module.alb.target_group_ui_arn
   target_group_aws_arn    = module.alb.target_group_aws_arn
   target_group_todo_arn   = module.alb.target_group_todo_arn
   subnet_pub01_id         = module.vpc.subnet_pub01_id
@@ -49,7 +48,6 @@ module "ecs" {
   subnet_pvt02_id         = module.vpc.subnet_pvt02_id
   sg_allow_http_id        = module.vpc.sg_allow_http_id
   sg_allow_mysql_id       = module.vpc.sg_allow_mysql_id
-  sg_allow_consul_id      = module.vpc.sg_allow_consul_id
 
   tags = {
     domain = var.name

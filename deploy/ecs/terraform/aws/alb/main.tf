@@ -17,25 +17,13 @@ resource "aws_lb_listener" "http_listener" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "forward"
-    target_group_arn = aws_alb_target_group.ui.arn
-  }
+    type = "fixed-response"
 
-  depends_on = [
-    aws_lb.main,
-    aws_alb_target_group.ui
-  ]
-}
-
-resource "aws_alb_target_group" "ui" {
-  name_prefix = "ui"
-  port        = 80
-  protocol    = "HTTP"
-  target_type = "ip"
-  vpc_id      = var.vpc_id
-
-  health_check {
-    path = ""
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Not Found"
+      status_code  = "404"
+    }
   }
 
   depends_on = [aws_lb.main]

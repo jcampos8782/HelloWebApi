@@ -166,30 +166,3 @@ resource "aws_security_group" "allow_mysql" {
     aws_subnet.subnet_pub02
   ]
 }
-
-// Allows connections to port 3306 from resources in the public subnet
-resource "aws_security_group" "allow_consul" {
-  name        = "allow_consul"
-  description = "Allow incoming connections on port 8500"
-  vpc_id      = aws_vpc.main.id
-  tags        = var.tags
-
-  ingress {
-    from_port   = 8500
-    to_port     = 8500
-    protocol    = "tcp"
-    cidr_blocks = [var.vpc_subnet_pub01_cidr, var.vpc_subnet_pub02_cidr]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  depends_on = [
-    aws_subnet.subnet_pub01,
-    aws_subnet.subnet_pub02
-  ]
-}

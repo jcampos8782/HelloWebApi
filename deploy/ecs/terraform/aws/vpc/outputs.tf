@@ -45,7 +45,3 @@ output "sg_allow_http_id" {
 output "sg_allow_mysql_id" {
   value = aws_security_group.allow_mysql.id
 }
-
-output "sg_allow_consul_id" {
-  value = aws_security_group.allow_consul.id
-}
