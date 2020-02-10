@@ -1,3 +1,3 @@
 source 'https://api.berkshelf.com'
 
-cookbook 'webserver', path: 'cookbooks/webserver'
+cookbook 'servers', path: 'cookbooks/servers'
