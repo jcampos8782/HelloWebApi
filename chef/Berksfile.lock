@@ -1,0 +1,6 @@
+DEPENDENCIES
+  webserver
+    path: cookbooks/webserver
+
+GRAPH
+  webserver (0.1.0)

@@ -1,6 +1,7 @@
 # HelloWebApi
 
-This is a sample full stack application utilizing technologies such as .NET Core, ReactJS, Material-UI, Docker, Kubernetes, and Terraform. You can have this application running on the AWS Cloud on EKS with minimal setup -- all steps are documented and the Terraform resources are all included.
+This is an example full stack application utilizing technologies such as .NET Core,
+ReactJS, Material-UI, Docker, Kubernetes, Chef, Vagrant, and Terraform. 
 
 ## Screenshots
 <img src='https://raw.githubusercontent.com/jcampos8782/HelloWebApi/master/img/light.png' width=250 />
@@ -20,8 +21,6 @@ Primary Components:
 * Spring Boot AWS Service Catalog
 
 Required Infrastructure Components:
-* Consul
-  * Provides configuration to the To-Do List service
 * MySQL
   * RDBMS for To-Do List service
 
@@ -47,51 +46,36 @@ Optional Infrastructure Components:
 ## Getting Started
 
 ### Development
+I have provided a `Vagrantfile` which will provision a Vagrant box which has the environment
+set up to execute this application as if it were deployed into the cloud.
+
 The provided `docker-compose.yml` configures custom images that will bootstrap all primary components of the application and
 spin up the optional components.
 
 #### Prerequisites
 
-* `docker`
-* `docker-compose`
+* `vagrant`
+* VirtualBox
 
 #### Building
 
-This entire project can be built and started with docker-compose:
+To build and run all components of the application, start your Vagrant box and then
+ssh into the running machine.
 
 ```
-# Clone this repository
-git clone git@github.com:jcampos8782/HelloWebApi.git
+vagrant up
+vagrant ssh
+```
 
-# Use docker-compose to build
-docker-compose build
+Once inside the machine,
 
-# Spin up the docker containers
+```
+cd /vagrant
 docker-compose up -d
 ```
 
-Verify that the application is running by navigating to http://localhost:8080
-
-The following is a list of all exposed services:
-* To-Do Service - http://localhost:3000
-* Consul - http://localhost:8500/ui
-* RabbitMQ - http://localhost:15672
-* Kibana - http://localhost:5671
-* Elasticsearch - http://localhost:9200
-
-#### Troubleshooting
-Occasionally the consul configuration store will take longer to create than the
-To-Do service and the service fails to start. If
-
-#### Configuring Logs
-The exchange for logs can only be set up once RMQ is up and running. To do so, run
-```
-docker ps | grep rabbitmq | awk {'print $1'} | xargs -I '{}' docker exec '{}' init-exchange.sh
-```
-OR create it from the RabbitMQ admin UI http://localhost:15672
-
-### "Production"
-Note the quotes... this is *not* a production application!
+Once running, you should be able to browse to http://localhost:8000 in your browser
+to see the application running.  
 
 #### AWS
-For deployment onto the AWS Cloud, see the [deploy/eks](./deploy/eks) and [deploy/ecs](./deploy/ecs) pages.
+For deployment onto the AWS Cloud, see the [terraform/eks](./terraform/eks) and [terraform/ecs](./terraform/ecs) pages.
