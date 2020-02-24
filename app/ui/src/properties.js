@@ -116,6 +116,24 @@ export default
               location: 'https://aw.certmetrics.com/amazon/public/verification.aspx'
             }
           ]
+        },
+        {
+          title: "Blog Launch",
+          avatar: avatars.main,
+          content: [
+            `I've decided to launch a blog which will chronicle my oh so adventurous life as a Silicon Valley
+            Software Engineer. The blog will contain technical articles related to subjects I am studying such
+            as well as some stories from the trenches.`,
+            `I am currently studying for my AWS Solutions Architect, learning Python, and fiddling with Arduino.
+            You can expect some posts on all of those subjects soon.`
+          ],
+          actions: [
+            {
+              text: 'Visit my Blog',
+              type: 'link',
+              location: 'http://blog.jsoncampos.com',
+            }
+          ]
         }
       ]
     },
